@@ -1,0 +1,2174 @@
+{
+	"orderInfo": [
+		{
+			"index": 5,
+			"asc": true,
+			"field": "gampong.gampong"
+		}
+	],
+	"sql": "SELECT\nupload_pasien.id_gampong,\n(upload_pasien.id_gampong) as id,\nupload_pasien.file_excel,\nupload_pasien.status,\ngampong.gampong,\nupload_pasien.nomor_hp\nFROM upload_pasien\nRIGHT OUTER JOIN gampong ON gampong.id = upload_pasien.id_gampong\nORDER BY gampong.gampong",
+	"connId": "penmadpiprolanisatpenmadpidiec",
+	"originalTable": "upload_pasien",
+	"name": "upload_pasien",
+	"shortTableName": "upload_pasien",
+	"caseSensitiveSearch": "",
+	"pageSizeRecords": 70,
+	"pageSizeSelectorRecords": [
+		"10",
+		"20",
+		"30",
+		"50",
+		"100",
+		"500",
+		"-1"
+	],
+	"pageSizeSelectorGroups": [
+		"1",
+		"3",
+		"5",
+		"10",
+		"50",
+		"100",
+		"-1"
+	],
+	"keyFields": [
+		"id_gampong"
+	],
+	"detailsBadgeColor": "CFAE83",
+	"fields": [
+		{
+			"name": "id_gampong",
+			"sqlExpression": "upload_pasien.id_gampong",
+			"strField": "id_gampong",
+			"type": 200,
+			"viewFormats": [
+				{
+					"numberFractionalDigits": 0
+				}
+			],
+			"editFormats": [
+				{
+					"format": "Lookup wizard",
+					"required": true,
+					"textboxMaxLenth": 50,
+					"textHTML5Input": "0",
+					"lookupType": 2,
+					"lookupTable": "gampong",
+					"lookupTableConnection": "penmadpiprolanisatpenmadpidiec",
+					"lookupLinkField": "id",
+					"lookupDisplayField": "gampong",
+					"lookupListPage": "list",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"sourceSingle": "id_gampong",
+			"label": {
+				"Indonesian": "Id Gampong"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": "upload_pasien"
+		},
+		{
+			"name": "id",
+			"sqlExpression": "(upload_pasien.id_gampong)",
+			"strField": "id",
+			"type": 200,
+			"viewFormats": [
+				{
+					"numberFractionalDigits": 0
+				}
+			],
+			"editFormats": [
+				{
+					"validateRegexMessage": {
+						"text": "",
+						"type": 0
+					},
+					"denyDuplicateMessage": {
+						"text": "",
+						"type": 0
+					},
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"defaultSearchOption": "Contains",
+			"label": {
+				"Indonesian": "Id"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": ""
+		},
+		{
+			"name": "file_excel",
+			"sqlExpression": "upload_pasien.file_excel",
+			"strField": "file_excel",
+			"type": 200,
+			"viewFormats": [
+				{
+					"format": "Document Download",
+					"numberFractionalDigits": 0
+				}
+			],
+			"editFormats": [
+				{
+					"format": "Document upload",
+					"required": true,
+					"textboxMaxLenth": 1000,
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileTypes": [
+						"xlsx"
+					],
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"sourceSingle": "file_excel",
+			"deleteFile": true,
+			"defaultSearchOption": "Contains",
+			"label": {
+				"Indonesian": "File Excel"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": "upload_pasien"
+		},
+		{
+			"name": "status",
+			"sqlExpression": "upload_pasien.status",
+			"strField": "status",
+			"type": 200,
+			"viewFormats": [
+				{
+					"numberFractionalDigits": 0
+				}
+			],
+			"editFormats": [
+				{
+					"format": "Readonly",
+					"required": true,
+					"defaultValue": "\"sudah berhasil upload\"",
+					"textboxMaxLenth": 50,
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"sourceSingle": "status",
+			"defaultSearchOption": "Contains",
+			"label": {
+				"Indonesian": "Status"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": "upload_pasien"
+		},
+		{
+			"name": "gampong",
+			"sqlExpression": "gampong.gampong",
+			"strField": "gampong",
+			"type": 200,
+			"viewFormats": [
+				{
+					"numberFractionalDigits": 0
+				}
+			],
+			"editFormats": [
+				{
+					"validateRegexMessage": {
+						"text": "",
+						"type": 0
+					},
+					"denyDuplicateMessage": {
+						"text": "",
+						"type": 0
+					},
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"defaultSearchOption": "Contains",
+			"label": {
+				"Indonesian": "Gampong"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": "gampong"
+		},
+		{
+			"name": "nomor_hp",
+			"sqlExpression": "upload_pasien.nomor_hp",
+			"strField": "nomor_hp",
+			"type": 200,
+			"viewFormats": [
+				{
+					"numberFractionalDigits": 0
+				}
+			],
+			"editFormats": [
+				{
+					"required": true,
+					"textboxMaxLenth": 50,
+					"textHTML5Input": "1",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"sourceSingle": "nomor_hp",
+			"defaultSearchOption": "Contains",
+			"label": {
+				"Indonesian": "Nomor Hp"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": "upload_pasien"
+		}
+	],
+	"warnLeavingEdit": true,
+	"afterEditDetails": 5,
+	"afterAddAction": 2,
+	"afterAddDetail": 10,
+	"eventHandlers": [
+		{
+			"eventId": "EVENT_BEFOREADD",
+			"pageType": "add",
+			"code": "// Ambil nama gampong dari tabel gampong\n$rs = DB::Query(\"\n    SELECT gampong \n    FROM gampong \n    WHERE id = \".$values[\"id_gampong\"]\n);\n$data = $rs->fetchAssoc();\n\n$nama_gampong = \"\";\nif ($data) {\n    $nama_gampong = preg_replace('/[^a-zA-Z0-9_]/', '_', strtolower($data[\"gampong\"]));\n}\n\n// Decode file json\n$fileArray = my_json_decode($values[\"file_excel\"]);\n\nfor ($i = 0; $i < count($fileArray); $i++) {\n\n    $fileName = $fileArray[$i][\"name\"];\n\n    $newFileName = \"files/data_\"\n        .$nama_gampong\n        .\"_kode_id_\"\n        .$values[\"id_gampong\"]\n        .\".xlsx\";\n\n    rename($fileName, getabspath($newFileName));\n\n    $fileArray[$i][\"name\"] = $newFileName;\n}\n\n// Encode ulang ke json\n$values[\"file_excel\"] = my_json_encode($fileArray);\n\nreturn true;"
+		},
+		{
+			"eventId": "EVENT_BEFOREMOVENEXT_LIST",
+			"pageType": "list",
+			"code": "// cek user login\n   if (Security::isGuest()){\n        \n        // kosongkan nilai kolom\n        $pageObject->hideField(\"file_excel\"); \n         $pageObject->hideField(\"nomor_hp\");\n    }\n\n\n// Place event code here.\n// Use \"Add Action\" button to add code snippets."
+		},
+		{
+			"eventId": "EVENT_BEFORESHOW_LIST",
+			"pageType": "list",
+			"code": "if (Security::isGuest()){\n\n$pageObject->hideItem(\"status\");\n\n\n}\n// Place event code here.\n// Use \"Add Action\" button to add code snippets."
+		}
+	],
+	"sortByFields": {
+		"sortOrder": []
+	},
+	"pages": [
+		{
+			"id": "add",
+			"type": "add",
+			"layoutId": "leftbar",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "add-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"add_message"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "add-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"add_save",
+								"add_reset",
+								"add_back_list",
+								"add_cancel"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"supertop": {
+					"modelId": "leftbar-top-edit",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"expand_menu_button",
+								"collapse_button"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"loginform_login",
+								"username_button"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"left": {
+					"modelId": "leftbar-menu",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c0"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c0": {
+							"model": "c0",
+							"items": [
+								"logo"
+							]
+						},
+						"c1": {
+							"model": "c1",
+							"items": [
+								"menu"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "add-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"add_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "simple-edit",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c3"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c3": {
+							"model": "c3",
+							"items": [
+								"integrated_edit_field",
+								"integrated_edit_field1",
+								"integrated_edit_field2",
+								"integrated_edit_field3",
+								"text"
+							]
+						}
+					},
+					"deferredItems": [],
+					"columnCount": 1,
+					"inlineLabels": false,
+					"separateLabels": false
+				}
+			},
+			"items": {
+				"add_header": {
+					"type": "add_header"
+				},
+				"add_back_list": {
+					"type": "add_back_list"
+				},
+				"add_cancel": {
+					"type": "add_cancel"
+				},
+				"add_message": {
+					"type": "add_message"
+				},
+				"add_save": {
+					"type": "add_save"
+				},
+				"add_reset": {
+					"type": "add_reset"
+				},
+				"logo": {
+					"type": "logo"
+				},
+				"menu": {
+					"type": "menu"
+				},
+				"username_button": {
+					"type": "username_button",
+					"items": [
+						"userinfo_link",
+						"logout_link",
+						"adminarea_link",
+						"changepassword_link"
+					]
+				},
+				"loginform_login": {
+					"type": "loginform_login",
+					"popup": false
+				},
+				"userinfo_link": {
+					"type": "userinfo_link"
+				},
+				"logout_link": {
+					"type": "logout_link"
+				},
+				"adminarea_link": {
+					"type": "adminarea_link"
+				},
+				"expand_menu_button": {
+					"type": "expand_menu_button"
+				},
+				"collapse_button": {
+					"type": "collapse_button"
+				},
+				"integrated_edit_field": {
+					"field": "id_gampong",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field1": {
+					"field": "file_excel",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field2": {
+					"field": "status",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"font-size": "1px",
+					"customCSS": "/* Put  your custom CSS code here */\n\n:host {\n  color: white;\n}\n"
+				},
+				"integrated_edit_field3": {
+					"field": "nomor_hp",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"text": {
+					"type": "text",
+					"label": {
+						"text": "<p><img src=\"data:image/png;base64,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\"></p>",
+						"type": 0
+					},
+					"editedByRte": true
+				},
+				"changepassword_link": {
+					"type": "changepassword_link"
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "edit",
+			"type": "edit",
+			"layoutId": "nomenu",
+			"disabled": 1,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "edit-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"edit_message"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "edit-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"edit_save",
+								"edit_back_list",
+								"edit_close"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"hamburger"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "edit-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"edit_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "simple-edit",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c3"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c3": {
+							"model": "c3",
+							"items": [
+								"integrated_edit_field",
+								"integrated_edit_field1",
+								"integrated_edit_field2"
+							]
+						}
+					},
+					"deferredItems": [],
+					"columnCount": 1,
+					"inlineLabels": false,
+					"separateLabels": false
+				}
+			},
+			"items": {
+				"edit_header": {
+					"type": "edit_header"
+				},
+				"hamburger": {
+					"type": "hamburger",
+					"items": [
+						"edit_reset",
+						"edit_view"
+					]
+				},
+				"edit_reset": {
+					"type": "edit_reset"
+				},
+				"edit_message": {
+					"type": "edit_message"
+				},
+				"edit_save": {
+					"type": "edit_save"
+				},
+				"edit_back_list": {
+					"type": "edit_back_list"
+				},
+				"edit_close": {
+					"type": "edit_close"
+				},
+				"edit_view": {
+					"type": "edit_view"
+				},
+				"integrated_edit_field": {
+					"field": "id_gampong",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field1": {
+					"field": "file_excel",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field2": {
+					"field": "status",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "export",
+			"type": "export",
+			"layoutId": "first",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"supertop": {
+					"modelId": "panel-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "export-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"export_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "export-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"export_field",
+								"export_field1",
+								"export_field2",
+								"export_field3",
+								"export_field4",
+								"export_field5"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"footer": {
+					"modelId": "export-footer",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"export_export",
+								"export_cancel"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"export_header": {
+					"type": "export_header"
+				},
+				"export_export": {
+					"type": "export_export"
+				},
+				"export_cancel": {
+					"type": "export_cancel"
+				},
+				"export_field": {
+					"field": "id_gampong",
+					"type": "export_field"
+				},
+				"export_field1": {
+					"field": "file_excel",
+					"type": "export_field"
+				},
+				"export_field2": {
+					"field": "status",
+					"type": "export_field"
+				},
+				"export_field3": {
+					"field": "gampong",
+					"type": "export_field"
+				},
+				"export_field4": {
+					"field": "nomor_hp",
+					"type": "export_field"
+				},
+				"export_field5": {
+					"field": "id",
+					"type": "export_field"
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {},
+			"exportFormat": 2,
+			"exportDelimiter": ",",
+			"exportSelectDelimiter": false,
+			"exportSelectFields": false
+		},
+		{
+			"id": "import",
+			"type": "import",
+			"layoutId": "first",
+			"disabled": 1,
+			"default": 0,
+			"forms": {
+				"supertop": {
+					"modelId": "panel-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "import-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"import_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "import-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"import_field",
+								"import_field1",
+								"import_field2"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"import_header": {
+					"type": "import_header"
+				},
+				"import_field": {
+					"field": "id_gampong",
+					"type": "import_field"
+				},
+				"import_field1": {
+					"field": "file_excel",
+					"type": "import_field"
+				},
+				"import_field2": {
+					"field": "status",
+					"type": "import_field"
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "list",
+			"type": "list",
+			"layoutId": "leftbar",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "list-above-grid",
+					"grid": [
+						{
+							"section": "",
+							"cells": [
+								{
+									"cell": "c"
+								},
+								{
+									"cell": "c3"
+								}
+							]
+						},
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"add",
+								"delete",
+								"status"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"details_found",
+								"page_size"
+							]
+						},
+						"c": {
+							"model": "c1",
+							"items": [
+								"text"
+							]
+						},
+						"c3": {
+							"model": "c2",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "list-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"pagination"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"left": {
+					"modelId": "leftbar-menu",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c0"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c0": {
+							"model": "c0",
+							"items": [
+								"logo"
+							]
+						},
+						"c1": {
+							"model": "c1",
+							"items": [
+								"menu",
+								"search_panel"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"supertop": {
+					"modelId": "leftbar-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"expand_menu_button",
+								"collapse_button",
+								"breadcrumb"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"simple_search",
+								"list_options",
+								"loginform_login",
+								"username_button"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "horizontal-grid",
+					"grid": [
+						{
+							"section": "head",
+							"cells": [
+								{
+									"cell": "headcell_icons"
+								},
+								{
+									"cell": "headcell_checkbox"
+								},
+								{
+									"cell": "headcell_field"
+								},
+								{
+									"cell": "headcell_field5"
+								},
+								{
+									"cell": "headcell_field1"
+								},
+								{
+									"cell": "headcell_field2"
+								},
+								{
+									"cell": "headcell_field3"
+								}
+							]
+						},
+						{
+							"section": "body",
+							"cells": [
+								{
+									"cell": "cell_icons"
+								},
+								{
+									"cell": "cell_checkbox"
+								},
+								{
+									"cell": "cell_field"
+								},
+								{
+									"cell": "headcell_field6"
+								},
+								{
+									"cell": "cell_field1"
+								},
+								{
+									"cell": "cell_field2"
+								},
+								{
+									"cell": "cell_field3"
+								}
+							]
+						},
+						{
+							"section": "foot",
+							"cells": [
+								{
+									"cell": "footcell_icons"
+								},
+								{
+									"cell": "footcell_checkbox"
+								},
+								{
+									"cell": "footcell_field"
+								},
+								{
+									"cell": "headcell_field7"
+								},
+								{
+									"cell": "footcell_field1"
+								},
+								{
+									"cell": "footcell_field2"
+								},
+								{
+									"cell": "footcell_field3"
+								}
+							]
+						}
+					],
+					"cells": {
+						"headcell_field": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field5"
+							],
+							"field": "gampong",
+							"columnName": "field"
+						},
+						"cell_field": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field4"
+							],
+							"field": "gampong",
+							"columnName": "field"
+						},
+						"footcell_field": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "gampong",
+							"columnName": "field"
+						},
+						"headcell_field1": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field6"
+							],
+							"field": "status",
+							"columnName": "field"
+						},
+						"cell_field1": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field2"
+							],
+							"field": "status",
+							"columnName": "field"
+						},
+						"footcell_field1": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "status",
+							"columnName": "field"
+						},
+						"headcell_field2": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field7"
+							],
+							"field": "file_excel",
+							"columnName": "field"
+						},
+						"cell_field2": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field1"
+							],
+							"field": "file_excel",
+							"columnName": "field"
+						},
+						"footcell_field2": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "file_excel",
+							"columnName": "field"
+						},
+						"headcell_field3": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field8"
+							],
+							"field": "nomor_hp",
+							"columnName": "field"
+						},
+						"cell_field3": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field3"
+							],
+							"field": "nomor_hp",
+							"columnName": "field"
+						},
+						"footcell_field3": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "nomor_hp",
+							"columnName": "field"
+						},
+						"headcell_checkbox": {
+							"model": "headcell_checkbox",
+							"items": [
+								"grid_checkbox_head"
+							],
+							"columnName": "checkbox",
+							"field": ""
+						},
+						"cell_checkbox": {
+							"model": "cell_checkbox",
+							"items": [
+								"grid_checkbox"
+							],
+							"columnName": "checkbox",
+							"field": ""
+						},
+						"footcell_checkbox": {
+							"model": "footcell_checkbox",
+							"items": [],
+							"columnName": "checkbox",
+							"field": ""
+						},
+						"headcell_icons": {
+							"model": "headcell_icons",
+							"items": [],
+							"columnName": "view",
+							"field": ""
+						},
+						"cell_icons": {
+							"model": "cell_icons",
+							"items": [
+								"grid_view"
+							],
+							"columnName": "view",
+							"field": ""
+						},
+						"footcell_icons": {
+							"model": "footcell_icons",
+							"items": [],
+							"columnName": "view",
+							"field": ""
+						},
+						"headcell_field5": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label"
+							],
+							"columnName": "field",
+							"field": "id"
+						},
+						"headcell_field6": {
+							"model": "cell_field",
+							"items": [
+								"grid_field"
+							],
+							"columnName": "field",
+							"field": "id"
+						},
+						"headcell_field7": {
+							"model": "footcell_field",
+							"items": [],
+							"columnName": "field",
+							"field": "id"
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "list-sidebar-top",
+					"grid": [],
+					"cells": {},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"page_size": {
+					"type": "page_size"
+				},
+				"details_found": {
+					"type": "details_found"
+				},
+				"breadcrumb": {
+					"type": "breadcrumb"
+				},
+				"logo": {
+					"type": "logo"
+				},
+				"menu": {
+					"type": "menu"
+				},
+				"simple_search": {
+					"type": "simple_search"
+				},
+				"pagination": {
+					"type": "pagination"
+				},
+				"grid_checkbox": {
+					"type": "grid_checkbox"
+				},
+				"grid_checkbox_head": {
+					"type": "grid_checkbox_head"
+				},
+				"search_panel": {
+					"type": "search_panel",
+					"items": [
+						"search_panel_field",
+						"search_panel_field3",
+						"search_panel_field2",
+						"search_panel_field1"
+					]
+				},
+				"list_options": {
+					"type": "list_options",
+					"items": [
+						"export_selected",
+						"delete_selected",
+						"-3",
+						"advsearch_link",
+						"show_search_panel",
+						"hide_search_panel",
+						"-1",
+						"export"
+					]
+				},
+				"show_search_panel": {
+					"type": "show_search_panel"
+				},
+				"hide_search_panel": {
+					"type": "hide_search_panel"
+				},
+				"search_panel_field": {
+					"field": "file_excel",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"search_panel_field1": {
+					"field": "id_gampong",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"search_panel_field2": {
+					"field": "status",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"username_button": {
+					"type": "username_button",
+					"items": [
+						"userinfo_link",
+						"logout_link",
+						"adminarea_link",
+						"changepassword_link"
+					]
+				},
+				"loginform_login": {
+					"type": "loginform_login",
+					"popup": false
+				},
+				"userinfo_link": {
+					"type": "userinfo_link"
+				},
+				"logout_link": {
+					"type": "logout_link"
+				},
+				"adminarea_link": {
+					"type": "adminarea_link"
+				},
+				"expand_menu_button": {
+					"type": "expand_menu_button"
+				},
+				"collapse_button": {
+					"type": "collapse_button"
+				},
+				"add": {
+					"type": "add",
+					"label": {
+						"type": 0,
+						"text": "rekam"
+					}
+				},
+				"grid_view": {
+					"type": "grid_view"
+				},
+				"export": {
+					"type": "export"
+				},
+				"-": {
+					"type": "-"
+				},
+				"export_selected": {
+					"type": "export_selected"
+				},
+				"-1": {
+					"type": "-"
+				},
+				"-2": {
+					"type": "-"
+				},
+				"delete": {
+					"type": "delete"
+				},
+				"delete_selected": {
+					"type": "delete_selected"
+				},
+				"advsearch_link": {
+					"type": "advsearch_link"
+				},
+				"-3": {
+					"type": "-"
+				},
+				"simple_grid_field1": {
+					"field": "file_excel",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field2": {
+					"field": "status",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field3": {
+					"field": "nomor_hp",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"search_panel_field3": {
+					"field": "nomor_hp",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"simple_grid_field4": {
+					"field": "gampong",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"text": {
+					"type": "text",
+					"label": {
+						"text": "klik menu rekam untuk upload file  excel pasien",
+						"type": 0
+					},
+					"editedByRte": false,
+					"bold": true,
+					"color": "#b91e1e"
+				},
+				"simple_grid_field5": {
+					"type": "grid_field_label",
+					"field": "gampong"
+				},
+				"simple_grid_field6": {
+					"type": "grid_field_label",
+					"field": "status"
+				},
+				"simple_grid_field7": {
+					"type": "grid_field_label",
+					"field": "file_excel"
+				},
+				"simple_grid_field8": {
+					"type": "grid_field_label",
+					"field": "nomor_hp"
+				},
+				"grid_field": {
+					"field": "id",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_label": {
+					"type": "grid_field_label",
+					"field": "id"
+				},
+				"status": {
+					"eventId": "status",
+					"label": {
+						"text": "Status",
+						"type": 0
+					},
+					"type": "custom_button",
+					"buttonStyle": "success",
+					"eventGid": 2063623452
+				},
+				"changepassword_link": {
+					"type": "changepassword_link"
+				}
+			},
+			"dbProps": {},
+			"responsiveGrid": false,
+			"spreadsheetGrid": false,
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "print",
+			"type": "print",
+			"layoutId": "basic",
+			"disabled": 1,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "print-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"print_pages"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "print-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "print-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c2": {
+							"model": "c2",
+							"items": [
+								"print_header",
+								"print_subheader"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "simple-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"simple_grid_field",
+								"simple_grid_field1",
+								"simple_grid_field2"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"print_header": {
+					"type": "print_header"
+				},
+				"print_subheader": {
+					"type": "print_subheader"
+				},
+				"print_pages": {
+					"type": "print_pages"
+				},
+				"simple_grid_field": {
+					"field": "id_gampong",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field1": {
+					"field": "file_excel",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field2": {
+					"field": "status",
+					"type": "simple_grid_field"
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "search",
+			"type": "search",
+			"layoutId": "nomenu",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "search-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1",
+									"colspan": 2
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "search-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"search_search",
+								"search_reset",
+								"search_back_list",
+								"search_cancel"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "search-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"search_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "simple-search",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c3"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c3": {
+							"model": "c3",
+							"items": [
+								"integrated_search_field",
+								"integrated_search_field1",
+								"integrated_search_field2",
+								"integrated_search_field3",
+								"integrated_search_field4",
+								"integrated_search_field5"
+							]
+						}
+					},
+					"deferredItems": [],
+					"separateLabels": false
+				}
+			},
+			"items": {
+				"search_header": {
+					"type": "search_header"
+				},
+				"search_reset": {
+					"type": "search_reset"
+				},
+				"search_back_list": {
+					"type": "search_back_list"
+				},
+				"search_search": {
+					"type": "search_search"
+				},
+				"search_cancel": {
+					"type": "search_cancel"
+				},
+				"integrated_search_field": {
+					"field": "id_gampong",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field1": {
+					"field": "file_excel",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field2": {
+					"field": "status",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field3": {
+					"field": "gampong",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field4": {
+					"field": "nomor_hp",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field5": {
+					"field": "id",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "view",
+			"type": "view",
+			"layoutId": "nomenu",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "view-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1",
+									"colspan": 2
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "view-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"view_back_list",
+								"view_close"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"hamburger"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "view-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"view_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "simple-edit",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c3"
+								}
+							],
+							"section": ""
+						},
+						{
+							"section": "",
+							"cells": [
+								{
+									"cell": "c"
+								}
+							]
+						}
+					],
+					"cells": {
+						"c3": {
+							"model": "c3",
+							"items": [
+								"integrated_edit_field",
+								"integrated_edit_field1",
+								"integrated_edit_field2",
+								"integrated_edit_field4"
+							]
+						},
+						"c": {
+							"model": "c3",
+							"items": [
+								"text",
+								"view_pdf"
+							]
+						}
+					},
+					"deferredItems": [],
+					"columnCount": 1,
+					"inlineLabels": false,
+					"separateLabels": false
+				}
+			},
+			"items": {
+				"view_header": {
+					"type": "view_header"
+				},
+				"view_back_list": {
+					"type": "view_back_list"
+				},
+				"view_close": {
+					"type": "view_close"
+				},
+				"hamburger": {
+					"type": "hamburger",
+					"items": []
+				},
+				"integrated_edit_field": {
+					"field": "id_gampong",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field1": {
+					"field": "file_excel",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field2": {
+					"field": "status",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field4": {
+					"field": "nomor_hp",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"text": {
+					"type": "text",
+					"label": {
+						"text": "TERIMA KASIH,, DATA ANDA SUDAH TERSIMPAN,,, ",
+						"type": 0
+					},
+					"editedByRte": false,
+					"bold": true,
+					"italic": true,
+					"font-size": "20px"
+				},
+				"view_pdf": {
+					"type": "view_pdf",
+					"targetPages": [],
+					"splitModes": [],
+					"scopes": [],
+					"label": {
+						"type": 0,
+						"text": "DOWNLOAD PDF"
+					},
+					"pageSize": "A4",
+					"buttonStyle": "success"
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		}
+	],
+	"geoCoding": {
+		"enabled": false,
+		"latField": "",
+		"lonField": "",
+		"addressFields": []
+	},
+	"caption": {
+		"Indonesian": "Upload Pasien"
+	}
+}

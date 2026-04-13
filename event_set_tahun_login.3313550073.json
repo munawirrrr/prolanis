@@ -1,0 +1,5 @@
+{
+	"type": "EVENT_BUTTON",
+	"name": "set_tahun_login",
+	"afterJsCode": "location.href=\"tahun_list.php\";\nreturn false;"
+}

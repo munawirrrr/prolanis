@@ -1,0 +1,6 @@
+{
+	"type": "EVENT_BUTTON",
+	"name": "aktivasi",
+	"serverCode": "global $conn;\n\nwhile ($record = $button->getNextSelectedRecord())\n{\n    // ambil username dari record terpilih\n    $username = $record[\"username\"];   // sesuaikan nama field\n    \n    if (!empty($username)) {\n\n        // amankan string\n        $username = db_prepare_string($username);\n\n        $sql = \"INSERT INTO ugmembers (UserName, GroupID, Provider)\n                VALUES ($username, '1', '')\n                ON DUPLICATE KEY UPDATE GroupID='1'\";\n\n        db_exec($sql, $conn);\n    }\n}",
+	"afterJsCode": "location.reload();"
+}

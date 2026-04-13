@@ -1,0 +1,4913 @@
+{
+	"orderInfo": [
+		{
+			"index": 3,
+			"asc": false,
+			"field": "daftar.tanggal"
+		}
+	],
+	"sql": "SELECT\ndaftar.id,\nconcat('_') AS `No`,\ndaftar.tanggal,\nCONCAT(CASE MONTH(`tanggal`)\n        WHEN 1  THEN 'Januari'\n        WHEN 2  THEN 'Februari'\n        WHEN 3  THEN 'Maret'\n        WHEN 4  THEN 'April'\n        WHEN 5  THEN 'Mei'\n        WHEN 6  THEN 'Juni'\n        WHEN 7  THEN 'Juli'\n        WHEN 8  THEN 'Agustus'\n        WHEN 9  THEN 'September'\n        WHEN 10 THEN 'Oktober'\n        WHEN 11 THEN 'November'\n        WHEN 12 THEN 'Desember'\n    END) AS bulan,\ndaftar.gampong,\ndaftar.pencarian,\ndaftar.nik,\npasien.hp_pasien,\ndaftar.diagnosa,\ndaftar.keterangan,\npasien.nama,\npasien.tanggal_lahir,\nConcat(FLOOR(DATEDIFF(DATE_FORMAT(NOW(), '%Y-07-01'), pasien.`tanggal_lahir`) / 365.25), \" Tahun \", FLOOR((DATEDIFF(DATE_FORMAT(NOW(), '%Y-07-01'), pasien.`tanggal_lahir`) % 365.25) / 30.44), \" Bulan \", FLOOR((DATEDIFF(DATE_FORMAT(NOW(), '%Y-07-01'), pasien.`tanggal_lahir`) % 365.25) % 30.44), \" Hari \") AS usia,\npasien.bpjs,\ndaftar.status,\ndaftar.`user`,\ngampong.hp_kader,\ndaftar.nama_pasien,\ndaftar.tahun,\n(CONCAT('<a class=\"btn btn-primary btn-xs\" target=\"_blank\" href=\"pasien_edit.php?editid1=', daftar.nik, '\">Edit Pasien</a>')) AS edit_HP_pasien\nFROM daftar\nINNER JOIN pasien ON daftar.nik = pasien.nik\nINNER JOIN gampong ON pasien.id_gampong = gampong.id\nORDER BY daftar.tanggal DESC",
+	"connId": "penmadpiprolanisatpenmadpidiec",
+	"originalTable": "daftar",
+	"name": "daftar",
+	"shortTableName": "daftar",
+	"caseSensitiveSearch": "",
+	"tableOwnerIdField": "user",
+	"usersOwnerIdField": "username",
+	"advancedSecurityType": 1,
+	"pageSizeSelectorRecords": [
+		"10",
+		"20",
+		"30",
+		"50",
+		"100",
+		"500",
+		"-1"
+	],
+	"pageSizeSelectorGroups": [
+		"1",
+		"3",
+		"5",
+		"10",
+		"50",
+		"100",
+		"-1"
+	],
+	"keyFields": [
+		"tanggal",
+		"nik"
+	],
+	"masterTables": [
+		{
+			"table": 1902861381,
+			"detailsKeys": [
+				"gampong"
+			],
+			"masterKeys": [
+				"id"
+			]
+		},
+		{
+			"table": 2461982463,
+			"detailsKeys": [
+				"nik"
+			],
+			"masterKeys": [
+				"nik"
+			]
+		}
+	],
+	"detailsBadgeColor": "3cb371",
+	"fields": [
+		{
+			"name": "id",
+			"sqlExpression": "daftar.id",
+			"strField": "id",
+			"type": 200,
+			"separateEditViewFormats": true,
+			"viewFormats": [
+				{
+					"numberFractionalDigits": 0
+				},
+				{
+					"pageType": "list",
+					"numberFractionalDigits": 0
+				},
+				{
+					"pageType": "print",
+					"numberFractionalDigits": 0
+				},
+				{
+					"format": "Custom",
+					"pageType": "export",
+					"customExpression": "$value = \"_\".$data[\"id\"];",
+					"numberFractionalDigits": 0
+				}
+			],
+			"editFormats": [
+				{
+					"textboxMaxLenth": 15,
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				},
+				{
+					"pageType": "add",
+					"textboxMaxLenth": 15,
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				},
+				{
+					"pageType": "search",
+					"textboxMaxLenth": 15,
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"sourceSingle": "id",
+			"defaultSearchOption": "Contains",
+			"label": {
+				"Indonesian": "Id"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": "daftar"
+		},
+		{
+			"name": "No",
+			"sqlExpression": "concat('_')",
+			"strField": "No",
+			"type": 200,
+			"viewFormats": [
+				{
+					"format": "Custom",
+					"numberFractionalDigits": 0
+				}
+			],
+			"editFormats": [
+				{
+					"validateRegexMessage": {
+						"text": "",
+						"type": 0
+					},
+					"denyDuplicateMessage": {
+						"text": "",
+						"type": 0
+					},
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"defaultSearchOption": "Contains",
+			"label": {
+				"Indonesian": "No"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": ""
+		},
+		{
+			"name": "tanggal",
+			"sqlExpression": "daftar.tanggal",
+			"strField": "tanggal",
+			"type": 7,
+			"viewFormats": [
+				{
+					"format": "Short Date",
+					"numberFractionalDigits": 0
+				}
+			],
+			"editFormats": [
+				{
+					"format": "Date",
+					"required": true,
+					"defaultValue": "now()",
+					"validateRegexMessage": {
+						"text": "",
+						"type": 0
+					},
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"dateEditType": 5,
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"sourceSingle": "tanggal",
+			"label": {
+				"Indonesian": "Tanggal"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": "daftar"
+		},
+		{
+			"name": "bulan",
+			"sqlExpression": "CONCAT(CASE MONTH(`tanggal`)\n        WHEN 1  THEN 'Januari'\n        WHEN 2  THEN 'Februari'\n        WHEN 3  THEN 'Maret'\n        WHEN 4  THEN 'April'\n        WHEN 5  THEN 'Mei'\n        WHEN 6  THEN 'Juni'\n        WHEN 7  THEN 'Juli'\n        WHEN 8  THEN 'Agustus'\n        WHEN 9  THEN 'September'\n        WHEN 10 THEN 'Oktober'\n        WHEN 11 THEN 'November'\n        WHEN 12 THEN 'Desember'\n    END)",
+			"strField": "bulan",
+			"type": 200,
+			"viewFormats": [
+				{
+					"numberFractionalDigits": 0
+				}
+			],
+			"editFormats": [
+				{
+					"validateAs": "Number",
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list",
+				"filterTotalsField": "id",
+				"filterMultiselect": 2,
+				"firstVisibleItems": 12
+			},
+			"defaultSearchOption": "Contains",
+			"label": {
+				"Indonesian": "Bulan"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": ""
+		},
+		{
+			"name": "gampong",
+			"sqlExpression": "daftar.gampong",
+			"strField": "gampong",
+			"type": 200,
+			"viewFormats": [
+				{
+					"numberFractionalDigits": 0
+				}
+			],
+			"editFormats": [
+				{
+					"format": "Lookup wizard",
+					"required": true,
+					"textHTML5Input": "0",
+					"lookupType": 2,
+					"lookupTable": "gampong",
+					"lookupTableConnection": "penmadpiprolanisatpenmadpidiec",
+					"lookupLinkField": "id",
+					"lookupDisplayField": "gampong",
+					"lookupControlType": 1,
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"label": {
+				"Indonesian": "Gampong"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": "isi 3 kata aja, otmatis akan muncul nama gampong"
+			},
+			"tableName": "daftar"
+		},
+		{
+			"name": "pencarian",
+			"sqlExpression": "daftar.pencarian",
+			"strField": "pencarian",
+			"type": 200,
+			"viewFormats": [
+				{
+					"numberFractionalDigits": 0,
+					"textShowFirst": false
+				}
+			],
+			"editFormats": [
+				{
+					"format": "Readonly",
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"defaultSearchOption": "Contains",
+			"label": {
+				"Indonesian": "status pasien"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": ""
+		},
+		{
+			"name": "nik",
+			"sqlExpression": "daftar.nik",
+			"strField": "nik",
+			"type": 200,
+			"separateEditViewFormats": true,
+			"viewFormats": [
+				{
+					"numberFractionalDigits": 0
+				},
+				{
+					"pageType": "list",
+					"numberFractionalDigits": 0
+				},
+				{
+					"pageType": "print",
+					"numberFractionalDigits": 0
+				},
+				{
+					"format": "Custom",
+					"pageType": "export",
+					"customExpression": "$value =\" \". $data[\"nik\"]",
+					"numberFractionalDigits": 0
+				}
+			],
+			"editFormats": [
+				{
+					"format": "Lookup wizard",
+					"required": true,
+					"textboxMaxLenth": 20,
+					"textHTML5Input": "0",
+					"lookupType": 2,
+					"lookupTable": "pasien",
+					"lookupTableConnection": "penmadpiprolanisatpenmadpidiec",
+					"lookupLinkField": "nik",
+					"lookupDisplayField": "nik",
+					"lookupAllowAdd": true,
+					"lookupControlType": 1,
+					"lookupAddPage": "add",
+					"lookupDependent": true,
+					"lookupDependentFields": [
+						{
+							"masterField": "gampong",
+							"lookupField": "id_gampong"
+						}
+					],
+					"lookupAutofillEdit": true,
+					"lookupAutofillFields": [
+						{
+							"masterField": "nama_pasien",
+							"lookupField": "nama"
+						}
+					],
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				},
+				{
+					"format": "Lookup wizard",
+					"pageType": "add",
+					"required": true,
+					"textboxMaxLenth": 20,
+					"textHTML5Input": "0",
+					"lookupType": 2,
+					"lookupTable": "pasien",
+					"lookupTableConnection": "penmadpiprolanisatpenmadpidiec",
+					"lookupLinkField": "nik",
+					"lookupDisplayField": "nik",
+					"lookupAllowAdd": true,
+					"lookupControlType": 1,
+					"lookupAddPage": "add",
+					"lookupDependentFields": [
+						{
+							"masterField": "gampong",
+							"lookupField": "id_gampong"
+						}
+					],
+					"lookupAutofillEdit": true,
+					"lookupAutofillFields": [
+						{
+							"masterField": "nama_pasien",
+							"lookupField": "nama"
+						}
+					],
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				},
+				{
+					"format": "Lookup wizard",
+					"pageType": "search",
+					"required": true,
+					"textboxMaxLenth": 20,
+					"textHTML5Input": "0",
+					"lookupType": 2,
+					"lookupTable": "pasien",
+					"lookupTableConnection": "penmadpiprolanisatpenmadpidiec",
+					"lookupLinkField": "nik",
+					"lookupDisplayField": "nik",
+					"lookupAllowAdd": true,
+					"lookupControlType": 1,
+					"lookupAddPage": "add",
+					"lookupDependent": true,
+					"lookupDependentFields": [
+						{
+							"masterField": "gampong",
+							"lookupField": "id_gampong"
+						}
+					],
+					"lookupAutofillEdit": true,
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"sourceSingle": "nik",
+			"label": {
+				"Indonesian": "Nik"
+			},
+			"tooltip": {
+				"Indonesian": "kalau kolom nik bewarna merah & status pasien tidak muncul bearti pasien baru silahkan klik disini untuk rekam pasien dulu\""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": "daftar"
+		},
+		{
+			"name": "hp_pasien",
+			"sqlExpression": "pasien.hp_pasien",
+			"strField": "hp_pasien",
+			"type": 200,
+			"separateEditViewFormats": true,
+			"viewFormats": [
+				{
+					"numberFractionalDigits": 0,
+					"textShowFirst": false
+				},
+				{
+					"pageType": "list",
+					"numberFractionalDigits": 0,
+					"textShowFirst": false
+				},
+				{
+					"pageType": "print",
+					"numberFractionalDigits": 0,
+					"textShowFirst": false
+				},
+				{
+					"format": "Custom",
+					"pageType": "export",
+					"customExpression": "$value =\" \". $data[\"hp_pasien\"]",
+					"numberFractionalDigits": 0,
+					"textShowFirst": false
+				}
+			],
+			"editFormats": [
+				{
+					"validateRegexMessage": {
+						"text": "",
+						"type": 0
+					},
+					"denyDuplicateMessage": {
+						"text": "",
+						"type": 0
+					},
+					"textboxMaxLenth": 50,
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				},
+				{
+					"pageType": "add",
+					"validateRegexMessage": {
+						"text": "",
+						"type": 0
+					},
+					"denyDuplicateMessage": {
+						"text": "",
+						"type": 0
+					},
+					"textboxMaxLenth": 50,
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				},
+				{
+					"pageType": "search",
+					"validateRegexMessage": {
+						"text": "",
+						"type": 0
+					},
+					"denyDuplicateMessage": {
+						"text": "",
+						"type": 0
+					},
+					"textboxMaxLenth": 50,
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"sourceSingle": "hp_pasien",
+			"defaultSearchOption": "Contains",
+			"label": {
+				"Indonesian": "Hp Pasien"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": "pasien"
+		},
+		{
+			"name": "diagnosa",
+			"sqlExpression": "daftar.diagnosa",
+			"strField": "diagnosa",
+			"type": 200,
+			"viewFormats": [
+				{
+					"numberFractionalDigits": 0
+				}
+			],
+			"editFormats": [
+				{
+					"format": "Lookup wizard",
+					"required": true,
+					"textboxMaxLenth": 255,
+					"textHTML5Input": "0",
+					"lookupType": 2,
+					"lookupTable": "diagnosa",
+					"lookupTableConnection": "penmadpiprolanisatpenmadpidiec",
+					"lookupLinkField": "diagnosa",
+					"lookupDisplayField": "diagnosa",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"sourceSingle": "diagnosa",
+			"label": {
+				"Indonesian": "Diagnosa"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": "daftar"
+		},
+		{
+			"name": "keterangan",
+			"sqlExpression": "daftar.keterangan",
+			"strField": "keterangan",
+			"type": 201,
+			"viewFormats": [
+				{
+					"numberFractionalDigits": 0,
+					"textShowFirstN": 20
+				}
+			],
+			"editFormats": [
+				{
+					"format": "Text area",
+					"validateRegexMessage": {
+						"text": "",
+						"type": 0
+					},
+					"textHTML5Input": "0",
+					"fileResizeSize": 1920,
+					"fileCreateThumbnail": true,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"sourceSingle": "keterangan",
+			"defaultSearchOption": "Contains",
+			"label": {
+				"Indonesian": "Keterangan"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": "daftar"
+		},
+		{
+			"name": "nama",
+			"sqlExpression": "pasien.nama",
+			"strField": "nama",
+			"type": 200,
+			"viewFormats": [
+				{
+					"numberFractionalDigits": 0
+				}
+			],
+			"editFormats": [
+				{
+					"validateRegexMessage": {
+						"text": "",
+						"type": 0
+					},
+					"denyDuplicateMessage": {
+						"text": "",
+						"type": 0
+					},
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"defaultSearchOption": "Contains",
+			"label": {
+				"Indonesian": "Nama"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": "pasien"
+		},
+		{
+			"name": "tanggal_lahir",
+			"sqlExpression": "pasien.tanggal_lahir",
+			"strField": "tanggal_lahir",
+			"type": 7,
+			"viewFormats": [
+				{
+					"format": "Short Date",
+					"numberFractionalDigits": 0
+				}
+			],
+			"editFormats": [
+				{
+					"format": "Date",
+					"required": true,
+					"validateRegexMessage": {
+						"text": "",
+						"type": 0
+					},
+					"denyDuplicateMessage": {
+						"text": "",
+						"type": 0
+					},
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"dateEditType": 13,
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"label": {
+				"Indonesian": "Tanggal Lahir"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": "pasien"
+		},
+		{
+			"name": "usia",
+			"sqlExpression": "Concat(FLOOR(DATEDIFF(DATE_FORMAT(NOW(), '%Y-07-01'), pasien.`tanggal_lahir`) / 365.25), \" Tahun \", FLOOR((DATEDIFF(DATE_FORMAT(NOW(), '%Y-07-01'), pasien.`tanggal_lahir`) % 365.25) / 30.44), \" Bulan \", FLOOR((DATEDIFF(DATE_FORMAT(NOW(), '%Y-07-01'), pasien.`tanggal_lahir`) % 365.25) % 30.44), \" Hari \")",
+			"strField": "usia",
+			"type": 200,
+			"viewFormats": [
+				{
+					"numberFractionalDigits": 0
+				}
+			],
+			"editFormats": [
+				{
+					"validateRegexMessage": {
+						"text": "",
+						"type": 0
+					},
+					"denyDuplicateMessage": {
+						"text": "",
+						"type": 0
+					},
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"defaultSearchOption": "Contains",
+			"label": {
+				"Indonesian": "Usia"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": ""
+		},
+		{
+			"name": "bpjs",
+			"sqlExpression": "pasien.bpjs",
+			"strField": "bpjs",
+			"type": 200,
+			"separateEditViewFormats": true,
+			"viewFormats": [
+				{
+					"numberFractionalDigits": 0,
+					"textShowFirst": false
+				},
+				{
+					"pageType": "list",
+					"numberFractionalDigits": 0,
+					"textShowFirst": false
+				},
+				{
+					"pageType": "print",
+					"numberFractionalDigits": 0,
+					"textShowFirst": false
+				},
+				{
+					"format": "Custom",
+					"pageType": "export",
+					"customExpression": "$value = \" \".$data[\"bpjs\"];",
+					"numberFractionalDigits": 0,
+					"textShowFirst": false
+				}
+			],
+			"editFormats": [
+				{
+					"validateRegexMessage": {
+						"text": "",
+						"type": 0
+					},
+					"denyDuplicateMessage": {
+						"text": "",
+						"type": 0
+					},
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				},
+				{
+					"pageType": "add",
+					"validateRegexMessage": {
+						"text": "",
+						"type": 0
+					},
+					"denyDuplicateMessage": {
+						"text": "",
+						"type": 0
+					},
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				},
+				{
+					"pageType": "search",
+					"validateRegexMessage": {
+						"text": "",
+						"type": 0
+					},
+					"denyDuplicateMessage": {
+						"text": "",
+						"type": 0
+					},
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"defaultSearchOption": "Contains",
+			"label": {
+				"Indonesian": "Bpjs"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": "pasien"
+		},
+		{
+			"name": "status",
+			"sqlExpression": "daftar.status",
+			"strField": "status",
+			"type": 200,
+			"viewFormats": [
+				{
+					"numberFractionalDigits": 0
+				}
+			],
+			"editFormats": [
+				{
+					"format": "Lookup wizard",
+					"required": true,
+					"textboxMaxLenth": 100,
+					"textHTML5Input": "0",
+					"lookupType": 0,
+					"lookupValues": [
+						"belum disetujui",
+						"disetujui"
+					],
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"sourceSingle": "status",
+			"label": {
+				"Indonesian": "Status"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": "daftar"
+		},
+		{
+			"name": "user",
+			"sqlExpression": "daftar.`user`",
+			"strField": "user",
+			"type": 200,
+			"viewFormats": [
+				{
+					"numberFractionalDigits": 0
+				}
+			],
+			"editFormats": [
+				{
+					"format": "Readonly",
+					"required": true,
+					"defaultValue": "$_SESSION[\"UserID\"]",
+					"textboxMaxLenth": 50,
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"sourceSingle": "user",
+			"defaultSearchOption": "Contains",
+			"label": {
+				"Indonesian": "User"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": "daftar"
+		},
+		{
+			"name": "hp_kader",
+			"sqlExpression": "gampong.hp_kader",
+			"strField": "hp_kader",
+			"type": 200,
+			"separateEditViewFormats": true,
+			"viewFormats": [
+				{
+					"numberFractionalDigits": 0,
+					"textShowFirst": false
+				},
+				{
+					"pageType": "list",
+					"numberFractionalDigits": 0,
+					"textShowFirst": false
+				},
+				{
+					"pageType": "print",
+					"numberFractionalDigits": 0,
+					"textShowFirst": false
+				},
+				{
+					"format": "Custom",
+					"pageType": "export",
+					"customExpression": "$value =\"_\". $data[\"hp_kader\"]",
+					"numberFractionalDigits": 0,
+					"textShowFirst": false
+				}
+			],
+			"editFormats": [
+				{
+					"validateRegexMessage": {
+						"text": "",
+						"type": 0
+					},
+					"denyDuplicateMessage": {
+						"text": "",
+						"type": 0
+					},
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				},
+				{
+					"pageType": "add",
+					"validateRegexMessage": {
+						"text": "",
+						"type": 0
+					},
+					"denyDuplicateMessage": {
+						"text": "",
+						"type": 0
+					},
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				},
+				{
+					"pageType": "search",
+					"validateRegexMessage": {
+						"text": "",
+						"type": 0
+					},
+					"denyDuplicateMessage": {
+						"text": "",
+						"type": 0
+					},
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"defaultSearchOption": "Contains",
+			"label": {
+				"Indonesian": "Hp Kader"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": "gampong"
+		},
+		{
+			"name": "nama_pasien",
+			"sqlExpression": "daftar.nama_pasien",
+			"strField": "nama_pasien",
+			"type": 200,
+			"viewFormats": [
+				{
+					"numberFractionalDigits": 0,
+					"textShowFirst": false
+				}
+			],
+			"editFormats": [
+				{
+					"format": "Readonly",
+					"required": true,
+					"textboxMaxLenth": 100,
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"sourceSingle": "nama_pasien",
+			"defaultSearchOption": "Contains",
+			"label": {
+				"Indonesian": "Nama Pasien"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": "daftar"
+		},
+		{
+			"name": "tahun",
+			"sqlExpression": "daftar.tahun",
+			"strField": "tahun",
+			"type": 200,
+			"viewFormats": [
+				{
+					"numberFractionalDigits": 0
+				}
+			],
+			"editFormats": [
+				{
+					"required": true,
+					"validateAs": "Number",
+					"validateRegexMessage": {
+						"text": "",
+						"type": 0
+					},
+					"denyDuplicateMessage": {
+						"text": "",
+						"type": 0
+					},
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"sourceSingle": "tahun",
+			"defaultSearchOption": "Contains",
+			"label": {
+				"Indonesian": "Tahun"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": "daftar"
+		},
+		{
+			"name": "edit_HP_pasien",
+			"sqlExpression": "(CONCAT('<a class=\"btn btn-primary btn-xs\" target=\"_blank\" href=\"pasien_edit.php?editid1=', daftar.nik, '\">Edit Pasien</a>'))",
+			"strField": "edit_HP_pasien",
+			"type": 200,
+			"viewFormats": [
+				{
+					"format": "HTML",
+					"numberFractionalDigits": 0,
+					"textShowFirst": false
+				}
+			],
+			"editFormats": [
+				{
+					"format": "Readonly",
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				}
+			],
+			"filterFormat": {
+				"format": "Values list"
+			},
+			"defaultSearchOption": "Contains",
+			"label": {
+				"Indonesian": "Edit HP Pasien"
+			},
+			"tooltip": {
+				"Indonesian": ""
+			},
+			"placeholder": {
+				"Indonesian": ""
+			},
+			"tableName": ""
+		}
+	],
+	"warnLeavingEdit": true,
+	"afterEditDetails": 5,
+	"afterAddAction": 0,
+	"afterAddDetail": 10,
+	"whereTabs": [
+		{
+			"title": {
+				"text": "belum disetujui",
+				"type": 0
+			},
+			"where": "daftar.status='belum disetujui'",
+			"id": "99",
+			"hideEmpty": true
+		},
+		{
+			"title": {
+				"text": "disetujui",
+				"type": 0
+			},
+			"where": "daftar.status='disetujui'",
+			"id": "A1",
+			"showCount": true,
+			"hideEmpty": true
+		},
+		{
+			"title": {
+				"text": "semua",
+				"type": 0
+			},
+			"id": "A",
+			"showCount": true,
+			"hideEmpty": true
+		}
+	],
+	"eventHandlers": [
+		{
+			"eventId": "EVENT_BEFOREADD",
+			"pageType": "add",
+			"code": "// Generate 20 digit angka unik (berbasis waktu + random)\n            $unixPart = round(microtime(true) * 10000); // 13 digit dari waktu unix\n            $randomPart = mt_rand(1000000000, 9999999999); // 10 digit random\n            $uniqueKey = substr($unixPart . $randomPart, 0, 15); // ambil 20 digit pertama saja\n        \n            // Set ke kolom 'key'\n            $values[\"id\"] = $uniqueKey;\n$values[\"tahun\"] = date('Y', strtotime($values[\"tanggal\"]));\n\n\n///status\nif (Security::getUserGroup()==\"staf\"){\n    $values[\"status\"] = \"belum disetujui\";\n} else {\n    $values[\"status\"] = \"disetujui\";\n}\n\n\n\n////////////////////////////////pesan 1 kali setahun////\n// 1. Ambil nilai tahun\n$tahun_input = date('Y', strtotime($values[\"tanggal\"]));\n\n//kunci 1 * setahun\n$sql = \"SELECT count(*) as total FROM daftar WHERE nik='\" . $values[\"nik\"] . \"' AND tahun='\" . $tahun_input . \"'\";\n$rs = DB::Query($sql);\n\n// Cek apakah query berhasil\nif($rs) \n{\n    $data = $rs->fetchAssoc();\n    if($data[\"total\"] > 0)\n    {\n        $message = \"Maaf,, daftar pasien cuma bisa sekali setahun\";\n        return false;\n    }\n}\nelse \n{\n    // Jika query gagal (salah nama tabel/kolom), tampilkan error untuk debugging\n    echo \"Error pada query: \" . DB::LastError();\n    return false;\n}\n\n// 3. Update field tahun sebelum simpan\n$values[\"tahun\"] = $tahun_input;\n\n\n\n\n/////////////////////\n// 1. Ambil tahun dari inputan tanggal\n$tahun_input = date('Y', strtotime($values[\"tanggal\"]));\n\n// 2. Ambil tahun dari session login\n$tahun_session = $_SESSION[\"tahun\"];\n\n// 3. Bandingkan keduanya\nif ($tahun_input != $tahun_session) \n{\n    // Jika tidak sama, set pesan error dan gagalkan penyimpanan\n    $message = \"Maaf, isian tanggal (\" . $tahun_input . \") harus sesuai dengan tahun waktu login (\" . $tahun_session . \").\";\n    return false;\n}\n\n\n\n////update gampong\n\nif($values[\"nik\"] != \"\" && $values[\"gampong\"] != \"\") {\n\n    $sql = \"UPDATE pasien \n            SET id_gampong = '\".db_addslashes($values[\"gampong\"]).\"' \n            WHERE nik = '\".db_addslashes($values[\"nik\"]).\"'\";\n\n    DB::Exec($sql);\n}\n\n\nreturn true;"
+		},
+		{
+			"eventId": "EVENT_RECORD_EDITABLE",
+			"code": "if (Security::getUserGroup()==\"staf\" and $values[\"status\"] !=\"belum disetujui\") {\n                $isEditable = false;\n            } else {\n                $isEditable = true;\n        }\n        \n        \n        return $isEditable;"
+		},
+		{
+			"eventId": "EVENT_BEFORESHOW_LIST",
+			"pageType": "list",
+			"code": "// cek user login\n   if (Security::getUserGroup()!=\"Admin\"){\n        \n        // kosongkan nilai kolom\n        $pageObject->hideField(\"setuju\"); \n         $pageObject->hideField(\"batal\");\n    }\n\n\n// Place event code here.\n// Use \"Add Action\" button to add code snippets.\n\n// Place event code here.\n// Use \"Add Action\" button to add code snippets."
+		},
+		{
+			"eventId": "EVENT_JS_ONLOAD",
+			"pageType": "list",
+			"code": "this.on('afterInlineadd', function( fieldsData ) {\n                       location.reload();\n                } )\n                \n                this.on('afterInlineEdit', function( fieldsData ) {\n                       location.reload();\n                } )\n\n// Place event code here.\n// Use \"Add Action\" button to add code snippets."
+		},
+		{
+			"eventId": "EVENT_BEFOREEDIT",
+			"pageType": "edit",
+			"code": "$values[\"tahun\"] = date('Y', strtotime($values[\"tanggal\"]));\n\n// Place event code here.\n// Use \"Add Action\" button to add code snippets.\n\nreturn true;"
+		},
+		{
+			"eventId": "EVENT_BEFOREQUERY_LIST",
+			"pageType": "list",
+			"code": "if (!empty($_SESSION[\"tahun\"])) {\n                                                                    $strWhereClause .= ($strWhereClause != \"\" ? \" AND \" : \"\");\n                                                                    $strWhereClause .= \"tahun = \".intval($_SESSION[\"tahun\"]);\n                                                                    }\n\n// Place event code here.\n// Use \"Add Action\" button to add code snippets."
+		},
+		{
+			"eventId": "EVENT_BEFOREQUERY_PRINT",
+			"pageType": "print",
+			"code": "if (!empty($_SESSION[\"tahun\"])) {\n                                                                    $strWhereClause .= ($strWhereClause != \"\" ? \" AND \" : \"\");\n                                                                    $strWhereClause .= \"tahun = \".intval($_SESSION[\"tahun\"]);\n                                                                    }\n\n// Place event code here.\n// Use \"Add Action\" button to add code snippets.\n\n// Place event code here.\n// Use \"Add Action\" button to add code snippets."
+		},
+		{
+			"eventId": "EVENT_BEFOREMOVENEXT_LIST",
+			"pageType": "list",
+			"code": "if ($data['status'] <>'belum disetujui') \n$pageObject->hideItem(\"hp\", $recordId); \n\n// Place event code here.\n// Use \"Add Action\" button to add code snippets."
+		},
+		{
+			"eventId": "EVENT_BEFOREPROCESSROW_LIST",
+			"pageType": "list",
+			"code": "global $row_number;\n                            $row_number++;\n                            $data[\"No\"] = $row_number;\n\n// Place event code here.\n// Use \"Add Action\" button to add code snippets.\n\nreturn true;"
+		},
+		{
+			"eventId": "EVENT_BEFOREPROCESS_LIST",
+			"pageType": "list",
+			"code": "global $row_number;\n                            $row_number = 0;\n\n// Place event code here.\n// Use \"Add Action\" button to add code snippets."
+		},
+		{
+			"eventId": "EVENT_JS_ONLOAD",
+			"pageType": "add",
+			"code": "var ctrlNik = Runner.getControl(pageid, 'nik');\r\nvar ctrlPencarian = Runner.getControl(pageid, 'pencarian');\r\n\r\nvar delayTimer;\r\n\r\n// fungsi validasi NIK (16 digit angka)\r\nfunction isValidNIK(nik) {\r\n    return /^[0-9]{16}$/.test(nik);\r\n}\r\n\r\n// fungsi utama cek pasien\r\nfunction cekPasien() {\r\n    var nik = ctrlNik.getValue().trim();\r\n\r\n    // kosong\r\n    if(nik === \"\") {\r\n        ctrlPencarian.setValue(\"\");\r\n        return;\r\n    }\r\n\r\n    // validasi panjang\r\n    if(nik.length < 16) {\r\n        ctrlPencarian.setValue(\"NIK belum lengakap (16 digit)\");\r\n        return;\r\n    }\r\n\r\n    // validasi format angka\r\n    if(!isValidNIK(nik)) {\r\n        ctrlPencarian.setValue(\"NIK harus 16 digit angka\");\r\n        return;\r\n    }\r\n\r\n    // loading\r\n    ctrlPencarian.setValue(\"cek data...\");\r\n\r\n    $.ajax({\r\n        url: \"cek_pasien.php\",\r\n        type: \"POST\",\r\n        data: { nik: nik },\r\n        success: function(res) {\r\n            try {\r\n                var data = JSON.parse(res);\r\n\r\n                if(data.status == \"ada\") {\r\n                   ctrlPencarian.setValue(\"pasien ini terdaftar dengan alamat gampong : \" + data.gampong + \", silahkan isi kolom gampong sesuai data terbaru\");\r\n                } else {\r\n                    ctrlPencarian.setValue(\"pasien ini terdaftar silahkan tambah pasien baru\");\r\n                }\r\n            } catch(e) {\r\n                ctrlPencarian.setValue(\"error parsing data\");\r\n                console.log(\"ERROR PARSE:\", e, res);\r\n            }\r\n        },\r\n        error: function(xhr, status, error) {\r\n            ctrlPencarian.setValue(\"error koneksi ke server\");\r\n            console.log(\"AJAX ERROR:\", error);\r\n        }\r\n    });\r\n}\r\n\r\n// 🔥 EVENT KEYUP + DELAY (ANTI SPAM)\r\nctrlNik.on('keyup', function() {\r\n    clearTimeout(delayTimer);\r\n\r\n    delayTimer = setTimeout(function() {\r\n        cekPasien();\r\n    }, 500); // delay 0.5 detik\r\n});\r\n\r\n// 🔥 EVENT CHANGE (PASTE / AUTOFILL)\r\nctrlNik.on('change', function() {\r\n    cekPasien();\r\n});"
+		}
+	],
+	"sortByFields": {
+		"sortOrder": []
+	},
+	"pages": [
+		{
+			"id": "add",
+			"type": "add",
+			"layoutId": "leftbar",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "add-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"add_message"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "add-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"add_save",
+								"add_reset",
+								"add_back_list",
+								"add_cancel"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"supertop": {
+					"modelId": "leftbar-top-edit",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"expand_menu_button",
+								"collapse_button"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"loginform_login",
+								"username_button"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"left": {
+					"modelId": "leftbar-menu",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c0"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c0": {
+							"model": "c0",
+							"items": [
+								"logo"
+							]
+						},
+						"c1": {
+							"model": "c1",
+							"items": [
+								"menu"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "add-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"add_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "simple-edit",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c3"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c3": {
+							"model": "c3",
+							"items": [
+								"integrated_edit_field2",
+								"integrated_edit_field5",
+								"integrated_edit_field",
+								"integrated_edit_field16",
+								"integrated_edit_field4",
+								"integrated_edit_field7",
+								"integrated_edit_field8",
+								"integrated_edit_field14"
+							]
+						}
+					},
+					"deferredItems": [],
+					"columnCount": 1,
+					"inlineLabels": false,
+					"separateLabels": false
+				}
+			},
+			"items": {
+				"add_header": {
+					"type": "add_header"
+				},
+				"add_back_list": {
+					"type": "add_back_list"
+				},
+				"add_cancel": {
+					"type": "add_cancel"
+				},
+				"add_message": {
+					"type": "add_message"
+				},
+				"add_save": {
+					"type": "add_save"
+				},
+				"add_reset": {
+					"type": "add_reset"
+				},
+				"logo": {
+					"type": "logo"
+				},
+				"menu": {
+					"type": "menu"
+				},
+				"integrated_edit_field2": {
+					"field": "tanggal",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field4": {
+					"field": "gampong",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field5": {
+					"field": "nik",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field7": {
+					"field": "diagnosa",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field8": {
+					"field": "keterangan",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field14": {
+					"field": "user",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field16": {
+					"field": "nama_pasien",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"username_button": {
+					"type": "username_button",
+					"items": [
+						"userinfo_link",
+						"logout_link",
+						"adminarea_link",
+						"changepassword_link"
+					]
+				},
+				"loginform_login": {
+					"type": "loginform_login",
+					"popup": false
+				},
+				"userinfo_link": {
+					"type": "userinfo_link"
+				},
+				"logout_link": {
+					"type": "logout_link"
+				},
+				"adminarea_link": {
+					"type": "adminarea_link"
+				},
+				"changepassword_link": {
+					"type": "changepassword_link"
+				},
+				"expand_menu_button": {
+					"type": "expand_menu_button"
+				},
+				"collapse_button": {
+					"type": "collapse_button"
+				},
+				"integrated_edit_field": {
+					"field": "pencarian",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"label": {
+						"field": "pencarian",
+						"table": "daftar",
+						"type": 3
+					},
+					"bold": true,
+					"color": "#c01f1f"
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {
+				"Indonesian": "Tambah baru"
+			}
+		},
+		{
+			"id": "edit",
+			"type": "edit",
+			"layoutId": "leftbar",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "edit-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"edit_message"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "edit-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"edit_save",
+								"edit_back_list",
+								"edit_close"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"hamburger"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"supertop": {
+					"modelId": "leftbar-top-edit",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"expand_menu_button",
+								"collapse_button"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"loginform_login",
+								"username_button"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"left": {
+					"modelId": "leftbar-menu",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c0"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c0": {
+							"model": "c0",
+							"items": [
+								"logo"
+							]
+						},
+						"c1": {
+							"model": "c1",
+							"items": [
+								"menu"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "edit-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"edit_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "simple-edit",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c3"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c3": {
+							"model": "c3",
+							"items": [
+								"integrated_edit_field1",
+								"integrated_edit_field6",
+								"integrated_edit_field2",
+								"integrated_edit_field4",
+								"integrated_edit_field3",
+								"integrated_edit_field5",
+								"integrated_edit_field"
+							]
+						}
+					},
+					"deferredItems": [],
+					"columnCount": 1,
+					"inlineLabels": false,
+					"separateLabels": false
+				}
+			},
+			"items": {
+				"edit_header": {
+					"type": "edit_header"
+				},
+				"edit_message": {
+					"type": "edit_message"
+				},
+				"edit_save": {
+					"type": "edit_save"
+				},
+				"edit_back_list": {
+					"type": "edit_back_list"
+				},
+				"edit_close": {
+					"type": "edit_close"
+				},
+				"hamburger": {
+					"type": "hamburger",
+					"items": [
+						"edit_reset"
+					]
+				},
+				"edit_reset": {
+					"type": "edit_reset"
+				},
+				"integrated_edit_field1": {
+					"field": "tanggal",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"updateOnEdit": false
+				},
+				"integrated_edit_field2": {
+					"field": "nik",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"placeholder": {
+						"field": "nik",
+						"table": "daftar",
+						"type": 5
+					},
+					"updateOnEdit": false
+				},
+				"integrated_edit_field4": {
+					"field": "nama_pasien",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"bold": true,
+					"updateOnEdit": false
+				},
+				"integrated_edit_field3": {
+					"field": "diagnosa",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"updateOnEdit": false
+				},
+				"integrated_edit_field5": {
+					"field": "keterangan",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"updateOnEdit": false
+				},
+				"integrated_edit_field": {
+					"field": "user",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"font-size": "1px",
+					"color": "#ffffff",
+					"updateOnEdit": false
+				},
+				"logo": {
+					"type": "logo"
+				},
+				"menu": {
+					"type": "menu"
+				},
+				"username_button": {
+					"type": "username_button",
+					"items": [
+						"userinfo_link",
+						"logout_link",
+						"changepassword_link"
+					]
+				},
+				"loginform_login": {
+					"type": "loginform_login"
+				},
+				"userinfo_link": {
+					"type": "userinfo_link"
+				},
+				"logout_link": {
+					"type": "logout_link"
+				},
+				"expand_menu_button": {
+					"type": "expand_menu_button"
+				},
+				"collapse_button": {
+					"type": "collapse_button"
+				},
+				"integrated_edit_field6": {
+					"field": "gampong",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"updateOnEdit": false
+				},
+				"changepassword_link": {
+					"type": "changepassword_link"
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "export",
+			"type": "export",
+			"layoutId": "first",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"supertop": {
+					"modelId": "panel-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "export-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"export_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "export-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"export_field10",
+								"export_field1",
+								"export_field6",
+								"export_field2",
+								"export_field7",
+								"export_field4",
+								"export_field3",
+								"export_field8",
+								"export_field9",
+								"export_field13",
+								"export_field14",
+								"export_field5"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"footer": {
+					"modelId": "export-footer",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"export_export",
+								"export_cancel"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"export_header": {
+					"type": "export_header"
+				},
+				"export_export": {
+					"type": "export_export"
+				},
+				"export_cancel": {
+					"type": "export_cancel"
+				},
+				"export_field1": {
+					"field": "tanggal",
+					"type": "export_field"
+				},
+				"export_field2": {
+					"field": "nik",
+					"type": "export_field"
+				},
+				"export_field3": {
+					"field": "diagnosa",
+					"type": "export_field"
+				},
+				"export_field5": {
+					"field": "keterangan",
+					"type": "export_field"
+				},
+				"export_field6": {
+					"field": "nama",
+					"type": "export_field"
+				},
+				"export_field7": {
+					"field": "tanggal_lahir",
+					"type": "export_field"
+				},
+				"export_field8": {
+					"field": "bpjs",
+					"type": "export_field"
+				},
+				"export_field9": {
+					"field": "gampong",
+					"type": "export_field"
+				},
+				"export_field10": {
+					"field": "bulan",
+					"type": "export_field"
+				},
+				"export_field4": {
+					"field": "usia",
+					"type": "export_field"
+				},
+				"export_field13": {
+					"field": "hp_pasien",
+					"type": "export_field"
+				},
+				"export_field14": {
+					"field": "hp_kader",
+					"type": "export_field"
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {},
+			"exportFormat": 2,
+			"exportDelimiter": ",",
+			"exportSelectDelimiter": false,
+			"exportSelectFields": false
+		},
+		{
+			"id": "import",
+			"type": "import",
+			"layoutId": "first",
+			"disabled": 1,
+			"default": 0,
+			"forms": {
+				"supertop": {
+					"modelId": "panel-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "import-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"import_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "import-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"import_field",
+								"import_field1",
+								"import_field2",
+								"import_field3",
+								"import_field5",
+								"import_field6",
+								"import_field7",
+								"import_field8",
+								"import_field9",
+								"import_field10"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"import_header": {
+					"type": "import_header"
+				},
+				"import_field": {
+					"field": "id",
+					"type": "import_field"
+				},
+				"import_field1": {
+					"field": "tanggal",
+					"type": "import_field"
+				},
+				"import_field2": {
+					"field": "nik",
+					"type": "import_field"
+				},
+				"import_field3": {
+					"field": "diagnosa",
+					"type": "import_field"
+				},
+				"import_field5": {
+					"field": "keterangan",
+					"type": "import_field"
+				},
+				"import_field6": {
+					"field": "nama",
+					"type": "import_field"
+				},
+				"import_field7": {
+					"field": "tanggal_lahir",
+					"type": "import_field"
+				},
+				"import_field8": {
+					"field": "bpjs",
+					"type": "import_field"
+				},
+				"import_field9": {
+					"field": "gampong",
+					"type": "import_field"
+				},
+				"import_field10": {
+					"field": "bulan",
+					"type": "import_field"
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "list",
+			"type": "list",
+			"layoutId": "leftbar",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "list-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"add",
+								"delete",
+								"custom_button_container",
+								"export",
+								"custom_button"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"details_found",
+								"page_size",
+								"print_panel"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "list-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						},
+						{
+							"section": "",
+							"cells": [
+								{
+									"cell": "c"
+								}
+							]
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"pagination"
+							]
+						},
+						"c": {
+							"model": "c1",
+							"items": [],
+							"align": "left",
+							"padding": {
+								"top": "100px"
+							}
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"left": {
+					"modelId": "leftbar-menu",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c0"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c0": {
+							"model": "c0",
+							"items": [
+								"logo"
+							]
+						},
+						"c1": {
+							"model": "c1",
+							"items": [
+								"menu",
+								"search_panel",
+								"filter_panel"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"supertop": {
+					"modelId": "leftbar-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"expand_menu_button",
+								"collapse_button",
+								"breadcrumb"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"simple_search",
+								"list_options",
+								"loginform_login",
+								"username_button"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "horizontal-grid",
+					"grid": [
+						{
+							"section": "head",
+							"cells": [
+								{
+									"cell": "headcell_icons"
+								},
+								{
+									"cell": "headcell_checkbox"
+								},
+								{
+									"cell": "headcell_field16"
+								},
+								{
+									"cell": "headcell_field"
+								},
+								{
+									"cell": "headcell_field1"
+								},
+								{
+									"cell": "headcell_field2"
+								},
+								{
+									"cell": "headcell_field3"
+								},
+								{
+									"cell": "headcell_field4"
+								},
+								{
+									"cell": "headcell_field5"
+								},
+								{
+									"cell": "headcell_field6"
+								},
+								{
+									"cell": "headcell_field13"
+								},
+								{
+									"cell": "headcell_field7"
+								},
+								{
+									"cell": "headcell_field17"
+								},
+								{
+									"cell": "headcell_field8"
+								},
+								{
+									"cell": "headcell_field9"
+								},
+								{
+									"cell": "headcell_field10"
+								},
+								{
+									"cell": "headcell_field11"
+								}
+							]
+						},
+						{
+							"section": "body",
+							"cells": [
+								{
+									"cell": "cell_icons"
+								},
+								{
+									"cell": "cell_checkbox"
+								},
+								{
+									"cell": "headcell_field20"
+								},
+								{
+									"cell": "cell_field"
+								},
+								{
+									"cell": "cell_field1"
+								},
+								{
+									"cell": "cell_field2"
+								},
+								{
+									"cell": "cell_field3"
+								},
+								{
+									"cell": "cell_field4"
+								},
+								{
+									"cell": "cell_field5"
+								},
+								{
+									"cell": "cell_field6"
+								},
+								{
+									"cell": "headcell_field14"
+								},
+								{
+									"cell": "cell_field7"
+								},
+								{
+									"cell": "headcell_field18"
+								},
+								{
+									"cell": "cell_field8"
+								},
+								{
+									"cell": "cell_field9"
+								},
+								{
+									"cell": "cell_field10"
+								},
+								{
+									"cell": "cell_field11"
+								}
+							]
+						},
+						{
+							"section": "foot",
+							"cells": [
+								{
+									"cell": "footcell_icons"
+								},
+								{
+									"cell": "footcell_checkbox"
+								},
+								{
+									"cell": "headcell_field21"
+								},
+								{
+									"cell": "footcell_field"
+								},
+								{
+									"cell": "footcell_field1"
+								},
+								{
+									"cell": "footcell_field2"
+								},
+								{
+									"cell": "footcell_field3"
+								},
+								{
+									"cell": "footcell_field4"
+								},
+								{
+									"cell": "footcell_field5"
+								},
+								{
+									"cell": "footcell_field6"
+								},
+								{
+									"cell": "headcell_field15"
+								},
+								{
+									"cell": "footcell_field7"
+								},
+								{
+									"cell": "headcell_field19"
+								},
+								{
+									"cell": "footcell_field8"
+								},
+								{
+									"cell": "footcell_field9"
+								},
+								{
+									"cell": "footcell_field10"
+								},
+								{
+									"cell": "footcell_field11"
+								}
+							]
+						}
+					],
+					"cells": {
+						"headcell_field": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field12"
+							],
+							"field": "id",
+							"columnName": "field"
+						},
+						"cell_field": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field"
+							],
+							"field": "id",
+							"columnName": "field"
+						},
+						"footcell_field": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "id",
+							"columnName": "field"
+						},
+						"headcell_field1": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field13"
+							],
+							"field": "tanggal",
+							"columnName": "field"
+						},
+						"cell_field1": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field1"
+							],
+							"field": "tanggal",
+							"columnName": "field"
+						},
+						"footcell_field1": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "tanggal",
+							"columnName": "field"
+						},
+						"headcell_field2": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field14"
+							],
+							"field": "nama",
+							"columnName": "field"
+						},
+						"cell_field2": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field6",
+								"hp"
+							],
+							"field": "nama",
+							"columnName": "field",
+							"align": "left",
+							"orientation": "vertical"
+						},
+						"footcell_field2": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "nama",
+							"columnName": "field"
+						},
+						"headcell_field3": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field15"
+							],
+							"field": "nik",
+							"columnName": "field"
+						},
+						"cell_field3": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field2"
+							],
+							"field": "nik",
+							"columnName": "field"
+						},
+						"footcell_field3": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "nik",
+							"columnName": "field"
+						},
+						"headcell_field4": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field16"
+							],
+							"field": "bpjs",
+							"columnName": "field"
+						},
+						"cell_field4": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field8"
+							],
+							"field": "bpjs",
+							"columnName": "field"
+						},
+						"footcell_field4": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "bpjs",
+							"columnName": "field"
+						},
+						"headcell_field5": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field17"
+							],
+							"field": "diagnosa",
+							"columnName": "field"
+						},
+						"cell_field5": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field3"
+							],
+							"field": "diagnosa",
+							"columnName": "field"
+						},
+						"footcell_field5": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "diagnosa",
+							"columnName": "field"
+						},
+						"headcell_field6": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field18"
+							],
+							"field": "tanggal_lahir",
+							"columnName": "field"
+						},
+						"cell_field6": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field7"
+							],
+							"field": "tanggal_lahir",
+							"columnName": "field"
+						},
+						"footcell_field6": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "tanggal_lahir",
+							"columnName": "field"
+						},
+						"headcell_field7": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field19"
+							],
+							"field": "gampong",
+							"columnName": "field"
+						},
+						"cell_field7": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field9"
+							],
+							"field": "gampong",
+							"columnName": "field"
+						},
+						"footcell_field7": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "gampong",
+							"columnName": "field"
+						},
+						"headcell_field8": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field20"
+							],
+							"field": "hp_kader",
+							"columnName": "field"
+						},
+						"cell_field8": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field4"
+							],
+							"field": "hp_kader",
+							"columnName": "field"
+						},
+						"footcell_field8": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "hp_kader",
+							"columnName": "field"
+						},
+						"headcell_field9": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field21"
+							],
+							"field": "status",
+							"columnName": "field"
+						},
+						"cell_field9": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field10"
+							],
+							"field": "status",
+							"columnName": "field"
+						},
+						"footcell_field9": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "status",
+							"columnName": "field"
+						},
+						"headcell_field10": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field22"
+							],
+							"field": "user",
+							"columnName": "field"
+						},
+						"cell_field10": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field11"
+							],
+							"field": "user",
+							"columnName": "field"
+						},
+						"footcell_field10": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "user",
+							"columnName": "field"
+						},
+						"headcell_field11": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field23"
+							],
+							"field": "keterangan",
+							"columnName": "field"
+						},
+						"cell_field11": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field5"
+							],
+							"field": "keterangan",
+							"columnName": "field"
+						},
+						"footcell_field11": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "keterangan",
+							"columnName": "field"
+						},
+						"headcell_checkbox": {
+							"model": "headcell_checkbox",
+							"items": [
+								"grid_checkbox_head"
+							],
+							"columnName": "checkbox",
+							"field": ""
+						},
+						"cell_checkbox": {
+							"model": "cell_checkbox",
+							"items": [
+								"grid_checkbox"
+							],
+							"columnName": "checkbox",
+							"field": ""
+						},
+						"footcell_checkbox": {
+							"model": "footcell_checkbox",
+							"items": [],
+							"columnName": "checkbox",
+							"field": ""
+						},
+						"headcell_icons": {
+							"model": "headcell_icons",
+							"items": [],
+							"columnName": "edit",
+							"field": ""
+						},
+						"cell_icons": {
+							"model": "cell_icons",
+							"items": [
+								"grid_edit"
+							],
+							"columnName": "edit",
+							"field": ""
+						},
+						"footcell_icons": {
+							"model": "footcell_icons",
+							"items": [],
+							"columnName": "edit",
+							"field": ""
+						},
+						"headcell_field13": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label"
+							],
+							"columnName": "field",
+							"field": "usia"
+						},
+						"headcell_field14": {
+							"model": "cell_field",
+							"items": [
+								"grid_field"
+							],
+							"columnName": "field",
+							"field": "usia"
+						},
+						"headcell_field15": {
+							"model": "footcell_field",
+							"items": [],
+							"columnName": "field",
+							"field": "usia"
+						},
+						"headcell_field17": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label2"
+							],
+							"columnName": "field",
+							"field": "hp_pasien"
+						},
+						"headcell_field18": {
+							"model": "cell_field",
+							"items": [
+								"grid_field2"
+							],
+							"columnName": "field",
+							"field": "hp_pasien"
+						},
+						"headcell_field19": {
+							"model": "footcell_field",
+							"items": [],
+							"columnName": "field",
+							"field": "hp_pasien"
+						},
+						"headcell_field16": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label1"
+							],
+							"columnName": "field",
+							"field": "No"
+						},
+						"headcell_field20": {
+							"model": "cell_field",
+							"items": [
+								"grid_field1"
+							],
+							"columnName": "field",
+							"field": "No"
+						},
+						"headcell_field21": {
+							"model": "footcell_field",
+							"items": [],
+							"columnName": "field",
+							"field": "No"
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "list-sidebar-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c2": {
+							"model": "c2",
+							"items": [
+								"master_info"
+							],
+							"align": "center"
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"page_size": {
+					"type": "page_size"
+				},
+				"details_found": {
+					"type": "details_found"
+				},
+				"breadcrumb": {
+					"type": "breadcrumb"
+				},
+				"logo": {
+					"type": "logo"
+				},
+				"menu": {
+					"type": "menu"
+				},
+				"simple_search": {
+					"type": "simple_search"
+				},
+				"pagination": {
+					"type": "pagination"
+				},
+				"grid_checkbox": {
+					"type": "grid_checkbox"
+				},
+				"grid_checkbox_head": {
+					"type": "grid_checkbox_head"
+				},
+				"search_panel": {
+					"type": "search_panel",
+					"items": [
+						"search_panel_field",
+						"search_panel_field13",
+						"search_panel_field1",
+						"search_panel_field12",
+						"search_panel_field11",
+						"search_panel_field10",
+						"search_panel_field9",
+						"search_panel_field8",
+						"search_panel_field7",
+						"search_panel_field6",
+						"search_panel_field5",
+						"search_panel_field4",
+						"search_panel_field3",
+						"search_panel_field2"
+					],
+					"_flexiblePanel": true
+				},
+				"list_options": {
+					"type": "list_options",
+					"items": [
+						"export_selected",
+						"delete_selected",
+						"-3",
+						"advsearch_link",
+						"show_search_panel",
+						"hide_search_panel",
+						"-1"
+					]
+				},
+				"show_search_panel": {
+					"type": "show_search_panel"
+				},
+				"hide_search_panel": {
+					"type": "hide_search_panel"
+				},
+				"search_panel_field": {
+					"field": "diagnosa",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"search_panel_field2": {
+					"field": "id",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"search_panel_field3": {
+					"field": "keterangan",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"search_panel_field4": {
+					"field": "nik",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"search_panel_field5": {
+					"field": "tanggal",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"expand_menu_button": {
+					"type": "expand_menu_button",
+					"mobileDisplay": ""
+				},
+				"collapse_button": {
+					"type": "collapse_button"
+				},
+				"add": {
+					"type": "add"
+				},
+				"grid_edit": {
+					"type": "grid_edit",
+					"popup": true
+				},
+				"print_panel": {
+					"type": "print_panel",
+					"items": [
+						"print_scope",
+						"print_records",
+						"print_button"
+					]
+				},
+				"print_scope": {
+					"type": "print_scope"
+				},
+				"print_button": {
+					"type": "print_button"
+				},
+				"print_records": {
+					"type": "print_records"
+				},
+				"export": {
+					"type": "export",
+					"label": {
+						"type": 0,
+						"text": "download excel"
+					}
+				},
+				"-": {
+					"type": "-"
+				},
+				"export_selected": {
+					"type": "export_selected"
+				},
+				"-1": {
+					"type": "-"
+				},
+				"-2": {
+					"type": "-"
+				},
+				"delete": {
+					"type": "delete"
+				},
+				"delete_selected": {
+					"type": "delete_selected"
+				},
+				"advsearch_link": {
+					"type": "advsearch_link"
+				},
+				"-3": {
+					"type": "-"
+				},
+				"simple_grid_field": {
+					"field": "id",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field1": {
+					"field": "tanggal",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field2": {
+					"field": "nik",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field3": {
+					"field": "diagnosa",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field4": {
+					"field": "hp_kader",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field5": {
+					"field": "keterangan",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field6": {
+					"field": "nama",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"search_panel_field6": {
+					"field": "nama",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"simple_grid_field7": {
+					"field": "tanggal_lahir",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"search_panel_field7": {
+					"field": "tanggal_lahir",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"simple_grid_field8": {
+					"field": "bpjs",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"search_panel_field8": {
+					"field": "bpjs",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"simple_grid_field9": {
+					"field": "gampong",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"search_panel_field9": {
+					"field": "gampong",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"search_panel_field10": {
+					"field": "bulan",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"search_panel_field11": {
+					"field": "status",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"filter_panel": {
+					"type": "filter_panel",
+					"items": [
+						"filter_panel_field1",
+						"filter_panel_field2",
+						"filter_panel_field"
+					]
+				},
+				"filter_panel_field": {
+					"field": "bulan",
+					"type": "filter_panel_field"
+				},
+				"filter_panel_field1": {
+					"field": "diagnosa",
+					"type": "filter_panel_field"
+				},
+				"simple_grid_field10": {
+					"field": "status",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"username_button": {
+					"type": "username_button",
+					"items": [
+						"userinfo_link",
+						"logout_link",
+						"adminarea_link",
+						"changepassword_link"
+					]
+				},
+				"loginform_login": {
+					"type": "loginform_login",
+					"popup": false
+				},
+				"userinfo_link": {
+					"type": "userinfo_link"
+				},
+				"logout_link": {
+					"type": "logout_link"
+				},
+				"adminarea_link": {
+					"type": "adminarea_link"
+				},
+				"simple_grid_field11": {
+					"field": "user",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"search_panel_field12": {
+					"field": "user",
+					"type": "search_panel_field",
+					"alwaysOnPanel": false,
+					"required": false
+				},
+				"filter_panel_field2": {
+					"field": "user",
+					"type": "filter_panel_field"
+				},
+				"custom_button_container": {
+					"type": "custom_button_container",
+					"items": [
+						"setuju",
+						"batal"
+					],
+					"icon": {
+						"fa": "th"
+					},
+					"buttonSize": "normal",
+					"buttonStyle": "danger"
+				},
+				"setuju": {
+					"eventId": "setujui",
+					"label": {
+						"text": "Setujui",
+						"type": 0
+					},
+					"type": "custom_button",
+					"eventGid": 1795196729
+				},
+				"batal": {
+					"eventId": "batal_setuju",
+					"label": {
+						"text": "Batal Setuju",
+						"type": 0
+					},
+					"type": "custom_button",
+					"eventGid": 503053587
+				},
+				"master_info": {
+					"type": "master_info",
+					"tables": {
+						"1902861381": "true",
+						"2461982463": "true"
+					},
+					"customCSS": "/* Put  your custom CSS code here */\n\n:host {\n display: none;\n}\n",
+					"padding": {
+						"top": "-50px"
+					}
+				},
+				"simple_grid_field12": {
+					"type": "grid_field_label",
+					"field": "id"
+				},
+				"simple_grid_field13": {
+					"type": "grid_field_label",
+					"field": "tanggal"
+				},
+				"simple_grid_field14": {
+					"type": "grid_field_label",
+					"field": "nama"
+				},
+				"simple_grid_field15": {
+					"type": "grid_field_label",
+					"field": "nik"
+				},
+				"simple_grid_field16": {
+					"type": "grid_field_label",
+					"field": "bpjs"
+				},
+				"simple_grid_field17": {
+					"type": "grid_field_label",
+					"field": "diagnosa"
+				},
+				"simple_grid_field18": {
+					"type": "grid_field_label",
+					"field": "tanggal_lahir"
+				},
+				"simple_grid_field19": {
+					"type": "grid_field_label",
+					"field": "gampong"
+				},
+				"simple_grid_field20": {
+					"type": "grid_field_label",
+					"field": "hp_kader"
+				},
+				"simple_grid_field21": {
+					"type": "grid_field_label",
+					"field": "status"
+				},
+				"simple_grid_field22": {
+					"type": "grid_field_label",
+					"field": "user"
+				},
+				"simple_grid_field23": {
+					"type": "grid_field_label",
+					"field": "keterangan"
+				},
+				"grid_field": {
+					"field": "usia",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_label": {
+					"type": "grid_field_label",
+					"field": "usia"
+				},
+				"search_panel_field1": {
+					"field": "usia",
+					"type": "search_panel_field",
+					"required": false
+				},
+				"grid_field1": {
+					"field": "No",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_label1": {
+					"type": "grid_field_label",
+					"field": "No"
+				},
+				"grid_field2": {
+					"field": "hp_pasien",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_label2": {
+					"type": "grid_field_label",
+					"field": "hp_pasien"
+				},
+				"changepassword_link": {
+					"type": "changepassword_link"
+				},
+				"hp": {
+					"field": "edit_HP_pasien",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"search_panel_field13": {
+					"field": "No",
+					"type": "search_panel_field",
+					"required": false,
+					"alwaysOnPanel": false
+				},
+				"custom_button": {
+					"eventId": "WA",
+					"label": {
+						"text": "WA",
+						"type": 0
+					},
+					"type": "custom_button",
+					"buttonStyle": "success",
+					"eventGid": 3052972138
+				}
+			},
+			"dbProps": {},
+			"responsiveGrid": false,
+			"spreadsheetGrid": false,
+			"version": 11,
+			"pageWidth": "full",
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "masterlist",
+			"type": "masterlist",
+			"layoutId": "masterlist",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "empty-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "empty-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "masterlist-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"back_master",
+								"masterlist_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "simple-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"masterlist_header": {
+					"type": "masterlist_header"
+				},
+				"back_master": {
+					"type": "back_master"
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "masterprint",
+			"type": "masterprint",
+			"layoutId": "masterprint",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "empty-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "empty-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "masterlist-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"masterprint_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "simple-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"masterprint_header": {
+					"type": "masterprint_header"
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "print",
+			"type": "print",
+			"layoutId": "basic",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "print-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"print_pages"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "print-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "print-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c4"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c2": {
+							"model": "c2",
+							"items": [
+								"print_header",
+								"print_subheader"
+							]
+						},
+						"c1": {
+							"model": "c1",
+							"items": [
+								"print_pdf"
+							]
+						},
+						"c4": {
+							"model": "c4",
+							"items": [
+								"master_info"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "horizontal-grid",
+					"grid": [
+						{
+							"section": "head",
+							"cells": [
+								{
+									"cell": "headcell_field16"
+								},
+								{
+									"cell": "headcell_field"
+								},
+								{
+									"cell": "headcell_field1"
+								},
+								{
+									"cell": "headcell_field2"
+								},
+								{
+									"cell": "headcell_field3"
+								},
+								{
+									"cell": "headcell_field4"
+								},
+								{
+									"cell": "headcell_field5"
+								},
+								{
+									"cell": "headcell_field6"
+								},
+								{
+									"cell": "headcell_field13"
+								},
+								{
+									"cell": "headcell_field7"
+								},
+								{
+									"cell": "headcell_field17"
+								},
+								{
+									"cell": "headcell_field8"
+								},
+								{
+									"cell": "headcell_field9"
+								},
+								{
+									"cell": "headcell_field10"
+								},
+								{
+									"cell": "headcell_field11"
+								},
+								{
+									"cell": "headcell_field12"
+								}
+							]
+						},
+						{
+							"section": "body",
+							"cells": [
+								{
+									"cell": "headcell_field20"
+								},
+								{
+									"cell": "cell_field"
+								},
+								{
+									"cell": "cell_field1"
+								},
+								{
+									"cell": "cell_field2"
+								},
+								{
+									"cell": "cell_field3"
+								},
+								{
+									"cell": "cell_field4"
+								},
+								{
+									"cell": "cell_field5"
+								},
+								{
+									"cell": "cell_field6"
+								},
+								{
+									"cell": "headcell_field14"
+								},
+								{
+									"cell": "cell_field7"
+								},
+								{
+									"cell": "headcell_field18"
+								},
+								{
+									"cell": "cell_field8"
+								},
+								{
+									"cell": "cell_field9"
+								},
+								{
+									"cell": "cell_field10"
+								},
+								{
+									"cell": "cell_field11"
+								},
+								{
+									"cell": "cell_field12"
+								}
+							]
+						},
+						{
+							"section": "foot",
+							"cells": [
+								{
+									"cell": "headcell_field21"
+								},
+								{
+									"cell": "footcell_field"
+								},
+								{
+									"cell": "footcell_field1"
+								},
+								{
+									"cell": "footcell_field2"
+								},
+								{
+									"cell": "footcell_field3"
+								},
+								{
+									"cell": "footcell_field4"
+								},
+								{
+									"cell": "footcell_field5"
+								},
+								{
+									"cell": "footcell_field6"
+								},
+								{
+									"cell": "headcell_field15"
+								},
+								{
+									"cell": "footcell_field7"
+								},
+								{
+									"cell": "headcell_field19"
+								},
+								{
+									"cell": "footcell_field8"
+								},
+								{
+									"cell": "footcell_field9"
+								},
+								{
+									"cell": "footcell_field10"
+								},
+								{
+									"cell": "footcell_field11"
+								},
+								{
+									"cell": "footcell_field12"
+								}
+							]
+						}
+					],
+					"cells": {
+						"headcell_field": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field12"
+							],
+							"field": "id",
+							"columnName": "field"
+						},
+						"cell_field": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field"
+							],
+							"field": "id",
+							"columnName": "field"
+						},
+						"footcell_field": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "id",
+							"columnName": "field"
+						},
+						"headcell_field1": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field13"
+							],
+							"field": "tanggal",
+							"columnName": "field"
+						},
+						"cell_field1": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field1"
+							],
+							"field": "tanggal",
+							"columnName": "field"
+						},
+						"footcell_field1": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "tanggal",
+							"columnName": "field"
+						},
+						"headcell_field2": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field14"
+							],
+							"field": "nama",
+							"columnName": "field"
+						},
+						"cell_field2": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field6",
+								"hp"
+							],
+							"field": "nama",
+							"columnName": "field",
+							"align": "left",
+							"orientation": "vertical"
+						},
+						"footcell_field2": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "nama",
+							"columnName": "field"
+						},
+						"headcell_field3": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field15"
+							],
+							"field": "nik",
+							"columnName": "field"
+						},
+						"cell_field3": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field2"
+							],
+							"field": "nik",
+							"columnName": "field"
+						},
+						"footcell_field3": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "nik",
+							"columnName": "field"
+						},
+						"headcell_field4": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field16"
+							],
+							"field": "bpjs",
+							"columnName": "field"
+						},
+						"cell_field4": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field8"
+							],
+							"field": "bpjs",
+							"columnName": "field"
+						},
+						"footcell_field4": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "bpjs",
+							"columnName": "field"
+						},
+						"headcell_field5": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field17"
+							],
+							"field": "diagnosa",
+							"columnName": "field"
+						},
+						"cell_field5": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field3"
+							],
+							"field": "diagnosa",
+							"columnName": "field"
+						},
+						"footcell_field5": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "diagnosa",
+							"columnName": "field"
+						},
+						"headcell_field6": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field18"
+							],
+							"field": "tanggal_lahir",
+							"columnName": "field"
+						},
+						"cell_field6": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field7"
+							],
+							"field": "tanggal_lahir",
+							"columnName": "field"
+						},
+						"footcell_field6": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "tanggal_lahir",
+							"columnName": "field"
+						},
+						"headcell_field7": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field19"
+							],
+							"field": "gampong",
+							"columnName": "field"
+						},
+						"cell_field7": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field9"
+							],
+							"field": "gampong",
+							"columnName": "field"
+						},
+						"footcell_field7": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "gampong",
+							"columnName": "field"
+						},
+						"headcell_field8": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field20"
+							],
+							"field": "hp_kader",
+							"columnName": "field"
+						},
+						"cell_field8": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field4"
+							],
+							"field": "hp_kader",
+							"columnName": "field"
+						},
+						"footcell_field8": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "hp_kader",
+							"columnName": "field"
+						},
+						"headcell_field9": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field21"
+							],
+							"field": "status",
+							"columnName": "field"
+						},
+						"cell_field9": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field10"
+							],
+							"field": "status",
+							"columnName": "field"
+						},
+						"footcell_field9": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "status",
+							"columnName": "field"
+						},
+						"headcell_field10": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field22"
+							],
+							"field": "user",
+							"columnName": "field"
+						},
+						"cell_field10": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field11"
+							],
+							"field": "user",
+							"columnName": "field"
+						},
+						"footcell_field10": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "user",
+							"columnName": "field"
+						},
+						"headcell_field11": {
+							"model": "headcell_field",
+							"items": [
+								"simple_grid_field23"
+							],
+							"field": "keterangan",
+							"columnName": "field"
+						},
+						"cell_field11": {
+							"model": "cell_field",
+							"items": [
+								"simple_grid_field5"
+							],
+							"field": "keterangan",
+							"columnName": "field"
+						},
+						"footcell_field11": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "keterangan",
+							"columnName": "field"
+						},
+						"footcell_field12": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "",
+							"columnName": ""
+						},
+						"headcell_field12": {
+							"model": "headcell_field",
+							"items": [],
+							"field": "",
+							"columnName": ""
+						},
+						"cell_field12": {
+							"model": "cell_field",
+							"items": [],
+							"field": "",
+							"columnName": ""
+						},
+						"headcell_field13": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label"
+							],
+							"columnName": "field",
+							"field": "usia"
+						},
+						"headcell_field14": {
+							"model": "cell_field",
+							"items": [
+								"grid_field"
+							],
+							"columnName": "field",
+							"field": "usia"
+						},
+						"headcell_field15": {
+							"model": "footcell_field",
+							"items": [],
+							"columnName": "field",
+							"field": "usia"
+						},
+						"headcell_field17": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label2"
+							],
+							"columnName": "field",
+							"field": "hp_pasien"
+						},
+						"headcell_field18": {
+							"model": "cell_field",
+							"items": [
+								"grid_field2"
+							],
+							"columnName": "field",
+							"field": "hp_pasien"
+						},
+						"headcell_field19": {
+							"model": "footcell_field",
+							"items": [],
+							"columnName": "field",
+							"field": "hp_pasien"
+						},
+						"headcell_field16": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label1"
+							],
+							"columnName": "field",
+							"field": "No"
+						},
+						"headcell_field20": {
+							"model": "cell_field",
+							"items": [
+								"grid_field1"
+							],
+							"columnName": "field",
+							"field": "No"
+						},
+						"headcell_field21": {
+							"model": "footcell_field",
+							"items": [],
+							"columnName": "field",
+							"field": "No"
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"print_header": {
+					"type": "print_header",
+					"title": {
+						"page": "print",
+						"table": "daftar",
+						"type": 7
+					}
+				},
+				"print_subheader": {
+					"type": "print_subheader"
+				},
+				"print_pages": {
+					"type": "print_pages"
+				},
+				"simple_grid_field": {
+					"field": "id",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field1": {
+					"field": "tanggal",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field2": {
+					"field": "nik",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field3": {
+					"field": "diagnosa",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field5": {
+					"field": "keterangan",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field6": {
+					"field": "nama",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field7": {
+					"field": "tanggal_lahir",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field8": {
+					"field": "bpjs",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field9": {
+					"field": "gampong",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field10": {
+					"field": "status",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field11": {
+					"field": "user",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"print_pdf": {
+					"type": "print_pdf",
+					"targetPages": [],
+					"splitModes": [],
+					"scopes": [],
+					"pageSize": "A4",
+					"label": {
+						"type": 0,
+						"text": "download"
+					}
+				},
+				"simple_grid_field4": {
+					"field": "hp_kader",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"master_info": {
+					"type": "master_info",
+					"tables": {
+						"1902861381": "true",
+						"2461982463": "true"
+					}
+				},
+				"simple_grid_field12": {
+					"type": "grid_field_label",
+					"field": "id"
+				},
+				"simple_grid_field13": {
+					"type": "grid_field_label",
+					"field": "tanggal"
+				},
+				"simple_grid_field14": {
+					"type": "grid_field_label",
+					"field": "nama"
+				},
+				"hp": {
+					"field": "edit_HP_pasien",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"simple_grid_field15": {
+					"type": "grid_field_label",
+					"field": "nik"
+				},
+				"simple_grid_field16": {
+					"type": "grid_field_label",
+					"field": "bpjs"
+				},
+				"simple_grid_field17": {
+					"type": "grid_field_label",
+					"field": "diagnosa"
+				},
+				"simple_grid_field18": {
+					"type": "grid_field_label",
+					"field": "tanggal_lahir"
+				},
+				"simple_grid_field19": {
+					"type": "grid_field_label",
+					"field": "gampong"
+				},
+				"simple_grid_field20": {
+					"type": "grid_field_label",
+					"field": "hp_kader"
+				},
+				"simple_grid_field21": {
+					"type": "grid_field_label",
+					"field": "status"
+				},
+				"simple_grid_field22": {
+					"type": "grid_field_label",
+					"field": "user"
+				},
+				"simple_grid_field23": {
+					"type": "grid_field_label",
+					"field": "keterangan"
+				},
+				"grid_field_label": {
+					"type": "grid_field_label",
+					"field": "usia"
+				},
+				"grid_field": {
+					"field": "usia",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_label2": {
+					"type": "grid_field_label",
+					"field": "hp_pasien"
+				},
+				"grid_field2": {
+					"field": "hp_pasien",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				},
+				"grid_field_label1": {
+					"type": "grid_field_label",
+					"field": "No"
+				},
+				"grid_field1": {
+					"field": "No",
+					"type": "grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {
+				"Indonesian": "Daftar Kunjungan Pasien"
+			}
+		},
+		{
+			"id": "search",
+			"type": "search",
+			"layoutId": "nomenu",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "search-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1",
+									"colspan": 2
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "search-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"search_search",
+								"search_reset",
+								"search_back_list",
+								"search_cancel"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "search-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"search_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "simple-search",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c3"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c3": {
+							"model": "c3",
+							"items": [
+								"integrated_search_field",
+								"integrated_search_field1",
+								"integrated_search_field2",
+								"integrated_search_field3",
+								"integrated_search_field5",
+								"integrated_search_field6",
+								"integrated_search_field7",
+								"integrated_search_field8",
+								"integrated_search_field9",
+								"integrated_search_field10",
+								"integrated_search_field11",
+								"integrated_search_field12",
+								"integrated_search_field4",
+								"integrated_search_field13",
+								"integrated_search_field14",
+								"integrated_search_field15",
+								"integrated_search_field16",
+								"integrated_search_field17",
+								"integrated_search_field18",
+								"integrated_search_field19"
+							]
+						}
+					},
+					"deferredItems": [],
+					"separateLabels": false
+				}
+			},
+			"items": {
+				"search_header": {
+					"type": "search_header"
+				},
+				"search_reset": {
+					"type": "search_reset"
+				},
+				"search_back_list": {
+					"type": "search_back_list"
+				},
+				"search_search": {
+					"type": "search_search"
+				},
+				"search_cancel": {
+					"type": "search_cancel"
+				},
+				"integrated_search_field": {
+					"field": "id",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field1": {
+					"field": "tanggal",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field2": {
+					"field": "nik",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field3": {
+					"field": "diagnosa",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field4": {
+					"field": "hp_kader",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field5": {
+					"field": "keterangan",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field6": {
+					"field": "nama",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field7": {
+					"field": "tanggal_lahir",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field8": {
+					"field": "bpjs",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field9": {
+					"field": "gampong",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field10": {
+					"field": "bulan",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field11": {
+					"field": "status",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field12": {
+					"field": "user",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field13": {
+					"field": "nama_pasien",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field14": {
+					"field": "usia",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field15": {
+					"field": "tahun",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field16": {
+					"field": "hp_pasien",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field17": {
+					"field": "edit_HP_pasien",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field18": {
+					"field": "No",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				},
+				"integrated_search_field19": {
+					"field": "pencarian",
+					"type": "integrated_search_field",
+					"orientation": 0,
+					"required": false
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "view",
+			"type": "view",
+			"layoutId": "nomenu",
+			"disabled": 1,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "view-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1",
+									"colspan": 2
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "view-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"view_back_list",
+								"view_close"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"hamburger"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "view-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"view_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "simple-edit",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c3"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c3": {
+							"model": "c3",
+							"items": [
+								"integrated_edit_field",
+								"integrated_edit_field1",
+								"integrated_edit_field2",
+								"integrated_edit_field3",
+								"integrated_edit_field5",
+								"integrated_edit_field6",
+								"integrated_edit_field7",
+								"integrated_edit_field8",
+								"integrated_edit_field9",
+								"integrated_edit_field10"
+							]
+						}
+					},
+					"deferredItems": [],
+					"columnCount": 1,
+					"inlineLabels": false,
+					"separateLabels": false
+				}
+			},
+			"items": {
+				"view_header": {
+					"type": "view_header"
+				},
+				"view_back_list": {
+					"type": "view_back_list"
+				},
+				"view_close": {
+					"type": "view_close"
+				},
+				"hamburger": {
+					"type": "hamburger",
+					"items": [
+						"view_edit"
+					]
+				},
+				"view_edit": {
+					"type": "view_edit"
+				},
+				"integrated_edit_field": {
+					"field": "id",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field1": {
+					"field": "tanggal",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field2": {
+					"field": "nik",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field3": {
+					"field": "diagnosa",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field5": {
+					"field": "keterangan",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field6": {
+					"field": "nama",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field7": {
+					"field": "tanggal_lahir",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field8": {
+					"field": "bpjs",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field9": {
+					"field": "gampong",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field10": {
+					"field": "bulan",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		}
+	],
+	"geoCoding": {
+		"enabled": false,
+		"latField": "",
+		"lonField": "",
+		"addressFields": []
+	},
+	"caption": {
+		"Indonesian": "Daftar"
+	}
+}

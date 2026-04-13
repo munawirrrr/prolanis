@@ -1,0 +1,6 @@
+{
+	"type": "EVENT_BUTTON",
+	"name": "status",
+	"serverCode": "while($record = $button->getNextSelectedRecord())\n{\n    // update upload_pasien\n    $sql1 = \"UPDATE upload_pasien \n             SET status='selesai' \n             WHERE id_gampong=\".$record[\"id_gampong\"];\n    DB::Exec($sql1);\n\n    // update gampong\n    $sql2 = \"UPDATE gampong \n             SET hp_kader='\".$record[\"nomor_hp\"].\"' \n             WHERE id=\".$record[\"id_gampong\"];\n    DB::Exec($sql2);\n}",
+	"afterJsCode": "location.reload();"
+}

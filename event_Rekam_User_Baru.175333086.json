@@ -1,0 +1,5 @@
+{
+	"type": "EVENT_BUTTON",
+	"name": "Rekam_User_Baru",
+	"beforeJsCode": "window.popup = Runner.displayPopup({\n                                   url: Runner.pages.getUrl(\"admin_users\",\"add\"),\n                                   width: 900,\n                                   height: 900,\n                                   header: '+User'\n                                });"
+}

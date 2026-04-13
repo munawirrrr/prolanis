@@ -1,0 +1,4 @@
+{
+	"name": "logo",
+	"serverCode": "// Put your code here.\necho \"\n<div style='text-align: center;'>\n    <img src='https://pa-kangean.go.id/images/images/gallery/MoU/DINKES.png' width='300' alt=''>\n    <div style='font-weight: bold; font-size: 18px; margin-top: 10px;'>\n        PROLANIS PUSKESMAS PIDIE\n    </div>\n</div>\";"
+}

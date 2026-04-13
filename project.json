@@ -1,0 +1,3352 @@
+{
+	"app": "PHPRunner",
+	"programVersion": 2,
+	"versionName": "11.1",
+	"build": 39558,
+	"name": "prolanis-dinal",
+	"mainDiagram": {
+		"tables": [
+			{
+				"x": 630,
+				"y": 30,
+				"width": 164,
+				"height": 97,
+				"gid": 2174505078
+			},
+			{
+				"x": 824,
+				"y": 30,
+				"width": 140,
+				"height": 116,
+				"gid": 1554571514
+			},
+			{
+				"x": 1111,
+				"y": 30,
+				"width": 140,
+				"height": 192,
+				"gid": 3030998547
+			},
+			{
+				"x": 30,
+				"y": 260,
+				"width": 143,
+				"height": 116,
+				"gid": 2647612549
+			},
+			{
+				"x": 30,
+				"y": 30,
+				"width": 120,
+				"height": 200,
+				"gid": 162369719
+			},
+			{
+				"x": 180,
+				"y": 30,
+				"width": 120,
+				"height": 78,
+				"gid": 1640134762
+			},
+			{
+				"x": 330,
+				"y": 30,
+				"width": 120,
+				"height": 135,
+				"gid": 1902861381
+			},
+			{
+				"x": 1281,
+				"y": 30,
+				"width": 120,
+				"height": 200,
+				"gid": 3328291217
+			},
+			{
+				"x": 1431,
+				"y": 30,
+				"width": 193,
+				"height": 200,
+				"gid": 3677324998
+			},
+			{
+				"x": 480,
+				"y": 30,
+				"width": 120,
+				"height": 173,
+				"gid": 2461982463
+			},
+			{
+				"x": 630,
+				"y": 30,
+				"width": 120,
+				"height": 59,
+				"gid": 4151081472
+			},
+			{
+				"x": 780,
+				"y": 30,
+				"width": 151,
+				"height": 154,
+				"gid": 530550343
+			},
+			{
+				"x": 961,
+				"y": 30,
+				"width": 120,
+				"height": 192,
+				"gid": 2375276105
+			}
+		]
+	},
+	"securitySettings": {
+		"projectName": "prolanis",
+		"loginDataSource": "user",
+		"loginForm": 0,
+		"dynamicPermissions": true,
+		"dpTableConnId": "penmadpiprolanisatpenmadpidiec",
+		"providers": [
+			{
+				"type": "%db",
+				"activationField": "active",
+				"active": true,
+				"code": "00",
+				"emailField": "email",
+				"extUserIdField": "ext_security_id",
+				"fullnameField": "fullname",
+				"label": {
+					"text": "Database",
+					"type": 0
+				},
+				"name": "db",
+				"passwordField": "password",
+				"resetDateField": "˂Create new˃",
+				"resetTokenField": "˂Create new˃",
+				"table": {
+					"connId": "penmadpiprolanisatpenmadpidiec",
+					"table": "user"
+				},
+				"userGroupField": "username",
+				"usernameField": "username",
+				"userpicField": ""
+			}
+		],
+		"sessionControl": {
+			"lifeTime": 15,
+			"sessionName": "4szsuA3L9XXDiFKcF7gA",
+			"JWTSecret": "gKXfpGjuGffWVq1BkGTy"
+		},
+		"registration": {
+			"remindMethod": 0,
+			"hashAlgorithm": 0,
+			"changePasswordPage": true,
+			"changePwdPage": true,
+			"registerPage": true,
+			"remindPage": false,
+			"passwordValidation": {
+				"strong": false,
+				"minimumLength": 8,
+				"uniqueCharacters": 4,
+				"digitsAndSymbols": 2,
+				"upperAndLowerCase": false
+			}
+		},
+		"captchaSettings": {
+			"captchaType": 0,
+			"siteKey": "",
+			"secretKey": "",
+			"passesCount": 5
+		},
+		"emailSettings": {
+			"fromEmail": "",
+			"usePHPDefinedSMTP": false,
+			"useBuiltInMailer": false,
+			"SMTPServer": "localhost",
+			"SMTPPort": 25,
+			"SMTPUser": "",
+			"SMTPPassword": "",
+			"securityProtocol": 0
+		},
+		"advancedSecurity": {
+			"allowGuestLogin": false,
+			"tables": {
+				"Laporan": {
+					"mainOwnerIDField": "",
+					"securityOption": 0,
+					"userOwnerIDField": ""
+				},
+				"admin_members": {
+					"mainOwnerIDField": "",
+					"securityOption": 0,
+					"userOwnerIDField": ""
+				},
+				"admin_rights": {
+					"mainOwnerIDField": "",
+					"securityOption": 0,
+					"userOwnerIDField": ""
+				},
+				"admin_users": {
+					"mainOwnerIDField": "",
+					"securityOption": 0,
+					"userOwnerIDField": ""
+				},
+				"aktivasi_user": {
+					"mainOwnerIDField": "",
+					"securityOption": 0,
+					"userOwnerIDField": ""
+				},
+				"daftar": {
+					"mainOwnerIDField": "user",
+					"securityOption": 1,
+					"userOwnerIDField": "username"
+				},
+				"diagnosa": {
+					"mainOwnerIDField": "id",
+					"securityOption": 0,
+					"userOwnerIDField": "ID"
+				},
+				"gampong": {
+					"mainOwnerIDField": "",
+					"securityOption": 0,
+					"userOwnerIDField": ""
+				},
+				"laporan per gampong": {
+					"mainOwnerIDField": "",
+					"securityOption": 0,
+					"userOwnerIDField": ""
+				},
+				"pasien": {
+					"mainOwnerIDField": "",
+					"securityOption": 0,
+					"userOwnerIDField": ""
+				},
+				"tahun": {
+					"mainOwnerIDField": "",
+					"securityOption": 0,
+					"userOwnerIDField": ""
+				},
+				"upload_pasien": {
+					"mainOwnerIDField": "",
+					"securityOption": 0,
+					"userOwnerIDField": ""
+				},
+				"user": {
+					"mainOwnerIDField": "",
+					"securityOption": 0,
+					"userOwnerIDField": ""
+				}
+			}
+		},
+		"auditAndLocking": {
+			"loggingMode": 0,
+			"loggingTable": {
+				"connId": "",
+				"table": ""
+			},
+			"loggingFile": "audit.log",
+			"logSecurityActions": false,
+			"lockAfterUnsuccessfulLogin": false,
+			"enableLocking": false,
+			"lockingTable": {
+				"connId": "",
+				"table": ""
+			},
+			"tables": {}
+		},
+		"twoFactorSettings": {
+			"available": false,
+			"required": false,
+			"enable": true,
+			"remember": true,
+			"types": {},
+			"twoFactorField": "",
+			"emailField": "",
+			"phoneField": "",
+			"codeField": "",
+			"projectName": ""
+		},
+		"staticPermissions": {
+			"groups": {
+				"<Default>": {
+					"permissions": {
+						"<global>": {
+							"mask": "ADESPI",
+							"table": "<global>",
+							"restrictedPages": {}
+						},
+						"daftar": {
+							"mask": "ADESPI",
+							"table": "daftar",
+							"restrictedPages": {}
+						},
+						"diagnosa": {
+							"mask": "ADESPI",
+							"table": "diagnosa",
+							"restrictedPages": {}
+						},
+						"gampong": {
+							"mask": "ADESPI",
+							"table": "gampong",
+							"restrictedPages": {}
+						},
+						"pasien": {
+							"mask": "ADESPI",
+							"table": "pasien",
+							"restrictedPages": {}
+						},
+						"user": {
+							"mask": "ADESPI",
+							"table": "user",
+							"restrictedPages": {}
+						},
+						"admin_rights": {
+							"mask": "ADESPI",
+							"table": "admin_rights",
+							"restrictedPages": {}
+						},
+						"admin_members": {
+							"mask": "ADESPI",
+							"table": "admin_members",
+							"restrictedPages": {}
+						},
+						"admin_users": {
+							"mask": "ADESPI",
+							"table": "admin_users",
+							"restrictedPages": {}
+						},
+						"upload_pasien": {
+							"mask": "ADESPI",
+							"table": "upload_pasien",
+							"restrictedPages": {}
+						},
+						"tahun": {
+							"mask": "ADESPI",
+							"table": "tahun",
+							"restrictedPages": {}
+						},
+						"Laporan": {
+							"mask": "SP",
+							"table": "Laporan",
+							"restrictedPages": {}
+						},
+						"laporan per gampong": {
+							"mask": "SP",
+							"table": "laporan per gampong",
+							"restrictedPages": {}
+						},
+						"aktivasi_user": {
+							"mask": "ADESPI",
+							"table": "aktivasi_user",
+							"restrictedPages": {}
+						}
+					},
+					"username": "<Default>",
+					"admin": false,
+					"wrAdmin": false
+				}
+			}
+		}
+	},
+	"encryption": {
+		"connEncryptInfo": {
+			"penmadpiprolanisatpenmadpidiec": {
+				"connId": "penmadpiprolanisatpenmadpidiec"
+			}
+		}
+	},
+	"ftpLocations": [
+		{
+			"id": "ftploc",
+			"name": "penmadpidie.com",
+			"ftp": {
+				"username": "penmadpi",
+				"password": "",
+				"host": "ftp.penmadpidie.com",
+				"port": 21,
+				"pathname": "/public_html/rumah/prolanis",
+				"passive": true,
+				"secureType": 0,
+				"useCCC": false,
+				"pathFromRoot": false
+			},
+			"proxy": {
+				"username": "",
+				"password": "",
+				"host": "localhost",
+				"port": 3128,
+				"pathname": "",
+				"type": 0,
+				"enabled": false
+			},
+			"threads": 4,
+			"serverDbConnections": {}
+		}
+	],
+	"lastFtpLocation": "ftploc",
+	"compressJs": false,
+	"visualStudioVersion": 10,
+	"restAPIReturnEncodedBinary": "",
+	"restAPIAcceptEncodedBinary": "",
+	"lcid": 1057,
+	"defaultLanguage": "Indonesian",
+	"languages": [
+		"Indonesian"
+	],
+	"emailTemplates": {
+		"Indonesian": {}
+	},
+	"dbConnections": [
+		{
+			"id": "penmadpiprolanisatpenmadpidiec",
+			"name": "penmadpi_prolanis at penmadpid",
+			"connString": "mysql;penmadpidie.com;penmadpi_admin;##munazara1979;;penmadpi_prolanis;;1",
+			"buildParams": {
+				"customConnections": [
+					{
+						"name": "zahara_prolanis",
+						"code": "$host=\"localhost\";\n$user=\"penmadpi_admin\";\n$pwd=\"##munazara1979\";\n$port=\"\";\n$sys_dbname=\"penmadpi_prolanis\";"
+					}
+				]
+			}
+		}
+	],
+	"defaultConnID": "penmadpiprolanisatpenmadpidiec",
+	"landingSettings": {
+		"type": 0,
+		"table": "",
+		"pageId": "",
+		"page": ""
+	},
+	"copyFieldSettings": {
+		"copyViewFormat": ""
+	},
+	"createAppSettings": {
+		"appVersion": "",
+		"appURL": ""
+	},
+	"menus": [
+		{
+			"id": "main",
+			"root": {
+				"children": [
+					{
+						"id": "1",
+						"parent": "0",
+						"data": {
+							"name": {
+								"table": "daftar",
+								"type": 6
+							},
+							"href": "mypage.htm",
+							"pageId": "list",
+							"itemType": 2,
+							"linkType": 0,
+							"iconType": 2,
+							"iconName": "glyphicon-th-list",
+							"showIconType": 2,
+							"pageType": "list",
+							"table": 162369719
+						}
+					},
+					{
+						"id": "2",
+						"parent": "0",
+						"data": {
+							"name": {
+								"text": "Diagnosa & Klaim",
+								"type": 0
+							},
+							"href": "mypage.htm",
+							"pageId": "list",
+							"itemType": 2,
+							"linkType": 0,
+							"iconType": 3,
+							"iconName": "fa-stethoscope",
+							"showIconType": 2,
+							"pageType": "list",
+							"table": 1640134762
+						}
+					},
+					{
+						"id": "3",
+						"parent": "0",
+						"data": {
+							"name": {
+								"table": "gampong",
+								"type": 6
+							},
+							"href": "mypage.htm",
+							"pageId": "list",
+							"itemType": 2,
+							"linkType": 0,
+							"iconType": 3,
+							"iconName": "fa-location-arrow",
+							"showIconType": 2,
+							"pageType": "list",
+							"table": 1902861381
+						}
+					},
+					{
+						"id": "4",
+						"parent": "0",
+						"data": {
+							"name": {
+								"table": "pasien",
+								"type": 6
+							},
+							"href": "mypage.htm",
+							"pageId": "list",
+							"itemType": 2,
+							"linkType": 0,
+							"iconType": 3,
+							"iconName": "fa-hospital-o",
+							"showIconType": 2,
+							"pageType": "list",
+							"table": 2461982463
+						}
+					},
+					{
+						"id": "5",
+						"parent": "0",
+						"children": [
+							{
+								"id": "6",
+								"parent": "5",
+								"data": {
+									"name": {
+										"text": "Laporan detil",
+										"type": 0
+									},
+									"href": "mypage.htm",
+									"pageId": "report",
+									"itemType": 2,
+									"linkType": 0,
+									"iconType": 2,
+									"iconName": "glyphicon-headphones",
+									"showIconType": 2,
+									"pageType": "report",
+									"table": 3328291217
+								}
+							},
+							{
+								"id": "7",
+								"parent": "5",
+								"data": {
+									"name": {
+										"table": "laporan per gampong",
+										"type": 6
+									},
+									"href": "mypage.htm",
+									"pageId": "report",
+									"itemType": 2,
+									"linkType": 0,
+									"iconType": 2,
+									"iconName": "glyphicon-headphones",
+									"showIconType": 2,
+									"pageType": "report",
+									"table": 3677324998
+								}
+							}
+						],
+						"data": {
+							"name": {
+								"text": "Laporan",
+								"type": 0
+							},
+							"iconType": 2,
+							"iconName": "glyphicon-signal",
+							"pageType": "",
+							"table": null
+						}
+					},
+					{
+						"id": "8",
+						"parent": "0",
+						"data": {
+							"name": {
+								"text": "User",
+								"type": 0
+							},
+							"href": "mypage.htm",
+							"pageId": "list",
+							"itemType": 2,
+							"linkType": 0,
+							"iconType": 2,
+							"iconName": "glyphicon-user",
+							"showIconType": 2,
+							"pageType": "list",
+							"table": 2647612549
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "secondary",
+			"id": "secondary",
+			"root": {
+				"children": [
+					{
+						"id": "1",
+						"parent": "0",
+						"data": {
+							"name": {
+								"text": "set tahun Login",
+								"type": 0
+							},
+							"href": "mypage.htm",
+							"pageId": "list",
+							"itemType": 2,
+							"linkType": 0,
+							"iconType": 2,
+							"iconName": "glyphicon-time",
+							"pageType": "list",
+							"table": 4151081472
+						}
+					}
+				]
+			}
+		}
+	],
+	"globalPages": [
+		{
+			"id": "admin_members_list",
+			"type": "admin_members_list",
+			"layoutId": "leftbar",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "admin-members-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"members_save",
+								"members_reset"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"members_choose_columns",
+								"members_displaying_filter"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "admin-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"supertop": {
+					"modelId": "admin-leftbar-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"expand_menu_button",
+								"collapse_button"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"username_button"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"left": {
+					"modelId": "admin-leftbar-menu",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c0"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c0": {
+							"model": "c0",
+							"items": [
+								"logo"
+							]
+						},
+						"c1": {
+							"model": "c1",
+							"items": [
+								"menu"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "admin-header",
+					"grid": [],
+					"cells": {},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "admin-members-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "hcell_source"
+								},
+								{
+									"cell": "hcell_username"
+								},
+								{
+									"cell": "hcell_displayname"
+								},
+								{
+									"cell": "hcell_email"
+								},
+								{
+									"cell": "hcell_groupname"
+								}
+							],
+							"section": "head"
+						},
+						{
+							"cells": [
+								{
+									"cell": "hcell_source1"
+								},
+								{
+									"cell": "hcell_search",
+									"colspan": 3
+								},
+								{
+									"cell": "hcell_all_checkbox"
+								}
+							],
+							"section": "head"
+						},
+						{
+							"cells": [
+								{
+									"cell": "cell_source"
+								},
+								{
+									"cell": "cell_u"
+								},
+								{
+									"cell": "cell_dn"
+								},
+								{
+									"cell": "cell_e"
+								},
+								{
+									"cell": "c_gn"
+								}
+							],
+							"section": "body"
+						}
+					],
+					"cells": {
+						"hcell_source": {
+							"model": "hcell_source",
+							"items": [
+								"members_source_label"
+							]
+						},
+						"hcell_username": {
+							"model": "hcell_username",
+							"items": [
+								"members_username_label"
+							]
+						},
+						"hcell_displayname": {
+							"model": "hcell_displayname",
+							"items": [
+								"members_displayname_label"
+							]
+						},
+						"hcell_email": {
+							"model": "hcell_email",
+							"items": [
+								"members_email_label"
+							]
+						},
+						"hcell_groupname": {
+							"model": "hcell_groupname",
+							"items": [
+								"members_groupname_label"
+							]
+						},
+						"hcell_source1": {
+							"model": "hcell_source1",
+							"items": [
+								"members_source_filter"
+							]
+						},
+						"hcell_search": {
+							"model": "hcell_search",
+							"items": [
+								"members_search"
+							]
+						},
+						"hcell_all_checkbox": {
+							"model": "hcell_all_checkbox",
+							"items": [
+								"members_all_users_checkbox"
+							]
+						},
+						"cell_source": {
+							"model": "cell_source",
+							"items": [
+								"members_source"
+							]
+						},
+						"cell_u": {
+							"model": "cell_u",
+							"items": [
+								"members_all_groups_checkbox",
+								"members_username"
+							]
+						},
+						"cell_dn": {
+							"model": "cell_dn",
+							"items": [
+								"members_displayname"
+							]
+						},
+						"cell_e": {
+							"model": "cell_e",
+							"items": [
+								"members_email"
+							]
+						},
+						"c_gn": {
+							"model": "c_gn",
+							"items": [
+								"members_group_checkbox"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"members_save": {
+					"type": "members_save"
+				},
+				"members_reset": {
+					"type": "members_reset"
+				},
+				"members_choose_columns": {
+					"type": "members_choose_columns"
+				},
+				"members_displaying_filter": {
+					"type": "members_displaying_filter"
+				},
+				"members_source_label": {
+					"type": "members_source_label"
+				},
+				"members_username_label": {
+					"type": "members_username_label"
+				},
+				"members_displayname_label": {
+					"type": "members_displayname_label"
+				},
+				"members_email_label": {
+					"type": "members_email_label"
+				},
+				"members_groupname_label": {
+					"type": "members_groupname_label"
+				},
+				"members_source_filter": {
+					"type": "members_source_filter"
+				},
+				"members_search": {
+					"type": "members_search"
+				},
+				"members_all_users_checkbox": {
+					"type": "members_all_users_checkbox"
+				},
+				"members_source": {
+					"type": "members_source"
+				},
+				"members_all_groups_checkbox": {
+					"type": "members_all_groups_checkbox"
+				},
+				"members_username": {
+					"type": "members_username"
+				},
+				"members_displayname": {
+					"type": "members_displayname"
+				},
+				"members_email": {
+					"type": "members_email"
+				},
+				"members_group_checkbox": {
+					"type": "members_group_checkbox"
+				},
+				"userinfo_link": {
+					"type": "userinfo_link"
+				},
+				"logout_link": {
+					"type": "logout_link"
+				},
+				"exit_adminarea_link": {
+					"type": "exit_adminarea_link"
+				},
+				"changepassword_link": {
+					"type": "changepassword_link"
+				},
+				"logo": {
+					"type": "logo"
+				},
+				"menu": {
+					"type": "menu"
+				},
+				"username_button": {
+					"type": "username_button",
+					"items": [
+						"userinfo_link",
+						"logout_link",
+						"exit_adminarea_link",
+						"changepassword_link"
+					]
+				},
+				"expand_menu_button": {
+					"type": "expand_menu_button"
+				},
+				"collapse_button": {
+					"type": "collapse_button"
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "admin_rights_list",
+			"type": "admin_rights_list",
+			"layoutId": "leftbar",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "admin-rights-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c4",
+									"colspan": 2
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"rights_save",
+								"rights_reset"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"rights_displaying_tables",
+								"rights_ordering_tables"
+							]
+						},
+						"c4": {
+							"model": "c4",
+							"items": [
+								"rights_add_group",
+								"rights_del_group",
+								"rights_rename_group",
+								"rights_copy_permissions"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "admin-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"supertop": {
+					"modelId": "admin-leftbar-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"expand_menu_button",
+								"collapse_button"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"username_button"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"left": {
+					"modelId": "admin-leftbar-menu",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c0"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c0": {
+							"model": "c0",
+							"items": [
+								"logo"
+							]
+						},
+						"c1": {
+							"model": "c1",
+							"items": [
+								"menu"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "admin-header",
+					"grid": [],
+					"cells": {},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "admin-rights-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "headcell_search"
+								},
+								{
+									"cell": "headcell_a"
+								},
+								{
+									"cell": "headcell_e"
+								},
+								{
+									"cell": "headcell_d"
+								},
+								{
+									"cell": "headcell_s"
+								},
+								{
+									"cell": "headcell_p"
+								},
+								{
+									"cell": "headcell_i"
+								},
+								{
+									"cell": "headcell_m"
+								}
+							],
+							"section": "head"
+						},
+						{
+							"cells": [
+								{
+									"cell": "headcell_expand"
+								},
+								{
+									"cell": "headcell_all_a"
+								},
+								{
+									"cell": "headcell_all_e"
+								},
+								{
+									"cell": "headcell_all_d"
+								},
+								{
+									"cell": "headcell_all_s"
+								},
+								{
+									"cell": "headcell_all_p"
+								},
+								{
+									"cell": "headcell_all_i"
+								},
+								{
+									"cell": "headcell_all_m"
+								}
+							],
+							"section": "head"
+						},
+						{
+							"cells": [
+								{
+									"cell": "cell_table"
+								},
+								{
+									"cell": "cell_a"
+								},
+								{
+									"cell": "cell_e"
+								},
+								{
+									"cell": "cell_d"
+								},
+								{
+									"cell": "cell_s"
+								},
+								{
+									"cell": "cell_p"
+								},
+								{
+									"cell": "cell_i"
+								},
+								{
+									"cell": "cell_m"
+								}
+							],
+							"section": "body"
+						},
+						{
+							"cells": [
+								{
+									"cell": "cell_page"
+								},
+								{
+									"cell": "cell_page_a"
+								},
+								{
+									"cell": "cell_page_e"
+								},
+								{
+									"cell": "cell_page_d"
+								},
+								{
+									"cell": "cell_page_s"
+								},
+								{
+									"cell": "cell_page_p"
+								},
+								{
+									"cell": "cell_page_i"
+								},
+								{
+									"cell": "cell_page_m"
+								}
+							],
+							"section": "page"
+						}
+					],
+					"cells": {
+						"headcell_search": {
+							"model": "headcell_search",
+							"items": [
+								"rights_search"
+							]
+						},
+						"headcell_a": {
+							"model": "headcell_a",
+							"items": [
+								"rights_name_a"
+							]
+						},
+						"headcell_e": {
+							"model": "headcell_e",
+							"items": [
+								"rights_name_e"
+							]
+						},
+						"headcell_d": {
+							"model": "headcell_d",
+							"items": [
+								"rights_name_d"
+							]
+						},
+						"headcell_s": {
+							"model": "headcell_s",
+							"items": [
+								"rights_name_s"
+							]
+						},
+						"headcell_p": {
+							"model": "headcell_p",
+							"items": [
+								"rights_name_p"
+							]
+						},
+						"headcell_i": {
+							"model": "headcell_i",
+							"items": [
+								"rights_name_i"
+							]
+						},
+						"headcell_m": {
+							"model": "headcell_m",
+							"items": [
+								"rights_name_m",
+								"rights_name_m1"
+							]
+						},
+						"cell_page": {
+							"model": "cell_page",
+							"items": [
+								"rights_checkbox_page",
+								"rights_page"
+							]
+						},
+						"cell_page_a": {
+							"model": "cell_page_a",
+							"items": [
+								"rights_checkbox_page_a"
+							]
+						},
+						"cell_page_e": {
+							"model": "cell_page_e",
+							"items": [
+								"rights_checkbox_page_e"
+							]
+						},
+						"cell_page_d": {
+							"model": "cell_page_d",
+							"items": [
+								"rights_checkbox_page_d"
+							]
+						},
+						"cell_page_s": {
+							"model": "cell_page_s",
+							"items": [
+								"rights_checkbox_page_s"
+							]
+						},
+						"cell_page_p": {
+							"model": "cell_page_p",
+							"items": [
+								"rights_checkbox_page_p"
+							]
+						},
+						"cell_page_i": {
+							"model": "cell_page_i",
+							"items": [
+								"rights_checkbox_page_i"
+							]
+						},
+						"cell_page_m": {
+							"model": "cell_page_m",
+							"items": []
+						},
+						"headcell_expand": {
+							"model": "headcell_expand",
+							"items": [
+								"rights_expand_all"
+							]
+						},
+						"headcell_all_a": {
+							"model": "headcell_all_a",
+							"items": [
+								"rights_checkbox_all_a"
+							]
+						},
+						"headcell_all_e": {
+							"model": "headcell_all_e",
+							"items": [
+								"rights_checkbox_all_e"
+							]
+						},
+						"headcell_all_d": {
+							"model": "headcell_all_d",
+							"items": [
+								"rights_checkbox_all_d"
+							]
+						},
+						"headcell_all_s": {
+							"model": "headcell_all_s",
+							"items": [
+								"rights_checkbox_all_s"
+							]
+						},
+						"headcell_all_p": {
+							"model": "headcell_all_p",
+							"items": [
+								"rights_checkbox_all_p"
+							]
+						},
+						"headcell_all_i": {
+							"model": "headcell_all_i",
+							"items": [
+								"rights_checkbox_all_i"
+							]
+						},
+						"headcell_all_m": {
+							"model": "headcell_all_m",
+							"items": [
+								"rights_checkbox_all_m"
+							]
+						},
+						"cell_table": {
+							"model": "cell_table",
+							"items": [
+								"rights_checkbox_table",
+								"rights_table",
+								"rights_show_pages",
+								"rights_hide_pages",
+								"rights_group_expander"
+							]
+						},
+						"cell_a": {
+							"model": "cell_a",
+							"items": [
+								"rights_checkbox_a"
+							]
+						},
+						"cell_e": {
+							"model": "cell_e",
+							"items": [
+								"rights_checkbox_e"
+							]
+						},
+						"cell_d": {
+							"model": "cell_d",
+							"items": [
+								"rights_checkbox_d"
+							]
+						},
+						"cell_s": {
+							"model": "cell_s",
+							"items": [
+								"rights_checkbox_s"
+							]
+						},
+						"cell_p": {
+							"model": "cell_p",
+							"items": [
+								"rights_checkbox_p"
+							]
+						},
+						"cell_i": {
+							"model": "cell_i",
+							"items": [
+								"rights_checkbox_i"
+							]
+						},
+						"cell_m": {
+							"model": "cell_m",
+							"items": [
+								"rights_checkbox_m"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"rights_save": {
+					"type": "rights_save"
+				},
+				"rights_reset": {
+					"type": "rights_reset"
+				},
+				"rights_displaying_tables": {
+					"type": "rights_displaying_tables"
+				},
+				"rights_ordering_tables": {
+					"type": "rights_ordering_tables"
+				},
+				"rights_add_group": {
+					"type": "rights_add_group"
+				},
+				"rights_del_group": {
+					"type": "rights_del_group"
+				},
+				"rights_rename_group": {
+					"type": "rights_rename_group"
+				},
+				"rights_copy_permissions": {
+					"type": "rights_copy_permissions"
+				},
+				"rights_search": {
+					"type": "rights_search"
+				},
+				"rights_name_a": {
+					"type": "rights_name_a"
+				},
+				"rights_name_e": {
+					"type": "rights_name_e"
+				},
+				"rights_name_d": {
+					"type": "rights_name_d"
+				},
+				"rights_name_s": {
+					"type": "rights_name_s"
+				},
+				"rights_name_p": {
+					"type": "rights_name_p"
+				},
+				"rights_name_i": {
+					"type": "rights_name_i"
+				},
+				"rights_name_m": {
+					"type": "rights_name_m"
+				},
+				"rights_name_m1": {
+					"type": "rights_name_m1"
+				},
+				"rights_checkbox_page": {
+					"type": "rights_checkbox_page"
+				},
+				"rights_page": {
+					"type": "rights_page"
+				},
+				"rights_checkbox_page_a": {
+					"type": "rights_checkbox_page_a"
+				},
+				"rights_checkbox_page_e": {
+					"type": "rights_checkbox_page_e"
+				},
+				"rights_checkbox_page_d": {
+					"type": "rights_checkbox_page_d"
+				},
+				"rights_checkbox_page_s": {
+					"type": "rights_checkbox_page_s"
+				},
+				"rights_checkbox_page_p": {
+					"type": "rights_checkbox_page_p"
+				},
+				"rights_checkbox_page_i": {
+					"type": "rights_checkbox_page_i"
+				},
+				"rights_expand_all": {
+					"type": "rights_expand_all"
+				},
+				"rights_checkbox_all_a": {
+					"type": "rights_checkbox_all_a"
+				},
+				"rights_checkbox_all_e": {
+					"type": "rights_checkbox_all_e"
+				},
+				"rights_checkbox_all_d": {
+					"type": "rights_checkbox_all_d"
+				},
+				"rights_checkbox_all_s": {
+					"type": "rights_checkbox_all_s"
+				},
+				"rights_checkbox_all_p": {
+					"type": "rights_checkbox_all_p"
+				},
+				"rights_checkbox_all_i": {
+					"type": "rights_checkbox_all_i"
+				},
+				"rights_checkbox_all_m": {
+					"type": "rights_checkbox_all_m"
+				},
+				"rights_checkbox_table": {
+					"type": "rights_checkbox_table"
+				},
+				"rights_table": {
+					"type": "rights_table"
+				},
+				"rights_show_pages": {
+					"type": "rights_show_pages"
+				},
+				"rights_hide_pages": {
+					"type": "rights_hide_pages"
+				},
+				"rights_group_expander": {
+					"type": "rights_group_expander"
+				},
+				"rights_checkbox_a": {
+					"type": "rights_checkbox_a"
+				},
+				"rights_checkbox_e": {
+					"type": "rights_checkbox_e"
+				},
+				"rights_checkbox_d": {
+					"type": "rights_checkbox_d"
+				},
+				"rights_checkbox_s": {
+					"type": "rights_checkbox_s"
+				},
+				"rights_checkbox_p": {
+					"type": "rights_checkbox_p"
+				},
+				"rights_checkbox_i": {
+					"type": "rights_checkbox_i"
+				},
+				"rights_checkbox_m": {
+					"type": "rights_checkbox_m"
+				},
+				"userinfo_link": {
+					"type": "userinfo_link"
+				},
+				"logout_link": {
+					"type": "logout_link"
+				},
+				"exit_adminarea_link": {
+					"type": "exit_adminarea_link"
+				},
+				"changepassword_link": {
+					"type": "changepassword_link"
+				},
+				"logo": {
+					"type": "logo"
+				},
+				"menu": {
+					"type": "menu"
+				},
+				"username_button": {
+					"type": "username_button",
+					"items": [
+						"userinfo_link",
+						"logout_link",
+						"exit_adminarea_link",
+						"changepassword_link"
+					]
+				},
+				"expand_menu_button": {
+					"type": "expand_menu_button"
+				},
+				"collapse_button": {
+					"type": "collapse_button"
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "changepwd",
+			"type": "changepwd",
+			"layoutId": "first",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "changepwd-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"changepwd_message"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"supertop": {
+					"modelId": "panel-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "changepwd-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"changepwd_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "changepwd-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c3"
+								},
+								{
+									"cell": "c4"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c5"
+								},
+								{
+									"cell": "c6"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"oldpass_label"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"oldpass"
+							]
+						},
+						"c3": {
+							"model": "c3",
+							"items": [
+								"newpass_label"
+							]
+						},
+						"c4": {
+							"model": "c4",
+							"items": [
+								"newpass"
+							]
+						},
+						"c5": {
+							"model": "c5",
+							"items": [
+								"confirm_label"
+							]
+						},
+						"c6": {
+							"model": "c6",
+							"items": [
+								"confirm"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"footer": {
+					"modelId": "changepwd-footer",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"changepwd_button",
+								"changepwd_back"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"oldpass_label": {
+					"type": "oldpass_label"
+				},
+				"newpass_label": {
+					"type": "newpass_label"
+				},
+				"confirm_label": {
+					"type": "confirm_label"
+				},
+				"oldpass": {
+					"type": "oldpass"
+				},
+				"newpass": {
+					"type": "newpass"
+				},
+				"confirm": {
+					"type": "confirm"
+				},
+				"changepwd_message": {
+					"type": "changepwd_message"
+				},
+				"changepwd_button": {
+					"type": "changepwd_button"
+				},
+				"changepwd_back": {
+					"type": "changepwd_back"
+				},
+				"changepwd_header": {
+					"type": "changepwd_header"
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "changepwd_success",
+			"type": "changepwd_success",
+			"layoutId": "first",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"supertop": {
+					"modelId": "panel-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "changepwd-success-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"changepwd_success_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "changepwd-success-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"changepwd_success_message"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"footer": {
+					"modelId": "changepwd-success-footer",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"changepwd_success_back"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"changepwd_success_message": {
+					"type": "changepwd_success_message"
+				},
+				"changepwd_success_back": {
+					"type": "changepwd_success_back"
+				},
+				"changepwd_success_header": {
+					"type": "changepwd_success_header"
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "login",
+			"type": "login",
+			"layoutId": "pretty1",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "login-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c2": {
+							"model": "c2",
+							"items": []
+						},
+						"c1": {
+							"model": "c1",
+							"items": [
+								"login_message"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "plogin-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c3",
+									"colspan": 2
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"login-logo"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": []
+						},
+						"c3": {
+							"model": "c3",
+							"items": [
+								"login_welcome"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "plogin-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1",
+									"colspan": 2
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c2",
+									"colspan": 2
+								}
+							],
+							"section": ""
+						},
+						{
+							"section": "",
+							"cells": [
+								{
+									"cell": "c",
+									"colspan": 2
+								}
+							]
+						},
+						{
+							"cells": [
+								{
+									"cell": "c4"
+								},
+								{
+									"cell": "c6"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c5",
+									"colspan": 2
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"username_label",
+								"username"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"password_label",
+								"password"
+							]
+						},
+						"c4": {
+							"model": "c4",
+							"items": [
+								"remember_password"
+							]
+						},
+						"c6": {
+							"model": "c6",
+							"items": [
+								"guest_login"
+							]
+						},
+						"c5": {
+							"model": "c5",
+							"items": []
+						},
+						"c": {
+							"model": "c2",
+							"items": [
+								"edit_field_label",
+								"edit_field"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"footer": {
+					"modelId": "plogin-footer",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"login_button"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"superbottom": {
+					"modelId": "plogin-superbottom",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"loginform_register_link"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"username_label": {
+					"type": "username_label"
+				},
+				"username": {
+					"type": "username"
+				},
+				"password_label": {
+					"type": "password_label"
+				},
+				"password": {
+					"type": "password"
+				},
+				"login_message": {
+					"type": "login_message"
+				},
+				"login_button": {
+					"type": "login_button"
+				},
+				"guest_login": {
+					"type": "guest_login",
+					"label": {
+						"type": 0,
+						"text": "upload data pasien gampong"
+					},
+					"bold": true
+				},
+				"remember_password": {
+					"type": "remember_password"
+				},
+				"login-logo": {
+					"type": "login-logo",
+					"font-size": "24px"
+				},
+				"login_welcome": {
+					"type": "login_welcome",
+					"label": {
+						"type": 0,
+						"text": "Prolanis Puskesmas Pidie"
+					}
+				},
+				"edit_field_label": {
+					"type": "edit_field_label",
+					"field": "tahun"
+				},
+				"edit_field": {
+					"type": "edit_field",
+					"field": "tahun"
+				},
+				"loginform_register_link": {
+					"type": "loginform_register_link",
+					"label": {
+						"type": 0,
+						"text": "Belum ada User..! silahkan daftar user baru"
+					}
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image",
+				"shadow": false,
+				"fullSize": true,
+				"image": {
+					"image": "prolanis.jpg",
+					"source": 2
+				}
+			},
+			"imageBgColor": "transparent",
+			"controlsBgColor": "transparent",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "menu",
+			"type": "menu",
+			"layoutId": "leftbar",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "empty-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"supertop": {
+					"modelId": "menu-topbar",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"expand_menu_button",
+								"collapse_button"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"loginform_login",
+								"username_button"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"left": {
+					"modelId": "leftbar-menu",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c0"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c0": {
+							"model": "c0",
+							"items": [
+								"logo"
+							]
+						},
+						"c1": {
+							"model": "c1",
+							"items": [
+								"menu",
+								"menu1"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "welcome",
+					"grid": [
+						{
+							"section": "",
+							"cells": [
+								{
+									"cell": "c"
+								}
+							]
+						},
+						{
+							"section": "",
+							"cells": [
+								{
+									"cell": "c2"
+								}
+							]
+						},
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"welcome_item",
+								"welcome_item1",
+								"welcome_item2",
+								"welcome_item3",
+								"welcome_item4"
+							],
+							"align": "center"
+						},
+						"c": {
+							"model": "c1",
+							"items": [
+								"text",
+								"snippet"
+							],
+							"align": "center",
+							"padding": {
+								"bottom": "100px"
+							},
+							"orientation": "vertical"
+						},
+						"c2": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"welcome_item": {
+					"type": "welcome_item",
+					"linkUrl": "",
+					"linkTable": "daftar",
+					"linkPage": "list",
+					"linkText": {
+						"table": "daftar",
+						"type": 6
+					},
+					"linkIcon": {
+						"glyph": "barcode"
+					},
+					"linkComments": {
+						"type": 0,
+						"text": "Daftar Kunjungan Pasien"
+					},
+					"background": "#3CB371",
+					"linkType": 0
+				},
+				"welcome_item1": {
+					"type": "welcome_item",
+					"linkUrl": "",
+					"linkTable": "diagnosa",
+					"linkPage": "list",
+					"linkText": {
+						"table": "diagnosa",
+						"type": 6
+					},
+					"linkIcon": {
+						"glyph": "headphones"
+					},
+					"linkComments": {
+						"type": 0,
+						"text": "Diagnosa"
+					},
+					"background": "#DAA520",
+					"linkType": 0
+				},
+				"welcome_item2": {
+					"type": "welcome_item",
+					"linkUrl": "",
+					"linkTable": "gampong",
+					"linkPage": "list",
+					"linkText": {
+						"table": "gampong",
+						"type": 6
+					},
+					"linkIcon": {
+						"glyph": "leaf"
+					},
+					"linkComments": {
+						"type": 0,
+						"text": "Data Per Gampong"
+					},
+					"background": "#6B8E23",
+					"linkType": 0
+				},
+				"welcome_item3": {
+					"type": "welcome_item",
+					"linkUrl": "",
+					"linkTable": "pasien",
+					"linkPage": "list",
+					"linkText": {
+						"table": "pasien",
+						"type": 6
+					},
+					"linkIcon": {
+						"glyph": "briefcase"
+					},
+					"linkComments": {
+						"type": 0,
+						"text": "Daftar PAsien"
+					},
+					"background": "#6B8E23",
+					"linkType": 0
+				},
+				"text": {
+					"type": "text",
+					"label": {
+						"text": "<div style=\"text-align: center;\">\n    <img src=\"https://pa-kangean.go.id/images/images/gallery/MoU/DINKES.png\" width=\"300\" alt=\"\">\n    <div style=\"font-weight: bold; font-size: 18px; margin-top: 10px;\">\n        PROLANIS PUSKESMAS PIDIE\n    </div>\n</div>",
+						"type": 0
+					},
+					"editedByRte": false
+				},
+				"userinfo_link": {
+					"type": "userinfo_link"
+				},
+				"logout_link": {
+					"type": "logout_link"
+				},
+				"adminarea_link": {
+					"type": "adminarea_link"
+				},
+				"logo": {
+					"type": "logo"
+				},
+				"menu": {
+					"type": "menu"
+				},
+				"username_button": {
+					"type": "username_button",
+					"items": [
+						"userinfo_link",
+						"logout_link",
+						"adminarea_link",
+						"changepassword_link"
+					]
+				},
+				"loginform_login": {
+					"type": "loginform_login",
+					"popup": false
+				},
+				"expand_menu_button": {
+					"type": "expand_menu_button"
+				},
+				"collapse_button": {
+					"type": "collapse_button"
+				},
+				"changepassword_link": {
+					"type": "changepassword_link"
+				},
+				"snippet": {
+					"eventId": "tahun",
+					"label": {
+						"text": "tahun",
+						"type": 0
+					},
+					"type": "snippet",
+					"bold": true,
+					"font-size": "30px",
+					"eventGid": 4151081472
+				},
+				"menu1": {
+					"type": "menu",
+					"menuId": "secondary"
+				},
+				"welcome_item4": {
+					"type": "welcome_item",
+					"linkUrl": "",
+					"linkTable": "aktivasi_user",
+					"linkPage": "list",
+					"linkText": {
+						"type": 0,
+						"text": "Aktivasi User Baru"
+					},
+					"linkIcon": {
+						"glyph": "user"
+					},
+					"linkComments": {
+						"type": 0,
+						"text": "List user yang belum aktivasi"
+					},
+					"background": "#7B68EE",
+					"linkType": 0
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "register",
+			"type": "register",
+			"layoutId": "pretty1",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "register-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"register_message"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "register-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"register_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"footer": {
+					"modelId": "register-below-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"register_save",
+								"back_to_login"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"register_reset"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "simple-edit",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c3"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c3": {
+							"model": "c3",
+							"items": [
+								"integrated_edit_field",
+								"integrated_edit_field1",
+								"integrated_confirm_password",
+								"integrated_edit_field2"
+							]
+						}
+					},
+					"deferredItems": [],
+					"columnCount": 1,
+					"inlineLabels": false,
+					"separateLabels": false
+				}
+			},
+			"items": {
+				"register_header": {
+					"type": "register_header",
+					"title": {
+						"page": "register",
+						"table": "<global>",
+						"type": 7
+					}
+				},
+				"register_reset": {
+					"type": "register_reset"
+				},
+				"register_message": {
+					"type": "register_message"
+				},
+				"register_save": {
+					"type": "register_save"
+				},
+				"back_to_login": {
+					"type": "back_to_login"
+				},
+				"integrated_edit_field": {
+					"field": "username",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field1": {
+					"field": "password",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_confirm_password": {
+					"type": "integrated_confirm_password",
+					"field": "confirm_aoel3cx",
+					"orientation": 0
+				},
+				"integrated_edit_field2": {
+					"field": "fullname",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"label": {
+						"field": "fullname",
+						"table": "user",
+						"type": 3
+					}
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image",
+				"shadow": false,
+				"fullSize": true,
+				"image": {
+					"image": "prolanis.jpg",
+					"source": 2
+				}
+			},
+			"imageBgColor": "transparent",
+			"controlsBgColor": "transparent",
+			"imagePosition": "left",
+			"listTotals": 1,
+			"title": {
+				"Indonesian": "Daftar user baru"
+			}
+		},
+		{
+			"id": "register_success",
+			"type": "register_success",
+			"layoutId": "first",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "register_success-above",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"text"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"supertop": {
+					"modelId": "panel-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "register_success-header",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"register_success_header"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "register_success-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c2": {
+							"model": "c2",
+							"items": [
+								"register_proceed",
+								"register_close"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"footer": {
+					"modelId": "register_success-footer",
+					"grid": [],
+					"cells": {},
+					"deferredItems": [],
+					"recsPerRow": 1
+				}
+			},
+			"items": {
+				"register_proceed": {
+					"type": "register_proceed"
+				},
+				"register_success_header": {
+					"type": "register_success_header"
+				},
+				"register_close": {
+					"type": "register_close"
+				},
+				"text": {
+					"type": "text",
+					"label": {
+						"text": "untuk aktivasi hubungi 085260268070",
+						"type": 0
+					},
+					"editedByRte": false,
+					"color": "#c31c1c",
+					"bold": true
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		},
+		{
+			"id": "userinfo",
+			"type": "userinfo",
+			"layoutId": "leftbar",
+			"disabled": 0,
+			"default": 0,
+			"forms": {
+				"above-grid": {
+					"modelId": "empty-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"below-grid": {
+					"modelId": "empty-above-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"supertop": {
+					"modelId": "leftbar-top-edit",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								},
+								{
+									"cell": "c2"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": [
+								"expand_menu_button",
+								"collapse_button",
+								"breadcrumb"
+							]
+						},
+						"c2": {
+							"model": "c2",
+							"items": [
+								"loginform_login",
+								"username_button"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"left": {
+					"modelId": "leftbar-menu",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c0"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c0": {
+							"model": "c0",
+							"items": [
+								"logo"
+							]
+						},
+						"c1": {
+							"model": "c1",
+							"items": [
+								"menu"
+							]
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"top": {
+					"modelId": "empty-above-grid",
+					"grid": [],
+					"cells": {},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "userinfo-grid",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "fields_message"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "fields"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "buttons"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"fields_message": {
+							"model": "fields_message",
+							"items": [
+								"user_fields_title",
+								"fields_message"
+							]
+						},
+						"buttons": {
+							"model": "buttons",
+							"items": [
+								"user_fields_reset",
+								"user_fields_save"
+							]
+						},
+						"fields": {
+							"model": "fields",
+							"items": [
+								"changepassword_link",
+								"integrated_edit_field",
+								"integrated_edit_field1",
+								"integrated_edit_field2"
+							]
+						}
+					},
+					"deferredItems": [],
+					"columnCount": 1,
+					"inlineLabels": false,
+					"separateLabels": false
+				}
+			},
+			"items": {
+				"fields_message": {
+					"type": "fields_message"
+				},
+				"user_fields_reset": {
+					"type": "user_fields_reset"
+				},
+				"user_fields_save": {
+					"type": "user_fields_save"
+				},
+				"user_fields_title": {
+					"type": "user_fields_title",
+					"font-size": "24px"
+				},
+				"breadcrumb": {
+					"type": "breadcrumb"
+				},
+				"logo": {
+					"type": "logo"
+				},
+				"menu": {
+					"type": "menu"
+				},
+				"username_button": {
+					"type": "username_button",
+					"items": [
+						"userinfo_link",
+						"logout_link",
+						"adminarea_link"
+					]
+				},
+				"loginform_login": {
+					"type": "loginform_login",
+					"popup": false
+				},
+				"userinfo_link": {
+					"type": "userinfo_link"
+				},
+				"logout_link": {
+					"type": "logout_link"
+				},
+				"expand_menu_button": {
+					"type": "expand_menu_button"
+				},
+				"collapse_button": {
+					"type": "collapse_button"
+				},
+				"integrated_edit_field": {
+					"field": "username",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field1": {
+					"field": "fullname",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field2": {
+					"field": "email",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"adminarea_link": {
+					"type": "adminarea_link"
+				},
+				"changepassword_link": {
+					"type": "changepassword_link"
+				}
+			},
+			"dbProps": {},
+			"version": 11,
+			"imageItem": {
+				"type": "page_image"
+			},
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
+			"imagePosition": "right",
+			"listTotals": 1,
+			"title": {}
+		}
+	],
+	"eventHandlers": [
+		{
+			"eventId": "EVENT_AFTERSUCCESSFULLLOGIN",
+			"pageType": "login",
+			"code": "$_SESSION[\"tahun\"] = $data[\"tahun\"];"
+		}
+	],
+	"projectStyle": {
+		"theme": "cosmo",
+		"sidebarWidth": "200px",
+		"sidebarTheme": "primary",
+		"sidebarCompact": true,
+		"topbarTheme": "white",
+		"logoTheme": "dark",
+		"fixedTopbar": true,
+		"sidebarCustomThemeColor": "#158cba",
+		"topbarCustomThemeColor": "#a6f3ed",
+		"logoCustomThemeColor": "#527898",
+		"customCss": "#form_top_1 div .panel-body{\n display:none;\n}\n\n/* Panel heading */\n#form_top_1 div .panel-heading{\n transform:translatex(0px) translatey(0px);\n min-height:183px;\n background-image:linear-gradient(to right, #642b73 0%, #c6426e 100%);\n border-style:none;\n box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n}",
+		"verticalBorders": false,
+		"condensedGrid": true,
+		"rolloverHighlight": true,
+		"gpHeaderBg": "legacy",
+		"gpHeaderColor": "legacy",
+		"gpFooterBg": "legacy",
+		"gpPanelBorder": "1px",
+		"gpBorderColor": "legacy",
+		"gpInnerBorder": "legacy",
+		"gpInnerBorderColor": "legacy",
+		"gcOddBg": "legacy",
+		"gcOddColor": "legacy",
+		"gcEvenBg": "legacy",
+		"gcEvenColor": "legacy",
+		"gcRolloverHighlightBg": "legacy",
+		"gcRolloverHighlightColor": "legacy"
+	},
+	"styleOverrides": [
+		{
+			"table": 1902861381,
+			"page": "masterlist1",
+			"style": {
+				"condensedGrid": true,
+				"direction": "ltr",
+				"fixedSidebar": true,
+				"fixedTopbar": true,
+				"gcEvenBg": "",
+				"gcEvenColor": "",
+				"gcOddBg": "",
+				"gcOddColor": "",
+				"gcRolloverHighlightBg": "",
+				"gcRolloverHighlightColor": "",
+				"gpBorderColor": "",
+				"gpFooterBg": "",
+				"gpHeaderBg": "",
+				"gpHeaderColor": "",
+				"gpInnerBorder": "",
+				"gpInnerBorderColor": "",
+				"gpPanelBorder": "1px",
+				"logoCustomThemeColor": "#527898",
+				"logoTheme": "dark",
+				"menuStyle": "rounded",
+				"panelLikeGrid": false,
+				"rolloverHighlight": true,
+				"sidebarColor": "dark",
+				"sidebarCompact": true,
+				"sidebarCustomThemeColor": "#158cba",
+				"sidebarTheme": "primary",
+				"sidebarWidth": "200px",
+				"size": "normal",
+				"stripedGrid": true,
+				"theme": "yeti_baru",
+				"topbarCustomThemeColor": "#a6f3ed",
+				"topbarGradient": false,
+				"topbarLegacy": false,
+				"topbarTheme": "white",
+				"verticalBorders": false,
+				"customCss": ".panel-body {\n    padding: 0px;\n    \n}"
+			}
+		},
+		{
+			"table": 162369719,
+			"page": "add",
+			"style": {
+				"condensedGrid": true,
+				"direction": "ltr",
+				"fixedSidebar": true,
+				"fixedTopbar": true,
+				"gcEvenBg": "",
+				"gcEvenColor": "",
+				"gcOddBg": "",
+				"gcOddColor": "",
+				"gcRolloverHighlightBg": "",
+				"gcRolloverHighlightColor": "",
+				"gpBorderColor": "",
+				"gpFooterBg": "",
+				"gpHeaderBg": "",
+				"gpHeaderColor": "",
+				"gpInnerBorder": "",
+				"gpInnerBorderColor": "",
+				"gpPanelBorder": "1px",
+				"logoCustomThemeColor": "#527898",
+				"logoTheme": "dark",
+				"menuStyle": "rounded",
+				"panelLikeGrid": false,
+				"rolloverHighlight": true,
+				"sidebarColor": "dark",
+				"sidebarCompact": true,
+				"sidebarCustomThemeColor": "#158cba",
+				"sidebarTheme": "primary",
+				"sidebarWidth": "200px",
+				"size": "normal",
+				"stripedGrid": true,
+				"theme": "cosmo",
+				"topbarCustomThemeColor": "#a6f3ed",
+				"topbarGradient": false,
+				"topbarLegacy": false,
+				"topbarTheme": "white",
+				"verticalBorders": false,
+				"customCss": "#addnew_value_nik_1 {\n    font-size: 0;   /* sembunyikan teks \"Tambah baru\" */\n}\n\n#addnew_value_nik_1::before {\n    content: \"Klik di sini untuk rekam pasien dulu (kalau tidak muncul)\";\n    font-size: 14px;\n    color: #0d6efd;\n    cursor: pointer;\n    text-decoration: underline;\n}"
+			}
+		}
+	],
+	"settingsTable": {
+		"connId": "",
+		"table": ""
+	},
+	"messages": {},
+	"projectLogo": {
+		"Indonesian": "<img src=\"https://dinkes.pidiekab.go.id/thumbnail/0x40/media/2024.05/1x11.png\" width=\"20\" alt=\"Prolanis\">"
+	},
+	"cookieBannerText": {
+		"Indonesian": ""
+	}
+}

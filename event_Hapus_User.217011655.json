@@ -1,0 +1,6 @@
+{
+	"type": "EVENT_BUTTON",
+	"name": "Hapus_User",
+	"serverCode": "while($record = $button->getNextSelectedRecord())\n{\n$sql = \"delete from `user` where `username`=\"   .$record[\"id\"];\n  DB::Exec($sql);\n}",
+	"afterJsCode": "location.reload();"
+}

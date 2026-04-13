@@ -1,0 +1,5 @@
+{
+	"type": "EVENT_BUTTON",
+	"name": "upload_pasien",
+	"afterJsCode": "location.href=\"upload_pasien_list.php\";\nreturn false;"
+}
