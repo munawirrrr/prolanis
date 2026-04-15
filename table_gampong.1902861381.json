@@ -2,8 +2,9 @@
 	"orderInfo": [
 		{
 			"index": 4,
-			"asc": false,
-			"field": "SELECT\nCOUNT(*)\nFROM daftar AS d\nWHERE gampong = g.id"
+			"field": "jumlah_kunjungan",
+			"expr": "SELECT\n\tCOUNT(*)\nFROM\n\tdaftar AS d\nWHERE\ngampong = g.id\n",
+			"asc": false
 		}
 	],
 	"sql": "SELECT \n    g.id, \n    g.gampong, \n    g.hp_kader,\n    (SELECT COUNT(*) FROM daftar d WHERE d.gampong = g.id) AS jumlah_kunjungan,\n    (SELECT COUNT(*) FROM pasien p WHERE p.id_gampong = g.id) AS jumlah_penduduk\nFROM gampong g\nORDER BY jumlah_kunjungan DESC",
@@ -11,6 +12,7 @@
 	"originalTable": "gampong",
 	"name": "gampong",
 	"shortTableName": "gampong",
+	"dbType": 0,
 	"caseSensitiveSearch": "",
 	"clickActions": {
 		"row": {
@@ -85,8 +87,9 @@
 		{
 			"name": "id",
 			"sqlExpression": "g.id",
+			"index": 1,
 			"strField": "id",
-			"type": 200,
+			"type": 3,
 			"viewFormats": [
 				{
 					"numberFractionalDigits": 0
@@ -128,6 +131,7 @@
 		{
 			"name": "gampong",
 			"sqlExpression": "g.gampong",
+			"index": 2,
 			"strField": "gampong",
 			"type": 200,
 			"viewFormats": [
@@ -171,6 +175,7 @@
 		{
 			"name": "hp_kader",
 			"sqlExpression": "g.hp_kader",
+			"index": 3,
 			"strField": "hp_kader",
 			"type": 200,
 			"viewFormats": [
@@ -214,6 +219,7 @@
 		{
 			"name": "jumlah_kunjungan",
 			"sqlExpression": "(SELECT COUNT(*) FROM daftar d WHERE d.gampong = g.id)",
+			"index": 4,
 			"strField": "jumlah_kunjungan",
 			"type": 3,
 			"viewFormats": [
@@ -257,6 +263,7 @@
 		{
 			"name": "jumlah_penduduk",
 			"sqlExpression": "(SELECT COUNT(*) FROM pasien p WHERE p.id_gampong = g.id)",
+			"index": 5,
 			"strField": "jumlah_penduduk",
 			"type": 3,
 			"viewFormats": [
@@ -313,6 +320,50 @@
 	],
 	"sortByFields": {
 		"sortOrder": []
+	},
+	"dbTableInfo": {
+		"type": 0,
+		"foreignKeys": [],
+		"fields": [
+			{
+				"name": "id",
+				"type": 3,
+				"size": 11,
+				"scale": 0,
+				"typeName": "int(11)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "gampong",
+				"type": 200,
+				"size": 100,
+				"scale": 0,
+				"typeName": "varchar(100)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "hp_kader",
+				"type": 200,
+				"size": 50,
+				"scale": 0,
+				"typeName": "varchar(50)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			}
+		],
+		"primaryKeys": [
+			"id"
+		],
+		"uniqueFields": [],
+		"name": "gampong"
 	},
 	"pages": [
 		{

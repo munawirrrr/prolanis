@@ -2,16 +2,18 @@
 	"orderInfo": [
 		{
 			"index": 3,
-			"asc": true,
-			"field": "CONCAT(CASE MONTH(`tanggal`)\n        WHEN 1  THEN '01'\n        WHEN 2  THEN '02'\n        WHEN 3  THEN '03'\n        WHEN 4  THEN '04'\n        WHEN 5  THEN '05'\n        WHEN 6  THEN '06'\n        WHEN 7  THEN '07'\n        WHEN 8  THEN '08'\n        WHEN 9  THEN '09'\n        WHEN 10 THEN '10'\n        WHEN 11 THEN '11'\n        WHEN 12 THEN '2'\n    END)"
+			"field": "bulan",
+			"expr": "CONCAT(CASE MONTH(`tanggal`)\n        WHEN 1  THEN '01'\n        WHEN 2  THEN '02'\n        WHEN 3  THEN '03'\n        WHEN 4  THEN '04'\n        WHEN 5  THEN '05'\n        WHEN 6  THEN '06'\n        WHEN 7  THEN '07'\n        WHEN 8  THEN '08'\n        WHEN 9  THEN '09'\n        WHEN 10 THEN '10'\n        WHEN 11 THEN '11'\n        WHEN 12 THEN '2'\n    END)",
+			"asc": true
 		}
 	],
-	"sql": "SELECT\ngampong.gampong,\ndaftar.tahun,\nCONCAT(CASE MONTH(`tanggal`)\n        WHEN 1  THEN '01'\n        WHEN 2  THEN '02'\n        WHEN 3  THEN '03'\n        WHEN 4  THEN '04'\n        WHEN 5  THEN '05'\n        WHEN 6  THEN '06'\n        WHEN 7  THEN '07'\n        WHEN 8  THEN '08'\n        WHEN 9  THEN '09'\n        WHEN 10 THEN '10'\n        WHEN 11 THEN '11'\n        WHEN 12 THEN '2'\n    END) AS bulan,\ndaftar.tanggal,\npasien.nama,\ndaftar.nik,\npasien.tanggal_lahir,\nConcat(FLOOR(DATEDIFF(DATE_FORMAT(NOW(), '%Y-07-01'), pasien.`tanggal_lahir`) / 365.25), \" Tahun \") AS usia,\ndaftar.diagnosa,\ndaftar.keterangan\nFROM daftar\nINNER JOIN pasien ON daftar.nik = pasien.nik\nINNER JOIN gampong ON pasien.id_gampong = gampong.id\nWHERE (daftar.status = 'disetujui')\nORDER BY CONCAT(CASE MONTH(`tanggal`)\n        WHEN 1  THEN '01'\n        WHEN 2  THEN '02'\n        WHEN 3  THEN '03'\n        WHEN 4  THEN '04'\n        WHEN 5  THEN '05'\n        WHEN 6  THEN '06'\n        WHEN 7  THEN '07'\n        WHEN 8  THEN '08'\n        WHEN 9  THEN '09'\n        WHEN 10 THEN '10'\n        WHEN 11 THEN '11'\n        WHEN 12 THEN '2'\n    END)",
+	"sql": "SELECT\ngampong.gampong,\ndaftar.tahun,\nCONCAT(CASE MONTH(`tanggal`)\n        WHEN 1  THEN '01'\n        WHEN 2  THEN '02'\n        WHEN 3  THEN '03'\n        WHEN 4  THEN '04'\n        WHEN 5  THEN '05'\n        WHEN 6  THEN '06'\n        WHEN 7  THEN '07'\n        WHEN 8  THEN '08'\n        WHEN 9  THEN '09'\n        WHEN 10 THEN '10'\n        WHEN 11 THEN '11'\n        WHEN 12 THEN '2'\n    END) AS bulan,\ndaftar.tanggal,\npasien.nama,\ndaftar.nik,\npasien.bpjs,\nDATE_FORMAT(pasien.tanggal_lahir, '%Y-%m-%d') AS Tanggal_lahir,\nConcat(FLOOR(DATEDIFF(DATE_FORMAT(NOW(), '%Y-07-01'), pasien.`tanggal_lahir`) / 365.25), \" Tahun \") AS usia,\ndaftar.diagnosa,\ndaftar.keterangan\nFROM daftar\nINNER JOIN pasien ON daftar.nik = pasien.nik\nINNER JOIN gampong ON pasien.id_gampong = gampong.id\nWHERE (daftar.status = 'disetujui')\nORDER BY CONCAT(CASE MONTH(`tanggal`)\n        WHEN 1  THEN '01'\n        WHEN 2  THEN '02'\n        WHEN 3  THEN '03'\n        WHEN 4  THEN '04'\n        WHEN 5  THEN '05'\n        WHEN 6  THEN '06'\n        WHEN 7  THEN '07'\n        WHEN 8  THEN '08'\n        WHEN 9  THEN '09'\n        WHEN 10 THEN '10'\n        WHEN 11 THEN '11'\n        WHEN 12 THEN '2'\n    END)",
 	"type": 2,
 	"connId": "penmadpiprolanisatpenmadpidiec",
 	"originalTable": "pasien",
 	"name": "laporan per gampong",
 	"shortTableName": "laporan_per_gampong",
+	"dbType": 0,
 	"caseSensitiveSearch": "",
 	"pageSizeSelectorRecords": [
 		"10",
@@ -40,6 +42,7 @@
 		{
 			"name": "gampong",
 			"sqlExpression": "gampong.gampong",
+			"index": 1,
 			"strField": "gampong",
 			"type": 200,
 			"viewFormats": [
@@ -83,6 +86,7 @@
 		{
 			"name": "tahun",
 			"sqlExpression": "daftar.tahun",
+			"index": 2,
 			"strField": "tahun",
 			"type": 200,
 			"viewFormats": [
@@ -130,6 +134,7 @@
 		{
 			"name": "bulan",
 			"sqlExpression": "CONCAT(CASE MONTH(`tanggal`)\n        WHEN 1  THEN '01'\n        WHEN 2  THEN '02'\n        WHEN 3  THEN '03'\n        WHEN 4  THEN '04'\n        WHEN 5  THEN '05'\n        WHEN 6  THEN '06'\n        WHEN 7  THEN '07'\n        WHEN 8  THEN '08'\n        WHEN 9  THEN '09'\n        WHEN 10 THEN '10'\n        WHEN 11 THEN '11'\n        WHEN 12 THEN '2'\n    END)",
+			"index": 3,
 			"strField": "bulan",
 			"type": 200,
 			"viewFormats": [
@@ -178,6 +183,7 @@
 		{
 			"name": "tanggal",
 			"sqlExpression": "daftar.tanggal",
+			"index": 4,
 			"strField": "tanggal",
 			"type": 7,
 			"viewFormats": [
@@ -224,6 +230,7 @@
 		{
 			"name": "nama",
 			"sqlExpression": "pasien.nama",
+			"index": 5,
 			"strField": "nama",
 			"type": 200,
 			"viewFormats": [
@@ -262,6 +269,7 @@
 		{
 			"name": "nik",
 			"sqlExpression": "daftar.nik",
+			"index": 6,
 			"strField": "nik",
 			"type": 200,
 			"separateEditViewFormats": true,
@@ -333,51 +341,9 @@
 			"tableName": "daftar"
 		},
 		{
-			"name": "tanggal_lahir",
-			"sqlExpression": "pasien.tanggal_lahir",
-			"strField": "tanggal_lahir",
-			"type": 7,
-			"viewFormats": [
-				{
-					"format": "Short Date",
-					"pageType": "report",
-					"numberFractionalDigits": 0
-				}
-			],
-			"editFormats": [
-				{
-					"format": "Date",
-					"pageType": "search",
-					"required": true,
-					"validateRegexMessage": {
-						"text": "",
-						"type": 0
-					},
-					"textHTML5Input": "0",
-					"fileMaxNumber": 1,
-					"fileThumbnailField": "th",
-					"dateEditType": 5,
-					"timeConvention": 1
-				}
-			],
-			"filterFormat": {
-				"format": "Values list"
-			},
-			"sourceSingle": "tanggal_lahir",
-			"label": {
-				"Indonesian": "Tanggal Lahir"
-			},
-			"tooltip": {
-				"Indonesian": ""
-			},
-			"placeholder": {
-				"Indonesian": ""
-			},
-			"tableName": "pasien"
-		},
-		{
 			"name": "usia",
 			"sqlExpression": "Concat(FLOOR(DATEDIFF(DATE_FORMAT(NOW(), '%Y-07-01'), pasien.`tanggal_lahir`) / 365.25), \" Tahun \")",
+			"index": 9,
 			"strField": "usia",
 			"type": 200,
 			"viewFormats": [
@@ -421,6 +387,7 @@
 		{
 			"name": "diagnosa",
 			"sqlExpression": "daftar.diagnosa",
+			"index": 10,
 			"strField": "diagnosa",
 			"type": 200,
 			"viewFormats": [
@@ -464,6 +431,7 @@
 		{
 			"name": "keterangan",
 			"sqlExpression": "daftar.keterangan",
+			"index": 11,
 			"strField": "keterangan",
 			"type": 201,
 			"viewFormats": [
@@ -504,6 +472,40 @@
 				"Indonesian": ""
 			},
 			"tableName": "daftar"
+		},
+		{
+			"name": "bpjs",
+			"sqlExpression": "pasien.bpjs",
+			"index": 7,
+			"strField": "bpjs",
+			"type": 200,
+			"viewFormats": [
+				{}
+			],
+			"editFormats": [
+				{}
+			],
+			"label": {
+				"Indonesian": "Bpjs"
+			},
+			"tableName": "pasien"
+		},
+		{
+			"name": "Tanggal_lahir",
+			"sqlExpression": "DATE_FORMAT(pasien.tanggal_lahir, '%Y-%m-%d')",
+			"index": 8,
+			"strField": "Tanggal_lahir",
+			"type": 200,
+			"viewFormats": [
+				{}
+			],
+			"editFormats": [
+				{}
+			],
+			"label": {
+				"Indonesian": "Tanggal Lahir"
+			},
+			"tableName": ""
 		}
 	],
 	"warnLeavingEdit": true,
@@ -518,6 +520,105 @@
 	],
 	"sortByFields": {
 		"sortOrder": []
+	},
+	"dbTableInfo": {
+		"type": 0,
+		"foreignKeys": [],
+		"fields": [
+			{
+				"name": "nik",
+				"type": 200,
+				"size": 25,
+				"scale": 0,
+				"typeName": "varchar(25)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "nama",
+				"type": 200,
+				"size": 150,
+				"scale": 0,
+				"typeName": "varchar(150)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "Tanggal_lahir",
+				"type": 7,
+				"size": 0,
+				"scale": 0,
+				"typeName": "date",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "hp_pasien",
+				"type": 200,
+				"size": 20,
+				"scale": 0,
+				"typeName": "varchar(20)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "nama_kk",
+				"type": 200,
+				"size": 150,
+				"scale": 0,
+				"typeName": "varchar(150)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "bpjs",
+				"type": 200,
+				"size": 25,
+				"scale": 0,
+				"typeName": "varchar(25)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "Jenis_kelamin",
+				"type": 200,
+				"size": 20,
+				"scale": 0,
+				"typeName": "varchar(20)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "id_gampong",
+				"type": 3,
+				"size": 11,
+				"scale": 0,
+				"typeName": "int(11)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			}
+		],
+		"primaryKeys": [
+			"nik"
+		],
+		"uniqueFields": [],
+		"name": "pasien"
 	},
 	"pages": [
 		{
@@ -616,8 +717,7 @@
 						"c1": {
 							"model": "c1",
 							"items": [
-								"menu",
-								"search_panel"
+								"menu"
 							]
 						}
 					},
@@ -690,7 +790,7 @@
 								"report_grid_field6",
 								"report_grid_field1",
 								"report_grid_field",
-								"report_grid_field2",
+								"report_grid_field3",
 								"report_grid_field7",
 								"report_grid_field8",
 								"report_grid_field9"
@@ -704,22 +804,22 @@
 							{
 								"interval": 0,
 								"summary": true,
-								"axis": 0,
+								"field": "tahun",
 								"color": {
-									"header": "D8D8D8",
-									"summary": "FFFFFF"
+									"header": "d9d9d9",
+									"summary": "ffffff"
 								},
-								"field": "tahun"
+								"axis": 0
 							},
 							{
 								"interval": 0,
 								"summary": true,
-								"axis": 0,
+								"field": "gampong",
 								"color": {
-									"header": "93B7C3",
-									"summary": "ADD8E6"
+									"header": "93b8c4",
+									"summary": "add8e6"
 								},
-								"field": "gampong"
+								"axis": 0
 							}
 						],
 						"fields": [
@@ -756,11 +856,11 @@
 								"sum": false
 							},
 							{
-								"field": "tanggal_lahir",
+								"field": "bpjs",
 								"grid": true,
-								"avg": false,
-								"max": false,
 								"min": false,
+								"max": false,
+								"avg": false,
 								"sum": false
 							},
 							{
@@ -828,9 +928,6 @@
 				"list_options": {
 					"type": "list_options",
 					"items": [
-						"show_search_panel",
-						"hide_search_panel",
-						"-1",
 						"export_report_excel",
 						"export_report_word"
 					]
@@ -841,26 +938,8 @@
 				"export_report_word": {
 					"type": "export_report_word"
 				},
-				"search_panel": {
-					"type": "search_panel",
-					"items": [],
-					"mobileDisplay": "",
-					"_flexiblePanel": true,
-					"mobileControl": ""
-				},
-				"show_search_panel": {
-					"type": "show_search_panel",
-					"label": {
-						"type": 0,
-						"text": "Tampilkan filter"
-					},
-					"buttonStyle": "danger"
-				},
 				"-": {
 					"type": "-"
-				},
-				"hide_search_panel": {
-					"type": "hide_search_panel"
 				},
 				"username_button": {
 					"type": "username_button",
@@ -925,16 +1004,6 @@
 				},
 				"report_grid_field1": {
 					"field": "nama",
-					"type": "report_grid_field",
-					"inlineAdd": true,
-					"inlineEdit": true,
-					"reportAvg": false,
-					"reportMin": false,
-					"reportMax": false,
-					"reportSum": false
-				},
-				"report_grid_field2": {
-					"field": "tanggal_lahir",
 					"type": "report_grid_field",
 					"inlineAdd": true,
 					"inlineEdit": true,
@@ -1010,6 +1079,14 @@
 				},
 				"export_report_word1": {
 					"type": "export_report_word"
+				},
+				"report_grid_field3": {
+					"field": "bpjs",
+					"type": "report_grid_field",
+					"reportAvg": false,
+					"reportMin": false,
+					"reportMax": false,
+					"reportSum": false
 				}
 			},
 			"dbProps": {},
@@ -1139,7 +1216,7 @@
 									"cell": "headcell_field3"
 								},
 								{
-									"cell": "headcell_field4"
+									"cell": "headcell_field9"
 								},
 								{
 									"cell": "headcell_field5"
@@ -1196,7 +1273,7 @@
 									"cell": "cell_field3"
 								},
 								{
-									"cell": "cell_field4"
+									"cell": "cell_field9"
 								},
 								{
 									"cell": "cell_field5"
@@ -1217,11 +1294,11 @@
 								},
 								{
 									"cell": "cell_group_summary1",
-									"colspan": 2
+									"colspan": 3
 								},
 								{
 									"cell": "cell_group_summary4",
-									"colspan": 7
+									"colspan": 6
 								}
 							],
 							"section": "group-summary",
@@ -1251,19 +1328,18 @@
 							"cells": [
 								{
 									"cell": "cell_global_summary1",
-									"colspan": 2
+									"colspan": 3
 								},
 								{
 									"cell": "cell_global_summary4",
-									"colspan": 3
+									"colspan": 4
 								},
 								{
-									"cell": "cell_global_summary2",
-									"colspan": 2
+									"cell": "cell_global_summary2"
 								},
 								{
 									"cell": "cell_global_summary3",
-									"colspan": 3
+									"colspan": 2
 								}
 							]
 						}
@@ -1399,21 +1475,6 @@
 							],
 							"field": "nik"
 						},
-						"headcell_field4": {
-							"model": "headcell_field",
-							"items": [
-								"report_advanced_field_label4"
-							],
-							"field": "tanggal_lahir",
-							"bold": true
-						},
-						"cell_field4": {
-							"model": "cell_field",
-							"items": [
-								"report_advanced_field4"
-							],
-							"field": "tanggal_lahir"
-						},
 						"headcell_field5": {
 							"model": "headcell_field",
 							"items": [
@@ -1539,18 +1600,33 @@
 								}
 							],
 							"background": "#ffffff"
+						},
+						"headcell_field9": {
+							"model": "headcell_field",
+							"items": [
+								"report_advanced_field_label8"
+							],
+							"field": "nik",
+							"bold": true
+						},
+						"cell_field9": {
+							"model": "cell_field",
+							"items": [
+								"report_advanced_field8"
+							],
+							"field": "nik"
 						}
 					},
 					"deferredItems": [],
 					"recsPerRow": 1,
 					"groupColors": {
 						"tahun": {
-							"header": "D8D8D8",
-							"summary": "FFFFFF"
+							"header": "d9d9d9",
+							"summary": "ffffff"
 						},
 						"gampong": {
-							"header": "93B7C3",
-							"summary": "ADD8E6"
+							"header": "93b8c4",
+							"summary": "add8e6"
 						}
 					}
 				}
@@ -1687,14 +1763,6 @@
 					"type": "report_advanced_field_label",
 					"field": "nik"
 				},
-				"report_advanced_field4": {
-					"field": "tanggal_lahir",
-					"type": "report_advanced_field"
-				},
-				"report_advanced_field_label4": {
-					"type": "report_advanced_field_label",
-					"field": "tanggal_lahir"
-				},
 				"report_advanced_field5": {
 					"field": "usia",
 					"type": "report_advanced_field"
@@ -1768,6 +1836,14 @@
 						"type": 0
 					},
 					"eventGid": 3315456684
+				},
+				"report_advanced_field8": {
+					"field": "bpjs",
+					"type": "report_advanced_field"
+				},
+				"report_advanced_field_label8": {
+					"type": "report_advanced_field_label",
+					"field": "bpjs"
 				}
 			},
 			"dbProps": {},

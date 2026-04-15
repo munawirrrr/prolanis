@@ -3224,11 +3224,11 @@
 		}
 	],
 	"projectStyle": {
-		"theme": "cosmo",
+		"theme": "flatly",
 		"sidebarWidth": "200px",
 		"sidebarTheme": "primary",
 		"sidebarCompact": true,
-		"topbarTheme": "white",
+		"topbarTheme": "light",
 		"logoTheme": "dark",
 		"fixedTopbar": true,
 		"sidebarCustomThemeColor": "#158cba",

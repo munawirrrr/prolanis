@@ -1,9 +1,10 @@
 {
-	"sql": "SELECT\n    pasien.nik,\n    CASE \n        WHEN EXISTS (\n            SELECT 1 \n            FROM daftar \n            WHERE daftar.nik = pasien.nik\n        ) \n        THEN 'pasien_prolanis'\n        ELSE ''\n    END AS catatan,\n    pasien.nama,\n    pasien.tanggal_lahir,\n    pasien.bpjs,\n    pasien.id_gampong,\n    pasien.jenis_kelamin,\n    pasien.hp_pasien\nFROM pasien;",
+	"sql": "SELECT\n    pasien.nik,\n    CASE \n        WHEN EXISTS (\n            SELECT 1 \n            FROM daftar \n            WHERE daftar.nik = pasien.nik\n        ) \n        THEN 'pasien_prolanis'\n        ELSE ''\n    END AS catatan,\n    pasien.nama,\n    DATE_FORMAT(pasien.tanggal_lahir, '%Y-%m-%d') AS Tanggal_lahir,\n    pasien.bpjs,\n    pasien.id_gampong,\n    pasien.jenis_kelamin,\n    pasien.hp_pasien\nFROM pasien;",
 	"connId": "penmadpiprolanisatpenmadpidiec",
 	"originalTable": "pasien",
 	"name": "pasien",
 	"shortTableName": "pasien",
+	"dbType": 0,
 	"caseSensitiveSearch": "",
 	"pageSizeSelectorRecords": [
 		"10",
@@ -34,6 +35,7 @@
 		{
 			"name": "nik",
 			"sqlExpression": "pasien.nik",
+			"index": 1,
 			"strField": "nik",
 			"type": 200,
 			"viewFormats": [
@@ -70,6 +72,7 @@
 		{
 			"name": "catatan",
 			"sqlExpression": "CASE \n        WHEN EXISTS (\n            SELECT 1 \n            FROM daftar \n            WHERE daftar.nik = pasien.nik\n        ) \n        THEN 'pasien_prolanis'\n        ELSE ''\n    END",
+			"index": 2,
 			"strField": "catatan",
 			"type": 200,
 			"viewFormats": [
@@ -111,6 +114,7 @@
 		{
 			"name": "nama",
 			"sqlExpression": "pasien.nama",
+			"index": 3,
 			"strField": "nama",
 			"type": 200,
 			"viewFormats": [
@@ -145,49 +149,9 @@
 			"tableName": "pasien"
 		},
 		{
-			"name": "tanggal_lahir",
-			"sqlExpression": "pasien.tanggal_lahir",
-			"strField": "tanggal_lahir",
-			"type": 7,
-			"viewFormats": [
-				{
-					"format": "Short Date",
-					"numberFractionalDigits": 0
-				}
-			],
-			"editFormats": [
-				{
-					"format": "Date",
-					"required": true,
-					"validateRegexMessage": {
-						"text": "",
-						"type": 0
-					},
-					"textHTML5Input": "0",
-					"fileMaxNumber": 1,
-					"fileThumbnailField": "th",
-					"dateEditType": 5,
-					"timeConvention": 1
-				}
-			],
-			"filterFormat": {
-				"format": "Values list"
-			},
-			"sourceSingle": "tanggal_lahir",
-			"label": {
-				"Indonesian": "Tanggal Lahir"
-			},
-			"tooltip": {
-				"Indonesian": ""
-			},
-			"placeholder": {
-				"Indonesian": ""
-			},
-			"tableName": "pasien"
-		},
-		{
 			"name": "bpjs",
 			"sqlExpression": "pasien.bpjs",
+			"index": 5,
 			"strField": "bpjs",
 			"type": 200,
 			"viewFormats": [
@@ -223,6 +187,7 @@
 		{
 			"name": "id_gampong",
 			"sqlExpression": "pasien.id_gampong",
+			"index": 6,
 			"strField": "id_gampong",
 			"type": 3,
 			"viewFormats": [
@@ -266,7 +231,8 @@
 		{
 			"name": "jenis_kelamin",
 			"sqlExpression": "pasien.jenis_kelamin",
-			"strField": "jenis_kelamin",
+			"index": 7,
+			"strField": "Jenis_kelamin",
 			"type": 200,
 			"viewFormats": [
 				{
@@ -316,6 +282,7 @@
 		{
 			"name": "hp_pasien",
 			"sqlExpression": "pasien.hp_pasien",
+			"index": 8,
 			"strField": "hp_pasien",
 			"type": 200,
 			"viewFormats": [
@@ -355,6 +322,28 @@
 				"Indonesian": ""
 			},
 			"tableName": "pasien"
+		},
+		{
+			"name": "Tanggal_lahir",
+			"sqlExpression": "DATE_FORMAT(pasien.tanggal_lahir, '%Y-%m-%d')",
+			"index": 4,
+			"strField": "Tanggal_lahir",
+			"type": 200,
+			"viewFormats": [
+				{
+					"format": "Short Date"
+				}
+			],
+			"editFormats": [
+				{
+					"format": "Date",
+					"required": true
+				}
+			],
+			"label": {
+				"Indonesian": "Tanggal Lahir"
+			},
+			"tableName": ""
 		}
 	],
 	"warnLeavingEdit": true,
@@ -388,6 +377,105 @@
 	],
 	"sortByFields": {
 		"sortOrder": []
+	},
+	"dbTableInfo": {
+		"type": 0,
+		"foreignKeys": [],
+		"fields": [
+			{
+				"name": "nik",
+				"type": 200,
+				"size": 25,
+				"scale": 0,
+				"typeName": "varchar(25)",
+				"nullable": false,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "nama",
+				"type": 200,
+				"size": 150,
+				"scale": 0,
+				"typeName": "varchar(150)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "Tanggal_lahir",
+				"type": 7,
+				"size": 0,
+				"scale": 0,
+				"typeName": "date",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "hp_pasien",
+				"type": 200,
+				"size": 20,
+				"scale": 0,
+				"typeName": "varchar(20)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "nama_kk",
+				"type": 200,
+				"size": 150,
+				"scale": 0,
+				"typeName": "varchar(150)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "bpjs",
+				"type": 200,
+				"size": 25,
+				"scale": 0,
+				"typeName": "varchar(25)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "Jenis_kelamin",
+				"type": 200,
+				"size": 20,
+				"scale": 0,
+				"typeName": "varchar(20)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "id_gampong",
+				"type": 3,
+				"size": 11,
+				"scale": 0,
+				"typeName": "int(11)",
+				"nullable": true,
+				"autoinc": false,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			}
+		],
+		"primaryKeys": [
+			"nik"
+		],
+		"uniqueFields": [],
+		"name": "pasien"
 	},
 	"pages": [
 		{
@@ -602,11 +690,6 @@
 					"type": "integrated_edit_field",
 					"orientation": 0
 				},
-				"integrated_edit_field2": {
-					"field": "tanggal_lahir",
-					"type": "integrated_edit_field",
-					"orientation": 0
-				},
 				"integrated_edit_field3": {
 					"field": "bpjs",
 					"type": "integrated_edit_field",
@@ -657,6 +740,11 @@
 				},
 				"integrated_edit_field6": {
 					"field": "catatan",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
+				"integrated_edit_field2": {
+					"field": "Tanggal_lahir",
 					"type": "integrated_edit_field",
 					"orientation": 0
 				}
@@ -847,7 +935,7 @@
 							"model": "c3",
 							"items": [
 								"integrated_edit_field1",
-								"integrated_edit_field2",
+								"integrated_edit_field",
 								"integrated_edit_field3",
 								"integrated_edit_field4",
 								"integrated_edit_field5",
@@ -888,12 +976,6 @@
 				},
 				"integrated_edit_field1": {
 					"field": "nama",
-					"type": "integrated_edit_field",
-					"orientation": 0,
-					"updateOnEdit": false
-				},
-				"integrated_edit_field2": {
-					"field": "tanggal_lahir",
 					"type": "integrated_edit_field",
 					"orientation": 0,
 					"updateOnEdit": false
@@ -947,6 +1029,11 @@
 				},
 				"collapse_button": {
 					"type": "collapse_button"
+				},
+				"integrated_edit_field": {
+					"field": "Tanggal_lahir",
+					"type": "integrated_edit_field",
+					"orientation": 0
 				}
 			},
 			"dbProps": {},
@@ -1029,12 +1116,12 @@
 							"items": [
 								"export_field",
 								"export_field1",
-								"export_field2",
 								"export_field3",
 								"export_field4",
 								"export_field5",
 								"export_field7",
-								"export_field6"
+								"export_field6",
+								"export_field2"
 							]
 						}
 					},
@@ -1091,10 +1178,6 @@
 					"field": "nama",
 					"type": "export_field"
 				},
-				"export_field2": {
-					"field": "tanggal_lahir",
-					"type": "export_field"
-				},
 				"export_field3": {
 					"field": "bpjs",
 					"type": "export_field"
@@ -1113,6 +1196,10 @@
 				},
 				"export_field6": {
 					"field": "catatan",
+					"type": "export_field"
+				},
+				"export_field2": {
+					"field": "Tanggal_lahir",
 					"type": "export_field"
 				}
 			},
@@ -1200,7 +1287,6 @@
 							"items": [
 								"import_field",
 								"import_field1",
-								"import_field2",
 								"import_field3",
 								"import_field4",
 								"import_field5",
@@ -1223,10 +1309,6 @@
 				},
 				"import_field1": {
 					"field": "nama",
-					"type": "import_field"
-				},
-				"import_field2": {
-					"field": "tanggal_lahir",
 					"type": "import_field"
 				},
 				"import_field3": {
@@ -1424,7 +1506,7 @@
 									"cell": "headcell_field1"
 								},
 								{
-									"cell": "headcell_field2"
+									"cell": "headcell_field8"
 								},
 								{
 									"cell": "headcell_field3"
@@ -1462,7 +1544,7 @@
 									"cell": "cell_field1"
 								},
 								{
-									"cell": "cell_field2"
+									"cell": "cell_field8"
 								},
 								{
 									"cell": "cell_field3"
@@ -1506,10 +1588,8 @@
 									"cell": "footcell_field"
 								},
 								{
-									"cell": "footcell_field1"
-								},
-								{
-									"cell": "footcell_field2"
+									"cell": "footcell_field1",
+									"colspan": 2
 								},
 								{
 									"cell": "footcell_field3"
@@ -1572,28 +1652,6 @@
 							"model": "footcell_field",
 							"items": [],
 							"field": "nama",
-							"columnName": "field"
-						},
-						"headcell_field2": {
-							"model": "headcell_field",
-							"items": [
-								"simple_grid_field10"
-							],
-							"field": "tanggal_lahir",
-							"columnName": "field"
-						},
-						"cell_field2": {
-							"model": "cell_field",
-							"items": [
-								"simple_grid_field2"
-							],
-							"field": "tanggal_lahir",
-							"columnName": "field"
-						},
-						"footcell_field2": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "tanggal_lahir",
 							"columnName": "field"
 						},
 						"headcell_field3": {
@@ -1776,6 +1834,22 @@
 							"items": [],
 							"field": "catatan",
 							"columnName": "field"
+						},
+						"headcell_field8": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label1"
+							],
+							"field": "nama",
+							"columnName": "field"
+						},
+						"cell_field8": {
+							"model": "cell_field",
+							"items": [
+								"grid_field1"
+							],
+							"field": "nama",
+							"columnName": "field"
 						}
 					},
 					"deferredItems": [],
@@ -1822,10 +1896,10 @@
 					"type": "search_panel",
 					"items": [
 						"search_panel_field",
+						"search_panel_field4",
 						"search_panel_field6",
 						"search_panel_field7",
 						"search_panel_field5",
-						"search_panel_field4",
 						"search_panel_field3",
 						"search_panel_field2",
 						"search_panel_field1"
@@ -1872,12 +1946,6 @@
 				},
 				"search_panel_field3": {
 					"field": "nik",
-					"type": "search_panel_field",
-					"required": false,
-					"alwaysOnPanel": false
-				},
-				"search_panel_field4": {
-					"field": "tanggal_lahir",
 					"type": "search_panel_field",
 					"required": false,
 					"alwaysOnPanel": false
@@ -1952,12 +2020,6 @@
 				},
 				"simple_grid_field1": {
 					"field": "nama",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false
-				},
-				"simple_grid_field2": {
-					"field": "tanggal_lahir",
 					"type": "grid_field",
 					"inlineAdd": false,
 					"inlineEdit": false
@@ -2053,10 +2115,6 @@
 					"type": "grid_field_label",
 					"field": "nama"
 				},
-				"simple_grid_field10": {
-					"type": "grid_field_label",
-					"field": "tanggal_lahir"
-				},
 				"simple_grid_field11": {
 					"type": "grid_field_label",
 					"field": "bpjs"
@@ -2097,6 +2155,18 @@
 					"field": "catatan",
 					"type": "search_panel_field",
 					"required": false
+				},
+				"grid_field1": {
+					"field": "Tanggal_lahir",
+					"type": "grid_field"
+				},
+				"grid_field_label1": {
+					"type": "grid_field_label",
+					"field": "Tanggal_lahir"
+				},
+				"search_panel_field4": {
+					"field": "Tanggal_lahir",
+					"type": "search_panel_field"
 				}
 			},
 			"dbProps": {},
@@ -2202,12 +2272,12 @@
 							"items": [
 								"simple_grid_field",
 								"simple_grid_field1",
-								"simple_grid_field2",
 								"simple_grid_field3",
 								"simple_grid_field4",
 								"simple_grid_field5",
 								"simple_grid_field7",
-								"simple_grid_field6"
+								"simple_grid_field6",
+								"simple_grid_field2"
 							]
 						}
 					},
@@ -2230,10 +2300,6 @@
 					"field": "nama",
 					"type": "simple_grid_field"
 				},
-				"simple_grid_field2": {
-					"field": "tanggal_lahir",
-					"type": "simple_grid_field"
-				},
 				"simple_grid_field3": {
 					"field": "bpjs",
 					"type": "simple_grid_field"
@@ -2252,6 +2318,10 @@
 				},
 				"simple_grid_field6": {
 					"field": "catatan",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field2": {
+					"field": "Tanggal_lahir",
 					"type": "simple_grid_field"
 				}
 			},
@@ -2356,12 +2426,12 @@
 							"items": [
 								"simple_grid_field",
 								"simple_grid_field1",
-								"simple_grid_field2",
 								"simple_grid_field3",
 								"simple_grid_field4",
 								"simple_grid_field5",
 								"simple_grid_field7",
-								"simple_grid_field6"
+								"simple_grid_field6",
+								"simple_grid_field2"
 							]
 						}
 					},
@@ -2379,10 +2449,6 @@
 				},
 				"simple_grid_field1": {
 					"field": "nama",
-					"type": "simple_grid_field"
-				},
-				"simple_grid_field2": {
-					"field": "tanggal_lahir",
 					"type": "simple_grid_field"
 				},
 				"simple_grid_field3": {
@@ -2403,6 +2469,10 @@
 				},
 				"simple_grid_field6": {
 					"field": "catatan",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field2": {
+					"field": "Tanggal_lahir",
 					"type": "simple_grid_field"
 				}
 			},
@@ -2518,12 +2588,12 @@
 							"items": [
 								"simple_grid_field",
 								"simple_grid_field1",
-								"simple_grid_field2",
 								"simple_grid_field3",
 								"simple_grid_field4",
 								"simple_grid_field5",
 								"simple_grid_field7",
-								"simple_grid_field6"
+								"simple_grid_field6",
+								"simple_grid_field2"
 							]
 						},
 						"c2": {
@@ -2557,11 +2627,6 @@
 					"type": "simple_grid_field",
 					"totals": ""
 				},
-				"simple_grid_field2": {
-					"field": "tanggal_lahir",
-					"type": "simple_grid_field",
-					"totals": ""
-				},
 				"simple_grid_field3": {
 					"field": "bpjs",
 					"type": "simple_grid_field",
@@ -2588,6 +2653,10 @@
 				},
 				"simple_grid_field6": {
 					"field": "catatan",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field2": {
+					"field": "Tanggal_lahir",
 					"type": "simple_grid_field"
 				}
 			},
@@ -2698,12 +2767,12 @@
 							"items": [
 								"integrated_search_field",
 								"integrated_search_field1",
-								"integrated_search_field2",
 								"integrated_search_field3",
 								"integrated_search_field4",
 								"integrated_search_field5",
 								"integrated_search_field7",
-								"integrated_search_field6"
+								"integrated_search_field6",
+								"integrated_search_field2"
 							]
 						}
 					},
@@ -2739,12 +2808,6 @@
 					"orientation": 0,
 					"required": false
 				},
-				"integrated_search_field2": {
-					"field": "tanggal_lahir",
-					"type": "integrated_search_field",
-					"orientation": 0,
-					"required": false
-				},
 				"integrated_search_field3": {
 					"field": "bpjs",
 					"type": "integrated_search_field",
@@ -2774,6 +2837,11 @@
 					"type": "integrated_search_field",
 					"orientation": 0,
 					"required": false
+				},
+				"integrated_search_field2": {
+					"field": "Tanggal_lahir",
+					"type": "integrated_search_field",
+					"orientation": 0
 				}
 			},
 			"dbProps": {},
@@ -2890,7 +2958,6 @@
 							"items": [
 								"integrated_edit_field",
 								"integrated_edit_field1",
-								"integrated_edit_field2",
 								"integrated_edit_field3",
 								"integrated_edit_field4"
 							]
@@ -2928,11 +2995,6 @@
 				},
 				"integrated_edit_field1": {
 					"field": "nama",
-					"type": "integrated_edit_field",
-					"orientation": 0
-				},
-				"integrated_edit_field2": {
-					"field": "tanggal_lahir",
 					"type": "integrated_edit_field",
 					"orientation": 0
 				},
