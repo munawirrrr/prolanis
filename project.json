@@ -357,7 +357,7 @@
 	"ftpLocations": [
 		{
 			"id": "ftploc",
-			"name": "penmadpidie.com",
+			"name": "prolanis",
 			"ftp": {
 				"username": "penmadpi",
 				"password": "",
@@ -3224,7 +3224,7 @@
 		}
 	],
 	"projectStyle": {
-		"theme": "flatly",
+		"theme": "united",
 		"sidebarWidth": "200px",
 		"sidebarTheme": "primary",
 		"sidebarCompact": true,
