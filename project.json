@@ -1995,7 +1995,7 @@
 		{
 			"id": "login",
 			"type": "login",
-			"layoutId": "pretty1",
+			"layoutId": "first",
 			"disabled": 0,
 			"default": 0,
 			"forms": {
@@ -2022,7 +2022,10 @@
 					"cells": {
 						"c2": {
 							"model": "c2",
-							"items": []
+							"items": [
+								"text"
+							],
+							"align": "center"
 						},
 						"c1": {
 							"model": "c1",
@@ -2034,8 +2037,36 @@
 					"deferredItems": [],
 					"recsPerRow": 1
 				},
+				"supertop": {
+					"modelId": "panel-top",
+					"grid": [
+						{
+							"cells": [
+								{
+									"cell": "c1"
+								}
+							],
+							"section": ""
+						}
+					],
+					"cells": {
+						"c1": {
+							"model": "c1",
+							"items": []
+						}
+					},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
 				"top": {
-					"modelId": "plogin-header",
+					"modelId": "login-header",
+					"grid": [],
+					"cells": {},
+					"deferredItems": [],
+					"recsPerRow": 1
+				},
+				"grid": {
+					"modelId": "login-labels",
 					"grid": [
 						{
 							"cells": [
@@ -2051,8 +2082,32 @@
 						{
 							"cells": [
 								{
-									"cell": "c3",
-									"colspan": 2
+									"cell": "c3"
+								},
+								{
+									"cell": "c4"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c12"
+								},
+								{
+									"cell": "c13"
+								}
+							],
+							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c9"
+								},
+								{
+									"cell": "c10"
 								}
 							],
 							"section": ""
@@ -2062,109 +2117,46 @@
 						"c1": {
 							"model": "c1",
 							"items": [
-								"login-logo"
+								"username_label"
 							]
 						},
 						"c2": {
 							"model": "c2",
-							"items": []
+							"items": [
+								"username"
+							]
 						},
 						"c3": {
 							"model": "c3",
 							"items": [
-								"login_welcome"
-							]
-						}
-					},
-					"deferredItems": [],
-					"recsPerRow": 1
-				},
-				"grid": {
-					"modelId": "plogin-grid",
-					"grid": [
-						{
-							"cells": [
-								{
-									"cell": "c1",
-									"colspan": 2
-								}
-							],
-							"section": ""
-						},
-						{
-							"cells": [
-								{
-									"cell": "c2",
-									"colspan": 2
-								}
-							],
-							"section": ""
-						},
-						{
-							"section": "",
-							"cells": [
-								{
-									"cell": "c",
-									"colspan": 2
-								}
-							]
-						},
-						{
-							"cells": [
-								{
-									"cell": "c4"
-								},
-								{
-									"cell": "c6"
-								}
-							],
-							"section": ""
-						},
-						{
-							"cells": [
-								{
-									"cell": "c5",
-									"colspan": 2
-								}
-							],
-							"section": ""
-						}
-					],
-					"cells": {
-						"c1": {
-							"model": "c1",
-							"items": [
-								"username_label",
-								"username"
-							]
-						},
-						"c2": {
-							"model": "c2",
-							"items": [
-								"password_label",
-								"password"
+								"password_label"
 							]
 						},
 						"c4": {
 							"model": "c4",
 							"items": [
+								"password"
+							]
+						},
+						"c9": {
+							"model": "c9",
+							"items": []
+						},
+						"c10": {
+							"model": "c10",
+							"items": [
 								"remember_password"
 							]
 						},
-						"c6": {
-							"model": "c6",
+						"c12": {
+							"model": "c12",
 							"items": [
-								"guest_login"
+								"edit_field_label"
 							]
 						},
-						"c5": {
-							"model": "c5",
-							"items": []
-						},
-						"c": {
-							"model": "c2",
+						"c13": {
+							"model": "c13",
 							"items": [
-								"edit_field_label",
 								"edit_field"
 							]
 						}
@@ -2173,7 +2165,7 @@
 					"recsPerRow": 1
 				},
 				"footer": {
-					"modelId": "plogin-footer",
+					"modelId": "login-footer",
 					"grid": [
 						{
 							"cells": [
@@ -2190,20 +2182,21 @@
 					"cells": {
 						"c1": {
 							"model": "c1",
-							"items": [
-								"login_button"
-							]
+							"items": []
 						},
 						"c2": {
 							"model": "c2",
-							"items": []
+							"items": [
+								"login_button",
+								"guest_login"
+							]
 						}
 					},
 					"deferredItems": [],
 					"recsPerRow": 1
 				},
 				"superbottom": {
-					"modelId": "plogin-superbottom",
+					"modelId": "login-superbottom",
 					"grid": [
 						{
 							"cells": [
@@ -2227,6 +2220,9 @@
 				}
 			},
 			"items": {
+				"login_message": {
+					"type": "login_message"
+				},
 				"username_label": {
 					"type": "username_label"
 				},
@@ -2238,9 +2234,6 @@
 				},
 				"password": {
 					"type": "password"
-				},
-				"login_message": {
-					"type": "login_message"
 				},
 				"login_button": {
 					"type": "login_button"
@@ -2256,17 +2249,6 @@
 				"remember_password": {
 					"type": "remember_password"
 				},
-				"login-logo": {
-					"type": "login-logo",
-					"font-size": "24px"
-				},
-				"login_welcome": {
-					"type": "login_welcome",
-					"label": {
-						"type": 0,
-						"text": "Prolanis Puskesmas Pidie"
-					}
-				},
 				"edit_field_label": {
 					"type": "edit_field_label",
 					"field": "tahun"
@@ -2281,21 +2263,24 @@
 						"type": 0,
 						"text": "Belum ada User..! silahkan daftar user baru"
 					}
+				},
+				"text": {
+					"type": "text",
+					"label": {
+						"text": "<img src=\"https://dinkes.pidiekab.go.id/thumbnail/0x40/media/2024.05/1x11.png\" width=\"20\" alt=\"Prolanis\">",
+						"type": 0
+					},
+					"editedByRte": false
 				}
 			},
 			"dbProps": {},
-			"version": 11,
+			"version": 13,
 			"imageItem": {
 				"type": "page_image",
-				"shadow": false,
-				"fullSize": true,
-				"image": {
-					"image": "prolanis.jpg",
-					"source": 2
-				}
+				"image": null
 			},
-			"imageBgColor": "transparent",
-			"controlsBgColor": "transparent",
+			"imageBgColor": "#f2f2f2",
+			"controlsBgColor": "white",
 			"imagePosition": "right",
 			"listTotals": 1,
 			"title": {}
@@ -2303,7 +2288,7 @@
 		{
 			"id": "menu",
 			"type": "menu",
-			"layoutId": "leftbar",
+			"layoutId": "topbar",
 			"disabled": 0,
 			"default": 0,
 			"forms": {
@@ -2329,7 +2314,7 @@
 					"recsPerRow": 1
 				},
 				"supertop": {
-					"modelId": "menu-topbar",
+					"modelId": "menu-topbar-menu",
 					"grid": [
 						{
 							"cells": [
@@ -2347,8 +2332,9 @@
 						"c1": {
 							"model": "c1",
 							"items": [
-								"expand_menu_button",
-								"collapse_button"
+								"logo",
+								"menu",
+								"menu1"
 							]
 						},
 						"c2": {
@@ -2356,44 +2342,6 @@
 							"items": [
 								"loginform_login",
 								"username_button"
-							]
-						}
-					},
-					"deferredItems": [],
-					"recsPerRow": 1
-				},
-				"left": {
-					"modelId": "leftbar-menu",
-					"grid": [
-						{
-							"cells": [
-								{
-									"cell": "c0"
-								}
-							],
-							"section": ""
-						},
-						{
-							"cells": [
-								{
-									"cell": "c1"
-								}
-							],
-							"section": ""
-						}
-					],
-					"cells": {
-						"c0": {
-							"model": "c0",
-							"items": [
-								"logo"
-							]
-						},
-						"c1": {
-							"model": "c1",
-							"items": [
-								"menu",
-								"menu1"
 							]
 						}
 					},
@@ -2443,8 +2391,7 @@
 						"c": {
 							"model": "c1",
 							"items": [
-								"text",
-								"snippet"
+								"text"
 							],
 							"align": "center",
 							"padding": {
@@ -2538,10 +2485,29 @@
 					"background": "#6B8E23",
 					"linkType": 0
 				},
+				"welcome_item4": {
+					"type": "welcome_item",
+					"linkUrl": "",
+					"linkTable": "aktivasi_user",
+					"linkPage": "list",
+					"linkText": {
+						"type": 0,
+						"text": "Aktivasi User Baru"
+					},
+					"linkIcon": {
+						"glyph": "user"
+					},
+					"linkComments": {
+						"type": 0,
+						"text": "List user yang belum aktivasi"
+					},
+					"background": "#7B68EE",
+					"linkType": 0
+				},
 				"text": {
 					"type": "text",
 					"label": {
-						"text": "<div style=\"text-align: center;\">\n    <img src=\"https://pa-kangean.go.id/images/images/gallery/MoU/DINKES.png\" width=\"300\" alt=\"\">\n    <div style=\"font-weight: bold; font-size: 18px; margin-top: 10px;\">\n        PROLANIS PUSKESMAS PIDIE\n    </div>\n</div>",
+						"text": "\n<style>\n@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');\n.hero-wrap {\n  font-family: 'Poppins', sans-serif;\n  background: linear-gradient(135deg, #1a3a6b 0%, #1e5fa8 40%, #2474c8 70%, #1a3a6b 100%);\n  border-radius: 16px;\n  padding: 48px 24px 40px;\n  text-align: center;\n  position: relative;\n  overflow: hidden;\n  min-height: 320px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  gap: 0;\n}\n.hero-wrap::before {\n  content: '';\n  position: absolute;\n  top: -60px; left: -60px;\n  width: 220px; height: 220px;\n  background: rgba(255,255,255,0.04);\n  border-radius: 50%;\n}\n.hero-wrap::after {\n  content: '';\n  position: absolute;\n  bottom: -80px; right: -40px;\n  width: 280px; height: 280px;\n  background: rgba(255,255,255,0.04);\n  border-radius: 50%;\n}\n.status-badge {\n  display: inline-flex;\n  align-items: center;\n  gap: 7px;\n  background: rgba(255,255,255,0.12);\n  border: 1px solid rgba(255,255,255,0.22);\n  border-radius: 999px;\n  padding: 5px 16px;\n  font-size: 12px;\n  color: rgba(255,255,255,0.92);\n  letter-spacing: 0.03em;\n  margin-bottom: 22px;\n}\n.status-dot {\n  width: 8px; height: 8px;\n  background: #4ade80;\n  border-radius: 50%;\n  display: inline-block;\n}\n.logo-box {\n  background: #fff;\n  border-radius: 18px;\n  width: 88px; height: 88px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin: 0 auto 20px;\n  overflow: hidden;\n  box-shadow: 0 4px 24px rgba(0,0,0,0.18);\n}\n.logo-box img {\n  width: 72px; height: 72px;\n  object-fit: contain;\n}\n.hero-title-main {\n  font-size: 32px;\n  font-weight: 700;\n  color: #fff;\n  margin: 0 0 2px;\n  letter-spacing: -0.01em;\n}\n.hero-title-sub {\n  font-size: 32px;\n  font-weight: 700;\n  color: #7ec8f7;\n  margin: 0 0 14px;\n  letter-spacing: -0.01em;\n}\n.hero-desc {\n  font-size: 13.5px;\n  color: rgba(255,255,255,0.72);\n  line-height: 1.7;\n  margin: 0;\n}\n</style>\n<div class=\"hero-wrap\">\n  <div class=\"status-badge\">\n    <span class=\"status-dot\"></span>\n    Sistem Aktif — Prolanis Puskesmas Pidie\n  </div>\n  <div class=\"logo-box\">\n    <img src=\"https://pa-kangean.go.id/images/images/gallery/MoU/DINKES.png\" alt=\"Logo Prolanis\" onerror=\"this.style.display='none';this.parentElement.innerHTML='<svg width=48 height=48 viewBox=&quot;0 0 48 48&quot; fill=none xmlns=&quot;http://www.w3.org/2000/svg&quot;><circle cx=24 cy=24 r=22 fill=&quot;#1e5fa8&quot;/><text x=24 y=30 text-anchor=&quot;middle&quot; fill=&quot;white&quot; font-size=&quot;14&quot; font-weight=&quot;bold&quot;>PK</text></svg>'\">\n  </div>\n  <div class=\"hero-title-main\">Prolanis</div>\n  <div class=\"hero-title-sub\">Puskesmas Pidie</div>\n  <p class=\"hero-desc\">\n    Program Pengelolaan Penyakit Kronis<br>\n    Puskesmas Kab. Pidie — Aceh\n  </p>\n</div>\n",
 						"type": 0
 					},
 					"editedByRte": false
@@ -2554,6 +2520,9 @@
 				},
 				"adminarea_link": {
 					"type": "adminarea_link"
+				},
+				"changepassword_link": {
+					"type": "changepassword_link"
 				},
 				"logo": {
 					"type": "logo"
@@ -2574,52 +2543,14 @@
 					"type": "loginform_login",
 					"popup": false
 				},
-				"expand_menu_button": {
-					"type": "expand_menu_button"
-				},
-				"collapse_button": {
-					"type": "collapse_button"
-				},
-				"changepassword_link": {
-					"type": "changepassword_link"
-				},
-				"snippet": {
-					"eventId": "tahun",
-					"label": {
-						"text": "tahun",
-						"type": 0
-					},
-					"type": "snippet",
-					"bold": true,
-					"font-size": "30px",
-					"eventGid": 4151081472
-				},
 				"menu1": {
 					"type": "menu",
 					"menuId": "secondary"
-				},
-				"welcome_item4": {
-					"type": "welcome_item",
-					"linkUrl": "",
-					"linkTable": "aktivasi_user",
-					"linkPage": "list",
-					"linkText": {
-						"type": 0,
-						"text": "Aktivasi User Baru"
-					},
-					"linkIcon": {
-						"glyph": "user"
-					},
-					"linkComments": {
-						"type": 0,
-						"text": "List user yang belum aktivasi"
-					},
-					"background": "#7B68EE",
-					"linkType": 0
 				}
 			},
 			"dbProps": {},
-			"version": 11,
+			"version": 13,
+			"pageAlign": "center",
 			"imageItem": {
 				"type": "page_image"
 			},
@@ -3226,15 +3157,16 @@
 	"projectStyle": {
 		"theme": "united",
 		"sidebarWidth": "200px",
+		"sidebarColor": "light",
 		"sidebarTheme": "primary",
 		"sidebarCompact": true,
 		"topbarTheme": "light",
-		"logoTheme": "dark",
+		"logoTheme": "light",
 		"fixedTopbar": true,
 		"sidebarCustomThemeColor": "#158cba",
 		"topbarCustomThemeColor": "#a6f3ed",
 		"logoCustomThemeColor": "#527898",
-		"customCss": "#form_top_1 div .panel-body{\n display:none;\n}\n\n/* Panel heading */\n#form_top_1 div .panel-heading{\n transform:translatex(0px) translatey(0px);\n min-height:183px;\n background-image:linear-gradient(to right, #642b73 0%, #c6426e 100%);\n border-style:none;\n box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\n}",
+		"customCss": "/* Panel / Section */\r\n.panel {\r\n  background: rgba(255, 255, 255, 0.65) !important;\r\n  backdrop-filter: blur(20px) saturate(180%) !important;\r\n  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;\r\n  border: 1px solid rgba(255, 255, 255, 0.5) !important;\r\n  border-radius: 16px !important;\r\n  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08) !important;\r\n  overflow: hidden !important;\r\n}\r\n\r\n.panel-heading {\r\n  background: rgba(255, 255, 255, 0.4) !important;\r\n  border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;\r\n  padding: 14px 20px !important;\r\n}\r\n\r\n.panel-title a {\r\n  color: #1c1c1e !important;\r\n  font-weight: 600 !important;\r\n  font-size: 15px !important;\r\n  text-decoration: none !important;\r\n}\r\n\r\n.panel-body {\r\n  padding: 16px 20px !important;\r\n  background: transparent !important;\r\n}\r\n\r\n/* Form field input / select / textarea */\r\n.r-edit-field input,\r\n.r-edit-field select,\r\n.r-edit-field textarea {\r\n  background: rgba(255, 255, 255, 0.7) !important;\r\n  backdrop-filter: blur(8px) !important;\r\n  -webkit-backdrop-filter: blur(8px) !important;\r\n  border: 1px solid rgba(0, 0, 0, 0.1) !important;\r\n  border-radius: 10px !important;\r\n  padding: 10px 14px !important;\r\n  font-size: 15px !important;\r\n  color: #1c1c1e !important;\r\n  -width: 100% !important;\r\n  transition: border-color 0.2s, box-shadow 0.2s !important;\r\n  outline: none !important;\r\n}\r\n\r\n.r-edit-field input:focus,\r\n.r-edit-field select:focus,\r\n.r-edit-field textarea:focus {\r\n  border-color: rgba(0, 122, 255, 0.6) !important;\r\n  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.15) !important;\r\n  background: rgba(255, 255, 255, 0.9) !important;\r\n}\r\n\r\n/* Label */\r\n.r-edit-label.control-label {\r\n  font-size: 13px !important;\r\n  font-weight: 500 !important;\r\n  color: #3c3c43 !important;\r\n  margin-bottom: 6px !important;\r\n}\r\n\r\n/* Alert */\r\n.alert {\r\n  background: rgba(255, 255, 255, 0.6) !important;\r\n  backdrop-filter: blur(12px) !important;\r\n  -webkit-backdrop-filter: blur(12px) !important;\r\n  border: 1px solid rgba(255, 255, 255, 0.5) !important;\r\n  border-radius: 14px !important;\r\n}\r\n\r\n/* Tombol Simpan */\r\n.btn-primary {\r\n  background: rgba(0, 122, 255, 0.85) !important;\r\n  backdrop-filter: blur(8px) !important;\r\n  -webkit-backdrop-filter: blur(8px) !important;\r\n  border: none !important;\r\n  border-radius: 12px !important;\r\n  color: #fff !important;\r\n  font-size: 12px !important;\r\n  font-weight: 600 !important;\r\n  padding: 9px 20px !important;\r\n  transition: background 0.2s, transform 0.1s !important;\r\n}\r\n\r\n.btn-primary:hover {\r\n  background: rgba(0, 100, 220, 0.9) !important;\r\n  transform: scale(0.99) !important;\r\n}\r\n\r\n/* Tombol Reset / Cancel / Kembali */\r\n.btn-default {\r\n  background: rgba(255, 255, 255, 0.55) !important;\r\n  backdrop-filter: blur(8px) !important;\r\n  -webkit-backdrop-filter: blur(8px) !important;\r\n  border: 1px solid rgba(0, 0, 0, 0.12) !important;\r\n  border-radius: 12px !important;\r\n  color: #007aff !important;\r\n  font-size: 15px !important;\r\n  font-weight: 500 !important;\r\n  padding: 9px 20px !important;\r\n  transition: background 0.2s !important;\r\n}\r\n\r\n.btn-default:hover {\r\n  background: rgba(255, 255, 255, 0.8) !important;\r\n}\r\n\r\n/* Bar tombol bawah */\r\n.r-form[data-location=\"below-grid\"] {\r\n  background: rgba(255, 255, 255, 0.5) !important;\r\n  backdrop-filter: blur(20px) !important;\r\n  -webkit-backdrop-filter: blur(20px) !important;\r\n  border-top: 1px solid rgba(255, 255, 255, 0.5) !important;\r\n  padding: 14px 20px !important;\r\n}\r\n/* ===== END iOS BLUR ===== */\r\nbody {\r\n  background: linear-gradient(135deg, #e0f2fe 0%, #fce7f3 50%, #dcfce7 100%) fixed !important;\r\n  min-height: 100vh;\r\n}\r\n        \r\n\r\nh3.panel-title {\r\n    color: #304ebb;\r\n}\r\n\r\n\r\n#addnew_value_nik_1 {\r\n    font-size: 0;   /* sembunyikan teks \"Tambah baru\" */\r\n}\r\n\r\n#addnew_value_nik_1::before {\r\n    content: \"Klik di sini untuk rekam pasien dulu (kalau tidak muncul)\";\r\n    font-size: 14px;\r\n    color: #0d6efd;\r\n    cursor: pointer;\r\n    text-decoration: underline;\r\n}",
 		"verticalBorders": false,
 		"condensedGrid": true,
 		"rolloverHighlight": true,
@@ -3252,92 +3184,6 @@
 		"gcRolloverHighlightBg": "legacy",
 		"gcRolloverHighlightColor": "legacy"
 	},
-	"styleOverrides": [
-		{
-			"table": 1902861381,
-			"page": "masterlist1",
-			"style": {
-				"condensedGrid": true,
-				"direction": "ltr",
-				"fixedSidebar": true,
-				"fixedTopbar": true,
-				"gcEvenBg": "",
-				"gcEvenColor": "",
-				"gcOddBg": "",
-				"gcOddColor": "",
-				"gcRolloverHighlightBg": "",
-				"gcRolloverHighlightColor": "",
-				"gpBorderColor": "",
-				"gpFooterBg": "",
-				"gpHeaderBg": "",
-				"gpHeaderColor": "",
-				"gpInnerBorder": "",
-				"gpInnerBorderColor": "",
-				"gpPanelBorder": "1px",
-				"logoCustomThemeColor": "#527898",
-				"logoTheme": "dark",
-				"menuStyle": "rounded",
-				"panelLikeGrid": false,
-				"rolloverHighlight": true,
-				"sidebarColor": "dark",
-				"sidebarCompact": true,
-				"sidebarCustomThemeColor": "#158cba",
-				"sidebarTheme": "primary",
-				"sidebarWidth": "200px",
-				"size": "normal",
-				"stripedGrid": true,
-				"theme": "yeti_baru",
-				"topbarCustomThemeColor": "#a6f3ed",
-				"topbarGradient": false,
-				"topbarLegacy": false,
-				"topbarTheme": "white",
-				"verticalBorders": false,
-				"customCss": ".panel-body {\n    padding: 0px;\n    \n}"
-			}
-		},
-		{
-			"table": 162369719,
-			"page": "add",
-			"style": {
-				"condensedGrid": true,
-				"direction": "ltr",
-				"fixedSidebar": true,
-				"fixedTopbar": true,
-				"gcEvenBg": "",
-				"gcEvenColor": "",
-				"gcOddBg": "",
-				"gcOddColor": "",
-				"gcRolloverHighlightBg": "",
-				"gcRolloverHighlightColor": "",
-				"gpBorderColor": "",
-				"gpFooterBg": "",
-				"gpHeaderBg": "",
-				"gpHeaderColor": "",
-				"gpInnerBorder": "",
-				"gpInnerBorderColor": "",
-				"gpPanelBorder": "1px",
-				"logoCustomThemeColor": "#527898",
-				"logoTheme": "dark",
-				"menuStyle": "rounded",
-				"panelLikeGrid": false,
-				"rolloverHighlight": true,
-				"sidebarColor": "dark",
-				"sidebarCompact": true,
-				"sidebarCustomThemeColor": "#158cba",
-				"sidebarTheme": "primary",
-				"sidebarWidth": "200px",
-				"size": "normal",
-				"stripedGrid": true,
-				"theme": "cosmo",
-				"topbarCustomThemeColor": "#a6f3ed",
-				"topbarGradient": false,
-				"topbarLegacy": false,
-				"topbarTheme": "white",
-				"verticalBorders": false,
-				"customCss": "#addnew_value_nik_1 {\n    font-size: 0;   /* sembunyikan teks \"Tambah baru\" */\n}\n\n#addnew_value_nik_1::before {\n    content: \"Klik di sini untuk rekam pasien dulu (kalau tidak muncul)\";\n    font-size: 14px;\n    color: #0d6efd;\n    cursor: pointer;\n    text-decoration: underline;\n}"
-			}
-		}
-	],
 	"settingsTable": {
 		"connId": "",
 		"table": ""

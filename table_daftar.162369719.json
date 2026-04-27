@@ -2981,17 +2981,23 @@
 							"model": "headcell_field",
 							"items": [
 								"grid_field_label3"
-							]
+							],
+							"columnName": "field",
+							"field": "Tanggal_lahir"
 						},
 						"headcell_field22": {
 							"model": "cell_field",
 							"items": [
 								"grid_field3"
-							]
+							],
+							"columnName": "field",
+							"field": "Tanggal_lahir"
 						},
 						"headcell_field23": {
 							"model": "footcell_field",
-							"items": []
+							"items": [],
+							"columnName": "field",
+							"field": "Tanggal_lahir"
 						}
 					},
 					"deferredItems": [],

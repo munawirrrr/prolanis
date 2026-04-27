@@ -2218,9 +2218,8 @@
 						"c1": {
 							"model": "c1",
 							"items": [
-								"back_master",
 								"masterlist_header",
-								"snippet"
+								"back_master"
 							],
 							"orientation": "vertical"
 						}
@@ -2261,27 +2260,27 @@
 					"bold": true,
 					"padding": {
 						"top": "50px"
-					}
+					},
+					"color": "#304ebb",
+					"background": "transparent",
+					"customCSS": "/* Put  your custom CSS code here */\n\n:host {\n  color: #304ebb;\n}\n",
+					"font-size": "30px"
 				},
 				"back_master": {
 					"type": "back_master",
-					"buttonStyle": "info",
+					"buttonStyle": "primary",
 					"label": {
 						"type": 0,
 						"text": "Kembali"
 					},
 					"icon": {
-						"glyph": "step-backward"
-					}
-				},
-				"snippet": {
-					"type": "snippet",
-					"eventId": "tahun",
-					"label": {
-						"text": "tahun",
-						"type": 0
+						"glyph": "step-backward",
+						"style": 0
 					},
-					"eventGid": 4151081472
+					"buttonSize": "small",
+					"padding": {
+						"right": "2px"
+					}
 				}
 			},
 			"dbProps": {},

@@ -2087,7 +2087,7 @@
 						"type": 0
 					},
 					"type": "custom_button",
-					"eventGid": 530550343
+					"eventGid": null
 				},
 				"print_details": {
 					"type": "print_details",
