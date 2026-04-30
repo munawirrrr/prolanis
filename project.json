@@ -356,7 +356,7 @@
 	},
 	"ftpLocations": [
 		{
-			"id": "ftploc",
+			"id": "ftploc6",
 			"name": "prolanis",
 			"ftp": {
 				"username": "penmadpi",
@@ -379,12 +379,10 @@
 				"enabled": false
 			},
 			"threads": 4,
-			"serverDbConnections": {
-				"penmadpiprolanisatpenmadpidiec": "zahara_prolanis"
-			}
+			"serverDbConnections": {}
 		}
 	],
-	"lastFtpLocation": "ftploc",
+	"lastFtpLocation": "ftploc6",
 	"compressJs": false,
 	"visualStudioVersion": 10,
 	"restAPIReturnEncodedBinary": "",
@@ -2478,7 +2476,8 @@
 						"type": 6
 					},
 					"linkIcon": {
-						"glyph": "briefcase"
+						"glyph": "briefcase",
+						"style": 0
 					},
 					"linkComments": {
 						"type": 0,
@@ -2497,7 +2496,8 @@
 						"text": "Aktivasi User Baru"
 					},
 					"linkIcon": {
-						"glyph": "user"
+						"glyph": "user",
+						"style": 0
 					},
 					"linkComments": {
 						"type": 0,
@@ -2509,7 +2509,7 @@
 				"text": {
 					"type": "text",
 					"label": {
-						"text": "\n<style>\n@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');\n.hero-wrap {\n  font-family: 'Poppins', sans-serif;\n  background: linear-gradient(135deg, #1a3a6b 0%, #1e5fa8 40%, #2474c8 70%, #1a3a6b 100%);\n  border-radius: 16px;\n  padding: 48px 24px 40px;\n  text-align: center;\n  position: relative;\n  overflow: hidden;\n  min-height: 320px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  gap: 0;\n}\n.hero-wrap::before {\n  content: '';\n  position: absolute;\n  top: -60px; left: -60px;\n  width: 220px; height: 220px;\n  background: rgba(255,255,255,0.04);\n  border-radius: 50%;\n}\n.hero-wrap::after {\n  content: '';\n  position: absolute;\n  bottom: -80px; right: -40px;\n  width: 280px; height: 280px;\n  background: rgba(255,255,255,0.04);\n  border-radius: 50%;\n}\n.status-badge {\n  display: inline-flex;\n  align-items: center;\n  gap: 7px;\n  background: rgba(255,255,255,0.12);\n  border: 1px solid rgba(255,255,255,0.22);\n  border-radius: 999px;\n  padding: 5px 16px;\n  font-size: 12px;\n  color: rgba(255,255,255,0.92);\n  letter-spacing: 0.03em;\n  margin-bottom: 22px;\n}\n.status-dot {\n  width: 8px; height: 8px;\n  background: #4ade80;\n  border-radius: 50%;\n  display: inline-block;\n}\n.logo-box {\n  background: #fff;\n  border-radius: 18px;\n  width: 88px; height: 88px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin: 0 auto 20px;\n  overflow: hidden;\n  box-shadow: 0 4px 24px rgba(0,0,0,0.18);\n}\n.logo-box img {\n  width: 72px; height: 72px;\n  object-fit: contain;\n}\n.hero-title-main {\n  font-size: 32px;\n  font-weight: 700;\n  color: #fff;\n  margin: 0 0 2px;\n  letter-spacing: -0.01em;\n}\n.hero-title-sub {\n  font-size: 32px;\n  font-weight: 700;\n  color: #7ec8f7;\n  margin: 0 0 14px;\n  letter-spacing: -0.01em;\n}\n.hero-desc {\n  font-size: 13.5px;\n  color: rgba(255,255,255,0.72);\n  line-height: 1.7;\n  margin: 0;\n}\n</style>\n<div class=\"hero-wrap\">\n  <div class=\"status-badge\">\n    <span class=\"status-dot\"></span>\n    Sistem Aktif — Prolanis Puskesmas Pidie\n  </div>\n  <div class=\"logo-box\">\n    <img src=\"https://pa-kangean.go.id/images/images/gallery/MoU/DINKES.png\" alt=\"Logo Prolanis\" onerror=\"this.style.display='none';this.parentElement.innerHTML='<svg width=48 height=48 viewBox=&quot;0 0 48 48&quot; fill=none xmlns=&quot;http://www.w3.org/2000/svg&quot;><circle cx=24 cy=24 r=22 fill=&quot;#1e5fa8&quot;/><text x=24 y=30 text-anchor=&quot;middle&quot; fill=&quot;white&quot; font-size=&quot;14&quot; font-weight=&quot;bold&quot;>PK</text></svg>'\">\n  </div>\n  <div class=\"hero-title-main\">Prolanis</div>\n  <div class=\"hero-title-sub\">Puskesmas Pidie</div>\n  <p class=\"hero-desc\">\n    Program Pengelolaan Penyakit Kronis<br>\n    Puskesmas Kab. Pidie — Aceh\n  </p>\n</div>\n",
+						"text": "\n<style>\n@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');\n.hero-wrap {\n  font-family: 'Poppins', sans-serif;\n  background: linear-gradient(135deg, #1a3a6b 0%, #1e5fa8 40%, #2474c8 70%, #1a3a6b 100%);\n  border-radius: 16px;\n  padding: 48px 24px 40px;\n  text-align: center;\n  position: relative;\n  overflow: hidden;\n  min-height: 320px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  gap: 0;\n}\n.hero-wrap::before {\n  content: '';\n  position: absolute;\n  top: -60px; left: -60px;\n  width: 220px; height: 220px;\n  background: rgba(255,255,255,0.04);\n  border-radius: 50%;\n}\n.hero-wrap::after {\n  content: '';\n  position: absolute;\n  bottom: -80px; right: -40px;\n  width: 280px; height: 280px;\n  background: rgba(255,255,255,0.04);\n  border-radius: 50%;\n}\n.status-badge {\n  display: inline-flex;\n  align-items: center;\n  gap: 7px;\n  background: rgba(255,255,255,0.12);\n  border: 1px solid rgba(255,255,255,0.22);\n  border-radius: 999px;\n  padding: 5px 16px;\n  font-size: 12px;\n  color: rgba(255,255,255,0.92);\n  letter-spacing: 0.03em;\n  margin-bottom: 22px;\n}\n.status-dot {\n  width: 8px; height: 8px;\n  background: #4ade80;\n  border-radius: 50%;\n  display: inline-block;\n}\n.logo-box {\n  background: #fff;\n  border-radius: 18px;\n  width: 88px; height: 88px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin: 0 auto 20px;\n  overflow: hidden;\n  box-shadow: 0 4px 24px rgba(0,0,0,0.18);\n}\n.logo-box img {\n  width: 72px; height: 72px;\n  object-fit: contain;\n}\n.hero-title-main {\n  font-size: 32px;\n  font-weight: 700;\n  color: #fff;\n  margin: 0 0 2px;\n  letter-spacing: -0.01em;\n}\n.hero-title-sub {\n  font-size: 32px;\n  font-weight: 700;\n  color: #7ec8f7;\n  margin: 0 0 14px;\n  letter-spacing: -0.01em;\n}\n.hero-desc {\n  font-size: 13.5px;\n  color: rgba(255,255,255,0.72);\n  line-height: 1.7;\n  margin: 0;\n}\n</style>\n<div class=\"hero-wrap\">\n  <div class=\"status-badge\">\n    <span class=\"status-dot\"></span>\n    Prolanis Puskesmas Pidie\n  </div>\n  <div class=\"logo-box\">\n    <img src=\"https://pa-kangean.go.id/images/images/gallery/MoU/DINKES.png\" alt=\"Logo Prolanis\" onerror=\"this.style.display='none';this.parentElement.innerHTML='<svg width=48 height=48 viewBox=&quot;0 0 48 48&quot; fill=none xmlns=&quot;http://www.w3.org/2000/svg&quot;><circle cx=24 cy=24 r=22 fill=&quot;#1e5fa8&quot;/><text x=24 y=30 text-anchor=&quot;middle&quot; fill=&quot;white&quot; font-size=&quot;14&quot; font-weight=&quot;bold&quot;>PK</text></svg>'\">\n  </div>\n  <div class=\"hero-title-main\">Prolanis</div>\n  <div class=\"hero-title-sub\">Puskesmas Pidie</div>\n  <p class=\"hero-desc\">\n    Program Pengelolaan Penyakit Kronis<br>\n    Puskesmas kecamatan Pidie — Aceh\n  </p>\n</div>\n",
 						"type": 0
 					},
 					"editedByRte": false
