@@ -1890,7 +1890,8 @@
 							"items": [
 								"masterlist_header"
 							],
-							"align": "left"
+							"align": "left",
+							"color": "#472999"
 						},
 						"c": {
 							"model": "c1",
@@ -2003,7 +2004,8 @@
 								"simple_grid_field1"
 							],
 							"field": "gampong",
-							"columnName": "field"
+							"columnName": "field",
+							"align": "left"
 						},
 						"footcell_field1": {
 							"model": "footcell_field",
@@ -2017,7 +2019,8 @@
 								"simple_grid_field5"
 							],
 							"field": "hp_kader",
-							"columnName": "field"
+							"columnName": "field",
+							"align": "left"
 						},
 						"cell_field2": {
 							"model": "cell_field",
@@ -2025,7 +2028,8 @@
 								"simple_grid_field2"
 							],
 							"field": "hp_kader",
-							"columnName": "field"
+							"columnName": "field",
+							"align": "left"
 						},
 						"footcell_field2": {
 							"model": "footcell_field",
@@ -2039,7 +2043,8 @@
 								"grid_field_label"
 							],
 							"field": "jumlah_kunjungan",
-							"columnName": "field"
+							"columnName": "field",
+							"align": "left"
 						},
 						"cell_field3": {
 							"model": "cell_field",
@@ -2047,7 +2052,8 @@
 								"grid_field"
 							],
 							"field": "jumlah_kunjungan",
-							"columnName": "field"
+							"columnName": "field",
+							"align": "left"
 						},
 						"footcell_field3": {
 							"model": "footcell_field",
@@ -2061,7 +2067,8 @@
 								"grid_field_label1"
 							],
 							"field": "jumlah_penduduk",
-							"columnName": "field"
+							"columnName": "field",
+							"align": "left"
 						},
 						"cell_field4": {
 							"model": "cell_field",
@@ -2069,7 +2076,8 @@
 								"grid_field1"
 							],
 							"field": "jumlah_penduduk",
-							"columnName": "field"
+							"columnName": "field",
+							"align": "left"
 						},
 						"footcell_field4": {
 							"model": "footcell_field",
@@ -2091,7 +2099,8 @@
 						"type": 7
 					},
 					"bold": true,
-					"font-size": "25px"
+					"font-size": "25px",
+					"color": "#211caf"
 				},
 				"back_master": {
 					"type": "back_master",
@@ -2116,7 +2125,8 @@
 				},
 				"simple_grid_field4": {
 					"type": "grid_field_label",
-					"field": "gampong"
+					"field": "gampong",
+					"color": "#000000"
 				},
 				"simple_grid_field5": {
 					"type": "grid_field_label",
@@ -2141,7 +2151,7 @@
 			},
 			"dbProps": {},
 			"version": 11,
-			"pageWidth": "full",
+			"pageWidth": "standard",
 			"imageItem": {
 				"type": "page_image"
 			},
@@ -2151,149 +2161,6 @@
 			"listTotals": 1,
 			"title": {
 				"Indonesian": "Gampong {%gampong}"
-			}
-		},
-		{
-			"id": "masterlist1",
-			"type": "masterlist",
-			"layoutId": "masterlist",
-			"disabled": 0,
-			"default": 2,
-			"forms": {
-				"above-grid": {
-					"modelId": "empty-above-grid",
-					"grid": [
-						{
-							"cells": [
-								{
-									"cell": "c1"
-								}
-							],
-							"section": ""
-						}
-					],
-					"cells": {
-						"c1": {
-							"model": "c1",
-							"items": []
-						}
-					},
-					"deferredItems": [],
-					"recsPerRow": 1
-				},
-				"below-grid": {
-					"modelId": "empty-above-grid",
-					"grid": [
-						{
-							"cells": [
-								{
-									"cell": "c1"
-								}
-							],
-							"section": ""
-						}
-					],
-					"cells": {
-						"c1": {
-							"model": "c1",
-							"items": []
-						}
-					},
-					"deferredItems": [],
-					"recsPerRow": 1
-				},
-				"top": {
-					"modelId": "masterlist-top",
-					"grid": [
-						{
-							"cells": [
-								{
-									"cell": "c1"
-								}
-							],
-							"section": ""
-						}
-					],
-					"cells": {
-						"c1": {
-							"model": "c1",
-							"items": [
-								"masterlist_header",
-								"back_master"
-							],
-							"orientation": "vertical"
-						}
-					},
-					"deferredItems": [],
-					"recsPerRow": 1
-				},
-				"grid": {
-					"modelId": "simple-grid",
-					"grid": [
-						{
-							"cells": [
-								{
-									"cell": "c1"
-								}
-							],
-							"section": ""
-						}
-					],
-					"cells": {
-						"c1": {
-							"model": "c1",
-							"items": []
-						}
-					},
-					"deferredItems": [],
-					"recsPerRow": 1
-				}
-			},
-			"items": {
-				"masterlist_header": {
-					"type": "masterlist_header",
-					"title": {
-						"page": "masterlist1",
-						"table": "gampong",
-						"type": 7
-					},
-					"bold": true,
-					"padding": {
-						"top": "50px"
-					},
-					"color": "#304ebb",
-					"background": "transparent",
-					"customCSS": "/* Put  your custom CSS code here */\n\n:host {\n  color: #304ebb;\n}\n",
-					"font-size": "30px"
-				},
-				"back_master": {
-					"type": "back_master",
-					"buttonStyle": "primary",
-					"label": {
-						"type": 0,
-						"text": "Kembali"
-					},
-					"icon": {
-						"glyph": "step-backward",
-						"style": 0
-					},
-					"buttonSize": "small",
-					"padding": {
-						"right": "2px"
-					}
-				}
-			},
-			"dbProps": {},
-			"version": 11,
-			"imageItem": {
-				"type": "page_image"
-			},
-			"imageBgColor": "#f2f2f2",
-			"controlsBgColor": "white",
-			"imagePosition": "right",
-			"listTotals": 1,
-			"title": {
-				"Indonesian": "Gampong {%gampong},Hp_Kader:{%hp_kader}"
 			}
 		},
 		{
