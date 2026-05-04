@@ -1,5 +1,5 @@
 {
-	"sql": "SELECT\r\n    import.id,\r\n    import.tanggal,\r\n    import.bpjs,\r\n    pasien.nik,\r\n    pasien.nama,\r\n    pasien.Tanggal_lahir,\r\n    pasien.hp_pasien,\r\n    pasien.Jenis_kelamin,\r\n    gampong.gampong,\r\n    CASE\r\n        WHEN (\r\n            SELECT COUNT(*) FROM pasien p2\r\n            WHERE p2.nik = pasien.nik\r\n              AND p2.nama <> pasien.nama\r\n              AND p2.nik IS NOT NULL AND p2.nik <> ''\r\n        ) > 0\r\n        THEN (\r\n            SELECT CONCAT('Duplicate NIK dengan : ', GROUP_CONCAT(DISTINCT p2.nama SEPARATOR ', '))\r\n            FROM pasien p2\r\n            WHERE p2.nik = pasien.nik\r\n              AND p2.nama <> pasien.nama\r\n        )\r\n        WHEN (\r\n            SELECT COUNT(*) FROM pasien p3\r\n            WHERE p3.bpjs = pasien.bpjs\r\n              AND p3.nama <> pasien.nama\r\n              AND p3.bpjs IS NOT NULL AND p3.bpjs <> ''\r\n        ) > 0\r\n        THEN (\r\n            SELECT CONCAT('Duplicate BPJS dengan : ', GROUP_CONCAT(DISTINCT p3.nama SEPARATOR ', '))\r\n            FROM pasien p3\r\n            WHERE p3.bpjs = pasien.bpjs\r\n              AND p3.nama <> pasien.nama\r\n        )\r\n        ELSE ''\r\n    END AS keterangan\r\nFROM import\r\nLEFT OUTER JOIN pasien ON (\r\n    (import.bpjs IS NOT NULL AND import.bpjs <> '' AND pasien.bpjs = import.bpjs)\r\n    OR\r\n    (import.nik IS NOT NULL AND import.nik <> '' AND pasien.nik = import.nik)\r\n)\r\nLEFT OUTER JOIN gampong ON pasien.id_gampong = gampong.id\r\n",
+	"sql": "SELECT\r\n    import.id,\r\n    import.tanggal,\r\n    import.bpjs,\r\n    pasien.nik,\r\n    pasien.nama,\r\n    pasien.Tanggal_lahir,\r\n    pasien.hp_pasien,\r\n    pasien.Jenis_kelamin,\r\n    gampong.gampong,\r\n    CASE\r\n        WHEN (\r\n            SELECT COUNT(*) FROM pasien p3\r\n            WHERE p3.bpjs = import.bpjs\r\n              AND p3.bpjs IS NOT NULL \r\n              AND p3.bpjs <> ''\r\n        ) > 1\r\n        THEN (\r\n            SELECT CONCAT('Duplicate BPJS dengan : ', GROUP_CONCAT(DISTINCT p3.nama SEPARATOR ', '))\r\n            FROM pasien p3\r\n            WHERE p3.bpjs = import.bpjs\r\n              AND p3.bpjs IS NOT NULL \r\n              AND p3.bpjs <> ''\r\n        )\r\n        ELSE ''\r\n    END AS keterangan\r\nFROM import\r\nLEFT OUTER JOIN pasien ON (\r\n    (import.bpjs IS NOT NULL AND import.bpjs <> '' AND pasien.bpjs = import.bpjs)\r\n    OR\r\n    (import.nik IS NOT NULL AND import.nik <> '' AND pasien.nik = import.nik)\r\n)\r\nLEFT OUTER JOIN gampong ON pasien.id_gampong = gampong.id\r\n\r\nGROUP BY\r\n    import.id,\r\n    import.tanggal,\r\n    import.bpjs,\r\n    pasien.nik,\r\n    pasien.nama,\r\n    pasien.Tanggal_lahir,\r\n    pasien.hp_pasien,\r\n    pasien.Jenis_kelamin,\r\n    gampong.gampong\r\n    \r\n",
 	"connId": "penmadpiprolanisatpenmadpidiec",
 	"originalTable": "import",
 	"name": "import",
@@ -154,7 +154,7 @@
 		},
 		{
 			"name": "keterangan",
-			"sqlExpression": "CASE\r\n        WHEN (\r\n            SELECT COUNT(*) FROM pasien p2\r\n            WHERE p2.nik = pasien.nik\r\n              AND p2.nama <> pasien.nama\r\n              AND p2.nik IS NOT NULL AND p2.nik <> ''\r\n        ) > 0\r\n        THEN (\r\n            SELECT CONCAT('Duplicate NIK dengan : ', GROUP_CONCAT(DISTINCT p2.nama SEPARATOR ', '))\r\n            FROM pasien p2\r\n            WHERE p2.nik = pasien.nik\r\n              AND p2.nama <> pasien.nama\r\n        )\r\n        WHEN (\r\n            SELECT COUNT(*) FROM pasien p3\r\n            WHERE p3.bpjs = pasien.bpjs\r\n              AND p3.nama <> pasien.nama\r\n              AND p3.bpjs IS NOT NULL AND p3.bpjs <> ''\r\n        ) > 0\r\n        THEN (\r\n            SELECT CONCAT('Duplicate BPJS dengan : ', GROUP_CONCAT(DISTINCT p3.nama SEPARATOR ', '))\r\n            FROM pasien p3\r\n            WHERE p3.bpjs = pasien.bpjs\r\n              AND p3.nama <> pasien.nama\r\n        )\r\n        ELSE ''\r\n    END",
+			"sqlExpression": "CASE\r\n        WHEN (\r\n            SELECT COUNT(*) FROM pasien p3\r\n            WHERE p3.bpjs = import.bpjs\r\n              AND p3.bpjs IS NOT NULL \r\n              AND p3.bpjs <> ''\r\n        ) > 1\r\n        THEN (\r\n            SELECT CONCAT('Duplicate BPJS dengan : ', GROUP_CONCAT(DISTINCT p3.nama SEPARATOR ', '))\r\n            FROM pasien p3\r\n            WHERE p3.bpjs = import.bpjs\r\n              AND p3.bpjs IS NOT NULL \r\n              AND p3.bpjs <> ''\r\n        )\r\n        ELSE ''\r\n    END",
 			"index": 10,
 			"strField": "keterangan",
 			"type": 201,
@@ -703,8 +703,7 @@
 						"c1": {
 							"model": "c1",
 							"items": [
-								"import_field",
-								"import_field1"
+								"import_field"
 							]
 						}
 					},
@@ -718,10 +717,6 @@
 				},
 				"import_field": {
 					"field": "bpjs",
-					"type": "import_field"
-				},
-				"import_field1": {
-					"field": "tanggal",
 					"type": "import_field"
 				}
 			},
@@ -1239,355 +1234,39 @@
 					"recsPerRow": 1
 				},
 				"grid": {
-					"modelId": "horizontal-grid",
+					"modelId": "simple-grid",
 					"grid": [
 						{
-							"section": "head",
 							"cells": [
 								{
-									"cell": "headcell_icons"
-								},
-								{
-									"cell": "headcell_checkbox"
-								},
-								{
-									"cell": "headcell_field"
-								},
-								{
-									"cell": "headcell_field1"
-								},
-								{
-									"cell": "headcell_field2"
-								},
-								{
-									"cell": "headcell_field3"
-								},
-								{
-									"cell": "headcell_field4"
-								},
-								{
-									"cell": "headcell_field5"
-								},
-								{
-									"cell": "headcell_field6"
-								},
-								{
-									"cell": "headcell_field7"
-								},
-								{
-									"cell": "headcell_field8"
-								},
-								{
-									"cell": "headcell_field9"
+									"cell": "c1"
 								}
-							]
-						},
-						{
-							"section": "body",
-							"cells": [
-								{
-									"cell": "cell_icons"
-								},
-								{
-									"cell": "cell_checkbox"
-								},
-								{
-									"cell": "cell_field"
-								},
-								{
-									"cell": "cell_field1"
-								},
-								{
-									"cell": "cell_field2"
-								},
-								{
-									"cell": "cell_field3"
-								},
-								{
-									"cell": "cell_field4"
-								},
-								{
-									"cell": "cell_field5"
-								},
-								{
-									"cell": "cell_field6"
-								},
-								{
-									"cell": "cell_field7"
-								},
-								{
-									"cell": "cell_field8"
-								},
-								{
-									"cell": "cell_field9"
-								}
-							]
-						},
-						{
-							"section": "foot",
-							"cells": [
-								{
-									"cell": "footcell_icons"
-								},
-								{
-									"cell": "footcell_checkbox"
-								},
-								{
-									"cell": "footcell_field"
-								},
-								{
-									"cell": "footcell_field1"
-								},
-								{
-									"cell": "footcell_field2"
-								},
-								{
-									"cell": "footcell_field3"
-								},
-								{
-									"cell": "footcell_field4"
-								},
-								{
-									"cell": "footcell_field5"
-								},
-								{
-									"cell": "footcell_field6"
-								},
-								{
-									"cell": "footcell_field7"
-								},
-								{
-									"cell": "footcell_field8"
-								},
-								{
-									"cell": "footcell_field9"
-								}
-							]
+							],
+							"section": ""
 						}
 					],
 					"cells": {
-						"headcell_field": {
-							"model": "headcell_field",
+						"c1": {
+							"model": "c1",
 							"items": [
-								"simple_grid_field9"
-							],
-							"field": "id"
-						},
-						"cell_field": {
-							"model": "cell_field",
-							"items": [
-								"simple_grid_field2"
-							],
-							"field": "id"
-						},
-						"footcell_field": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "id"
-						},
-						"headcell_field1": {
-							"model": "headcell_field",
-							"items": [
-								"simple_grid_field10"
-							],
-							"field": "nama"
-						},
-						"cell_field1": {
-							"model": "cell_field",
-							"items": [
-								"simple_grid_field3"
-							],
-							"field": "nama"
-						},
-						"footcell_field1": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "nama"
-						},
-						"headcell_field2": {
-							"model": "headcell_field",
-							"items": [
-								"simple_grid_field11"
-							],
-							"field": "bpjs"
-						},
-						"cell_field2": {
-							"model": "cell_field",
-							"items": [
-								"simple_grid_field"
-							],
-							"field": "bpjs"
-						},
-						"footcell_field2": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "bpjs"
-						},
-						"headcell_field3": {
-							"model": "headcell_field",
-							"items": [
-								"simple_grid_field12"
-							],
-							"field": "nik"
-						},
-						"cell_field3": {
-							"model": "cell_field",
-							"items": [
-								"simple_grid_field1"
-							],
-							"field": "nik"
-						},
-						"footcell_field3": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "nik"
-						},
-						"headcell_field4": {
-							"model": "headcell_field",
-							"items": [
-								"simple_grid_field13"
-							],
-							"field": "Tanggal_lahir"
-						},
-						"cell_field4": {
-							"model": "cell_field",
-							"items": [
-								"simple_grid_field4"
-							],
-							"field": "Tanggal_lahir"
-						},
-						"footcell_field4": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "Tanggal_lahir"
-						},
-						"headcell_field5": {
-							"model": "headcell_field",
-							"items": [
-								"simple_grid_field14"
-							],
-							"field": "hp_pasien"
-						},
-						"cell_field5": {
-							"model": "cell_field",
-							"items": [
-								"simple_grid_field5"
-							],
-							"field": "hp_pasien"
-						},
-						"footcell_field5": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "hp_pasien"
-						},
-						"headcell_field6": {
-							"model": "headcell_field",
-							"items": [
-								"simple_grid_field15"
-							],
-							"field": "Jenis_kelamin"
-						},
-						"cell_field6": {
-							"model": "cell_field",
-							"items": [
-								"simple_grid_field6"
-							],
-							"field": "Jenis_kelamin"
-						},
-						"footcell_field6": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "Jenis_kelamin"
-						},
-						"headcell_field7": {
-							"model": "headcell_field",
-							"items": [
-								"simple_grid_field16"
-							],
-							"field": "gampong"
-						},
-						"cell_field7": {
-							"model": "cell_field",
-							"items": [
-								"simple_grid_field7"
-							],
-							"field": "gampong"
-						},
-						"footcell_field7": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "gampong"
-						},
-						"headcell_field8": {
-							"model": "headcell_field",
-							"items": [
-								"simple_grid_field17"
-							],
-							"field": "keterangan"
-						},
-						"cell_field8": {
-							"model": "cell_field",
-							"items": [
+								"simple_grid_field2",
+								"grid_field",
+								"simple_grid_field3",
+								"simple_grid_field",
+								"simple_grid_field1",
+								"simple_grid_field4",
+								"simple_grid_field5",
+								"simple_grid_field6",
+								"simple_grid_field7",
 								"simple_grid_field8"
-							],
-							"field": "keterangan"
-						},
-						"footcell_field8": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "keterangan"
-						},
-						"headcell_checkbox": {
-							"model": "headcell_checkbox",
-							"items": [
-								"grid_checkbox_head"
 							]
-						},
-						"cell_checkbox": {
-							"model": "cell_checkbox",
-							"items": [
-								"grid_checkbox"
-							]
-						},
-						"footcell_checkbox": {
-							"model": "footcell_checkbox",
-							"items": []
-						},
-						"headcell_icons": {
-							"model": "headcell_icons",
-							"items": []
-						},
-						"cell_icons": {
-							"model": "cell_icons",
-							"items": [
-								"grid_edit"
-							]
-						},
-						"footcell_icons": {
-							"model": "footcell_icons",
-							"items": []
-						},
-						"headcell_field9": {
-							"model": "headcell_field",
-							"items": [
-								"grid_field_label"
-							],
-							"field": "tanggal"
-						},
-						"cell_field9": {
-							"model": "cell_field",
-							"items": [
-								"grid_field"
-							],
-							"field": "tanggal"
-						},
-						"footcell_field9": {
-							"model": "footcell_field",
-							"items": [],
-							"field": "tanggal"
 						}
 					},
-					"deferredItems": [],
+					"deferredItems": [
+						"grid_checkbox_head",
+						"grid_edit",
+						"grid_checkbox"
+					],
 					"recsPerRow": 1
 				}
 			},
@@ -1710,116 +1389,9 @@
 					"field": "nama",
 					"type": "search_panel_field"
 				},
-				"simple_grid_field2": {
-					"field": "id",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false,
-					"showFilter": true
-				},
-				"simple_grid_field9": {
-					"type": "grid_field_label",
-					"field": "id",
-					"showFilter": true
-				},
-				"simple_grid_field3": {
-					"field": "nama",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false,
-					"showFilter": true
-				},
-				"simple_grid_field10": {
-					"type": "grid_field_label",
-					"field": "nama",
-					"showFilter": true
-				},
-				"simple_grid_field": {
-					"field": "bpjs",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false,
-					"showFilter": true
-				},
-				"simple_grid_field11": {
-					"type": "grid_field_label",
-					"field": "bpjs",
-					"showFilter": true
-				},
-				"simple_grid_field1": {
-					"field": "nik",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false,
-					"showFilter": true
-				},
-				"simple_grid_field12": {
-					"type": "grid_field_label",
-					"field": "nik",
-					"showFilter": true
-				},
-				"simple_grid_field4": {
-					"field": "Tanggal_lahir",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false,
-					"showFilter": true
-				},
-				"simple_grid_field13": {
-					"type": "grid_field_label",
-					"field": "Tanggal_lahir",
-					"showFilter": true
-				},
-				"simple_grid_field5": {
-					"field": "hp_pasien",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false,
-					"showFilter": true
-				},
-				"simple_grid_field14": {
-					"type": "grid_field_label",
-					"field": "hp_pasien",
-					"showFilter": true
-				},
-				"simple_grid_field6": {
-					"field": "Jenis_kelamin",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false,
-					"showFilter": true
-				},
-				"simple_grid_field15": {
-					"type": "grid_field_label",
-					"field": "Jenis_kelamin",
-					"showFilter": true
-				},
-				"simple_grid_field7": {
-					"field": "gampong",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false,
-					"showFilter": true
-				},
-				"simple_grid_field16": {
-					"type": "grid_field_label",
-					"field": "gampong",
-					"showFilter": true
-				},
-				"simple_grid_field8": {
-					"field": "keterangan",
-					"type": "grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false,
-					"showFilter": true
-				},
-				"simple_grid_field17": {
-					"type": "grid_field_label",
-					"field": "keterangan",
-					"showFilter": true
-				},
-				"grid_checkbox": {
-					"type": "grid_checkbox"
+				"search_panel_field2": {
+					"field": "tanggal",
+					"type": "search_panel_field"
 				},
 				"grid_checkbox_head": {
 					"type": "grid_checkbox_head"
@@ -1827,17 +1399,76 @@
 				"grid_edit": {
 					"type": "grid_edit"
 				},
+				"grid_checkbox": {
+					"type": "grid_checkbox"
+				},
+				"simple_grid_field2": {
+					"field": "id",
+					"type": "simple_grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false,
+					"showFilter": true
+				},
+				"simple_grid_field3": {
+					"field": "nama",
+					"type": "simple_grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false,
+					"showFilter": true
+				},
+				"simple_grid_field": {
+					"field": "bpjs",
+					"type": "simple_grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false,
+					"showFilter": true
+				},
+				"simple_grid_field1": {
+					"field": "nik",
+					"type": "simple_grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false,
+					"showFilter": true
+				},
+				"simple_grid_field4": {
+					"field": "Tanggal_lahir",
+					"type": "simple_grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false,
+					"showFilter": true
+				},
+				"simple_grid_field5": {
+					"field": "hp_pasien",
+					"type": "simple_grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false,
+					"showFilter": true
+				},
+				"simple_grid_field6": {
+					"field": "Jenis_kelamin",
+					"type": "simple_grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false,
+					"showFilter": true
+				},
+				"simple_grid_field7": {
+					"field": "gampong",
+					"type": "simple_grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false,
+					"showFilter": true
+				},
+				"simple_grid_field8": {
+					"field": "keterangan",
+					"type": "simple_grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false,
+					"showFilter": true
+				},
 				"grid_field": {
 					"field": "tanggal",
-					"type": "grid_field"
-				},
-				"grid_field_label": {
-					"type": "grid_field_label",
-					"field": "tanggal"
-				},
-				"search_panel_field2": {
-					"field": "tanggal",
-					"type": "search_panel_field"
+					"type": "simple_grid_field",
+					"showFilter": true
 				}
 			},
 			"dbProps": {},
