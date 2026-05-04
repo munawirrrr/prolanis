@@ -1,5 +1,5 @@
 {
-	"sql": "SELECT\n\timport.id,\n\timport.bpjs,\n\timport.nik,\n\tpasien.nama,\n\tpasien.Tanggal_lahir,\n\tpasien.hp_pasien,\n\tpasien.Jenis_kelamin,\n\tgampong.gampong,\n\tCASE\n        WHEN (\n            SELECT COUNT(*) FROM pasien p2\n            WHERE p2.nik COLLATE utf8mb4_general_ci = pasien.nik COLLATE utf8mb4_general_ci\n              AND p2.nama <> pasien.nama\n              AND p2.nik IS NOT NULL AND p2.nik <> ''\n        ) > 0\n        THEN (\n            SELECT CONCAT('Duplicate NIK dengan : ', GROUP_CONCAT(DISTINCT p2.nama SEPARATOR ', '))\n            FROM pasien p2\n            WHERE p2.nik COLLATE utf8mb4_general_ci = pasien.nik COLLATE utf8mb4_general_ci\n              AND p2.nama <> pasien.nama\n        )\n        WHEN (\n            SELECT COUNT(*) FROM pasien p3\n            WHERE p3.bpjs COLLATE utf8mb4_general_ci = pasien.bpjs COLLATE utf8mb4_general_ci\n              AND p3.nama <> pasien.nama\n              AND p3.bpjs IS NOT NULL AND p3.bpjs <> ''\n        ) > 0\n        THEN (\n            SELECT CONCAT('Duplicate BPJS dengan : ', GROUP_CONCAT(DISTINCT p3.nama SEPARATOR ', '))\n            FROM pasien p3\n            WHERE p3.bpjs COLLATE utf8mb4_general_ci = pasien.bpjs COLLATE utf8mb4_general_ci\n              AND p3.nama <> pasien.nama\n        )\n        ELSE ''\n    END AS keterangan\nFROM\n\timport\n\tleft outer JOIN pasien ON \n    (\n        import.bpjs IS NOT NULL AND import.bpjs <> ''\n        AND pasien.bpjs COLLATE utf8mb4_general_ci = import.bpjs COLLATE utf8mb4_general_ci\n    )\n    OR\n    (\n        import.nik IS NOT NULL AND import.nik <> ''\n        AND pasien.nik COLLATE utf8mb4_general_ci = import.nik COLLATE utf8mb4_general_ci\n    )\n\n\tLEFT OUTER JOIN gampong ON pasien.id_gampong = gampong.id\nGROUP BY\n\timport.id,\n\timport.bpjs,\n\timport.nik,\n\tpasien.nama,\n\tpasien.Tanggal_lahir,\n\tpasien.hp_pasien,\n\tpasien.Jenis_kelamin,\n\tgampong.gampong\n",
+	"sql": "SELECT\r\n    import.id,\r\n    import.bpjs,\r\n    pasien.nik,\r\n    pasien.nama,\r\n    pasien.Tanggal_lahir,\r\n    pasien.hp_pasien,\r\n    pasien.Jenis_kelamin,\r\n    gampong.gampong,\r\n    CASE\r\n        WHEN (\r\n            SELECT COUNT(*) FROM pasien p2\r\n            WHERE p2.nik = pasien.nik\r\n              AND p2.nama <> pasien.nama\r\n              AND p2.nik IS NOT NULL AND p2.nik <> ''\r\n        ) > 0\r\n        THEN (\r\n            SELECT CONCAT('Duplicate NIK dengan : ', GROUP_CONCAT(DISTINCT p2.nama SEPARATOR ', '))\r\n            FROM pasien p2\r\n            WHERE p2.nik = pasien.nik\r\n              AND p2.nama <> pasien.nama\r\n        )\r\n        WHEN (\r\n            SELECT COUNT(*) FROM pasien p3\r\n            WHERE p3.bpjs = pasien.bpjs\r\n              AND p3.nama <> pasien.nama\r\n              AND p3.bpjs IS NOT NULL AND p3.bpjs <> ''\r\n        ) > 0\r\n        THEN (\r\n            SELECT CONCAT('Duplicate BPJS dengan : ', GROUP_CONCAT(DISTINCT p3.nama SEPARATOR ', '))\r\n            FROM pasien p3\r\n            WHERE p3.bpjs = pasien.bpjs\r\n              AND p3.nama <> pasien.nama\r\n        )\r\n        ELSE ''\r\n    END AS keterangan\r\nFROM import\r\nLEFT OUTER JOIN pasien ON (\r\n    (import.bpjs IS NOT NULL AND import.bpjs <> '' AND pasien.bpjs = import.bpjs)\r\n    OR\r\n    (import.nik IS NOT NULL AND import.nik <> '' AND pasien.nik = import.nik)\r\n)\r\nLEFT OUTER JOIN gampong ON pasien.id_gampong = gampong.id\r\n",
 	"connId": "penmadpiprolanisatpenmadpidiec",
 	"originalTable": "import",
 	"name": "import",
@@ -25,11 +25,11 @@
 			"label": {
 				"Indonesian": "Bpjs"
 			},
-			"tableName": ""
+			"tableName": "import"
 		},
 		{
 			"name": "nik",
-			"sqlExpression": "import.nik",
+			"sqlExpression": "pasien.nik",
 			"index": 3,
 			"strField": "nik",
 			"type": 200,
@@ -42,7 +42,7 @@
 			"label": {
 				"Indonesian": "Nik"
 			},
-			"tableName": ""
+			"tableName": "pasien"
 		},
 		{
 			"name": "id",
@@ -60,7 +60,7 @@
 			"label": {
 				"Indonesian": "Id"
 			},
-			"tableName": ""
+			"tableName": "import"
 		},
 		{
 			"name": "nama",
@@ -77,7 +77,7 @@
 			"label": {
 				"Indonesian": "Nama"
 			},
-			"tableName": ""
+			"tableName": "pasien"
 		},
 		{
 			"name": "Tanggal_lahir",
@@ -99,7 +99,7 @@
 			"label": {
 				"Indonesian": "Tanggal Lahir"
 			},
-			"tableName": ""
+			"tableName": "pasien"
 		},
 		{
 			"name": "hp_pasien",
@@ -116,7 +116,7 @@
 			"label": {
 				"Indonesian": "Hp Pasien"
 			},
-			"tableName": ""
+			"tableName": "pasien"
 		},
 		{
 			"name": "Jenis_kelamin",
@@ -133,7 +133,7 @@
 			"label": {
 				"Indonesian": "Jenis Kelamin"
 			},
-			"tableName": ""
+			"tableName": "pasien"
 		},
 		{
 			"name": "gampong",
@@ -150,11 +150,11 @@
 			"label": {
 				"Indonesian": "Gampong"
 			},
-			"tableName": ""
+			"tableName": "gampong"
 		},
 		{
 			"name": "keterangan",
-			"sqlExpression": "CASE\n        WHEN (\n            SELECT COUNT(*) FROM pasien p2\n            WHERE p2.nik COLLATE utf8mb4_general_ci = pasien.nik COLLATE utf8mb4_general_ci\n              AND p2.nama <> pasien.nama\n              AND p2.nik IS NOT NULL AND p2.nik <> ''\n        ) > 0\n        THEN (\n            SELECT CONCAT('Duplicate NIK dengan : ', GROUP_CONCAT(DISTINCT p2.nama SEPARATOR ', '))\n            FROM pasien p2\n            WHERE p2.nik COLLATE utf8mb4_general_ci = pasien.nik COLLATE utf8mb4_general_ci\n              AND p2.nama <> pasien.nama\n        )\n        WHEN (\n            SELECT COUNT(*) FROM pasien p3\n            WHERE p3.bpjs COLLATE utf8mb4_general_ci = pasien.bpjs COLLATE utf8mb4_general_ci\n              AND p3.nama <> pasien.nama\n              AND p3.bpjs IS NOT NULL AND p3.bpjs <> ''\n        ) > 0\n        THEN (\n            SELECT CONCAT('Duplicate BPJS dengan : ', GROUP_CONCAT(DISTINCT p3.nama SEPARATOR ', '))\n            FROM pasien p3\n            WHERE p3.bpjs COLLATE utf8mb4_general_ci = pasien.bpjs COLLATE utf8mb4_general_ci\n              AND p3.nama <> pasien.nama\n        )\n        ELSE ''\n    END",
+			"sqlExpression": "CASE\r\n        WHEN (\r\n            SELECT COUNT(*) FROM pasien p2\r\n            WHERE p2.nik = pasien.nik\r\n              AND p2.nama <> pasien.nama\r\n              AND p2.nik IS NOT NULL AND p2.nik <> ''\r\n        ) > 0\r\n        THEN (\r\n            SELECT CONCAT('Duplicate NIK dengan : ', GROUP_CONCAT(DISTINCT p2.nama SEPARATOR ', '))\r\n            FROM pasien p2\r\n            WHERE p2.nik = pasien.nik\r\n              AND p2.nama <> pasien.nama\r\n        )\r\n        WHEN (\r\n            SELECT COUNT(*) FROM pasien p3\r\n            WHERE p3.bpjs = pasien.bpjs\r\n              AND p3.nama <> pasien.nama\r\n              AND p3.bpjs IS NOT NULL AND p3.bpjs <> ''\r\n        ) > 0\r\n        THEN (\r\n            SELECT CONCAT('Duplicate BPJS dengan : ', GROUP_CONCAT(DISTINCT p3.nama SEPARATOR ', '))\r\n            FROM pasien p3\r\n            WHERE p3.bpjs = pasien.bpjs\r\n              AND p3.nama <> pasien.nama\r\n        )\r\n        ELSE ''\r\n    END",
 			"index": 9,
 			"strField": "keterangan",
 			"type": 201,
@@ -175,17 +175,21 @@
 	"whereTabs": [
 		{
 			"title": {
-				"text": "semua",
+				"text": "data riil",
 				"type": 0
-			}
+			},
+			"where": "pasien.nama is not null",
+			"showCount": true
 		},
 		{
 			"title": {
-				"text": "tidak tercatat di pasien",
+				"text": "tidak tercatat di daftar pasien",
 				"type": 0
 			},
 			"where": "pasien.nama is null",
-			"id": "id951"
+			"id": "id951",
+			"showCount": true,
+			"hideEmpty": true
 		}
 	],
 	"eventHandlers": [
