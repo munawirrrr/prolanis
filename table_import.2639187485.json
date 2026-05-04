@@ -1,5 +1,5 @@
 {
-	"sql": "SELECT\r\n    import.id,\r\n    import.tanggal,\r\n    import.bpjs,\r\n    pasien.nik,\r\n    pasien.nama,\r\n    pasien.Tanggal_lahir,\r\n    pasien.hp_pasien,\r\n    pasien.Jenis_kelamin,\r\n    gampong.gampong,\r\n    CASE\r\n        WHEN (\r\n            SELECT COUNT(*) FROM pasien p3\r\n            WHERE p3.bpjs = import.bpjs\r\n              AND p3.bpjs IS NOT NULL \r\n              AND p3.bpjs <> ''\r\n        ) > 1\r\n        THEN (\r\n            SELECT CONCAT('Duplicate BPJS dengan : ', GROUP_CONCAT(DISTINCT p3.nama SEPARATOR ', '))\r\n            FROM pasien p3\r\n            WHERE p3.bpjs = import.bpjs\r\n              AND p3.bpjs IS NOT NULL \r\n              AND p3.bpjs <> ''\r\n        )\r\n        ELSE ''\r\n    END AS keterangan\r\nFROM import\r\nLEFT OUTER JOIN pasien ON (\r\n    (import.bpjs IS NOT NULL AND import.bpjs <> '' AND pasien.bpjs = import.bpjs)\r\n    OR\r\n    (import.nik IS NOT NULL AND import.nik <> '' AND pasien.nik = import.nik)\r\n)\r\nLEFT OUTER JOIN gampong ON pasien.id_gampong = gampong.id\r\n\r\nGROUP BY\r\n    import.id,\r\n    import.tanggal,\r\n    import.bpjs,\r\n    pasien.nik,\r\n    pasien.nama,\r\n    pasien.Tanggal_lahir,\r\n    pasien.hp_pasien,\r\n    pasien.Jenis_kelamin,\r\n    gampong.gampong\r\n    \r\n",
+	"sql": "SELECT\r\n    import.id,\r\n    import.tanggal,\r\n    import.bpjs,\r\n    pasien.nik,\r\n    pasien.nama,\r\n    pasien.Tanggal_lahir,\r\n    pasien.hp_pasien,\r\n    pasien.Jenis_kelamin,\r\n    gampong.gampong\r\n    \r\nFROM import\r\nLEFT OUTER JOIN pasien ON (\r\n    (import.bpjs IS NOT NULL AND import.bpjs <> '' AND pasien.bpjs = import.bpjs)\r\n    OR\r\n    (import.nik IS NOT NULL AND import.nik <> '' AND pasien.nik = import.nik)\r\n)\r\nLEFT OUTER JOIN gampong ON pasien.id_gampong = gampong.id\r\n",
 	"connId": "penmadpiprolanisatpenmadpidiec",
 	"originalTable": "import",
 	"name": "import",
@@ -151,25 +151,6 @@
 				"Indonesian": "Gampong"
 			},
 			"tableName": "gampong"
-		},
-		{
-			"name": "keterangan",
-			"sqlExpression": "CASE\r\n        WHEN (\r\n            SELECT COUNT(*) FROM pasien p3\r\n            WHERE p3.bpjs = import.bpjs\r\n              AND p3.bpjs IS NOT NULL \r\n              AND p3.bpjs <> ''\r\n        ) > 1\r\n        THEN (\r\n            SELECT CONCAT('Duplicate BPJS dengan : ', GROUP_CONCAT(DISTINCT p3.nama SEPARATOR ', '))\r\n            FROM pasien p3\r\n            WHERE p3.bpjs = import.bpjs\r\n              AND p3.bpjs IS NOT NULL \r\n              AND p3.bpjs <> ''\r\n        )\r\n        ELSE ''\r\n    END",
-			"index": 10,
-			"strField": "keterangan",
-			"type": 201,
-			"viewFormats": [
-				{}
-			],
-			"editFormats": [
-				{
-					"format": "Text area"
-				}
-			],
-			"label": {
-				"Indonesian": "Keterangan"
-			},
-			"tableName": ""
 		},
 		{
 			"name": "tanggal",
@@ -530,7 +511,6 @@
 								"export_field5",
 								"export_field6",
 								"export_field7",
-								"export_field8",
 								"export_field9"
 							]
 						}
@@ -610,10 +590,6 @@
 				},
 				"export_field7": {
 					"field": "gampong",
-					"type": "export_field"
-				},
-				"export_field8": {
-					"field": "keterangan",
 					"type": "export_field"
 				},
 				"export_field9": {
@@ -1001,8 +977,7 @@
 								"integrated_edit_field4",
 								"integrated_edit_field5",
 								"integrated_edit_field6",
-								"integrated_edit_field7",
-								"integrated_edit_field8"
+								"integrated_edit_field7"
 							]
 						}
 					},
@@ -1068,11 +1043,6 @@
 				},
 				"integrated_edit_field7": {
 					"field": "gampong",
-					"type": "integrated_edit_field",
-					"orientation": 0
-				},
-				"integrated_edit_field8": {
-					"field": "keterangan",
 					"type": "integrated_edit_field",
 					"orientation": 0
 				}
@@ -1257,8 +1227,7 @@
 								"simple_grid_field4",
 								"simple_grid_field5",
 								"simple_grid_field6",
-								"simple_grid_field7",
-								"simple_grid_field8"
+								"simple_grid_field7"
 							]
 						}
 					},
@@ -1458,13 +1427,6 @@
 					"inlineEdit": false,
 					"showFilter": true
 				},
-				"simple_grid_field8": {
-					"field": "keterangan",
-					"type": "simple_grid_field",
-					"inlineAdd": false,
-					"inlineEdit": false,
-					"showFilter": true
-				},
 				"grid_field": {
 					"field": "tanggal",
 					"type": "simple_grid_field",
@@ -1581,8 +1543,7 @@
 								"simple_grid_field4",
 								"simple_grid_field5",
 								"simple_grid_field6",
-								"simple_grid_field7",
-								"simple_grid_field8"
+								"simple_grid_field7"
 							]
 						}
 					},
@@ -1630,10 +1591,6 @@
 				},
 				"simple_grid_field7": {
 					"field": "gampong",
-					"type": "simple_grid_field"
-				},
-				"simple_grid_field8": {
-					"field": "keterangan",
 					"type": "simple_grid_field"
 				}
 			},
