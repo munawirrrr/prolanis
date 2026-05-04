@@ -16,11 +16,25 @@
 			"index": 3,
 			"strField": "bpjs",
 			"type": 200,
+			"separateEditViewFormats": true,
 			"viewFormats": [
-				{}
+				{
+					"pageType": "list"
+				},
+				{
+					"format": "Custom",
+					"pageType": "export",
+					"customExpression": "$value = \" \".$data[\"bpjs\"];"
+				}
 			],
 			"editFormats": [
-				{}
+				{},
+				{
+					"pageType": "add"
+				},
+				{
+					"pageType": "search"
+				}
 			],
 			"label": {
 				"Indonesian": "Bpjs"
@@ -33,11 +47,25 @@
 			"index": 4,
 			"strField": "nik",
 			"type": 200,
+			"separateEditViewFormats": true,
 			"viewFormats": [
-				{}
+				{
+					"pageType": "list"
+				},
+				{
+					"format": "Custom",
+					"pageType": "export",
+					"customExpression": "$value = \" \".$data[\"nik\"];"
+				}
 			],
 			"editFormats": [
-				{}
+				{},
+				{
+					"pageType": "add"
+				},
+				{
+					"pageType": "search"
+				}
 			],
 			"label": {
 				"Indonesian": "Nik"
