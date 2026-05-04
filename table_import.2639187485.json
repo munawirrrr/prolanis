@@ -135,11 +135,25 @@
 			"index": 7,
 			"strField": "hp_pasien",
 			"type": 200,
+			"separateEditViewFormats": true,
 			"viewFormats": [
-				{}
+				{
+					"pageType": "list"
+				},
+				{
+					"format": "Custom",
+					"pageType": "export",
+					"customExpression": "$value = \" \".$data[\"hp_pasien\"];"
+				}
 			],
 			"editFormats": [
-				{}
+				{},
+				{
+					"pageType": "add"
+				},
+				{
+					"pageType": "search"
+				}
 			],
 			"label": {
 				"Indonesian": "Hp Pasien"
@@ -531,6 +545,7 @@
 						"c1": {
 							"model": "c1",
 							"items": [
+								"export_field9",
 								"export_field",
 								"export_field1",
 								"export_field2",
@@ -538,8 +553,7 @@
 								"export_field4",
 								"export_field5",
 								"export_field6",
-								"export_field7",
-								"export_field9"
+								"export_field7"
 							]
 						}
 					},
