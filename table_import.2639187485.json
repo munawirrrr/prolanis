@@ -1,5 +1,5 @@
 {
-	"sql": "SELECT\r\n    import.id,\r\n    import.bpjs,\r\n    pasien.nik,\r\n    pasien.nama,\r\n    pasien.Tanggal_lahir,\r\n    pasien.hp_pasien,\r\n    pasien.Jenis_kelamin,\r\n    gampong.gampong,\r\n    CASE\r\n        WHEN (\r\n            SELECT COUNT(*) FROM pasien p2\r\n            WHERE p2.nik = pasien.nik\r\n              AND p2.nama <> pasien.nama\r\n              AND p2.nik IS NOT NULL AND p2.nik <> ''\r\n        ) > 0\r\n        THEN (\r\n            SELECT CONCAT('Duplicate NIK dengan : ', GROUP_CONCAT(DISTINCT p2.nama SEPARATOR ', '))\r\n            FROM pasien p2\r\n            WHERE p2.nik = pasien.nik\r\n              AND p2.nama <> pasien.nama\r\n        )\r\n        WHEN (\r\n            SELECT COUNT(*) FROM pasien p3\r\n            WHERE p3.bpjs = pasien.bpjs\r\n              AND p3.nama <> pasien.nama\r\n              AND p3.bpjs IS NOT NULL AND p3.bpjs <> ''\r\n        ) > 0\r\n        THEN (\r\n            SELECT CONCAT('Duplicate BPJS dengan : ', GROUP_CONCAT(DISTINCT p3.nama SEPARATOR ', '))\r\n            FROM pasien p3\r\n            WHERE p3.bpjs = pasien.bpjs\r\n              AND p3.nama <> pasien.nama\r\n        )\r\n        ELSE ''\r\n    END AS keterangan\r\nFROM import\r\nLEFT OUTER JOIN pasien ON (\r\n    (import.bpjs IS NOT NULL AND import.bpjs <> '' AND pasien.bpjs = import.bpjs)\r\n    OR\r\n    (import.nik IS NOT NULL AND import.nik <> '' AND pasien.nik = import.nik)\r\n)\r\nLEFT OUTER JOIN gampong ON pasien.id_gampong = gampong.id\r\n",
+	"sql": "SELECT\r\n    import.id,\r\n    import.tanggal,\r\n    import.bpjs,\r\n    pasien.nik,\r\n    pasien.nama,\r\n    pasien.Tanggal_lahir,\r\n    pasien.hp_pasien,\r\n    pasien.Jenis_kelamin,\r\n    gampong.gampong,\r\n    CASE\r\n        WHEN (\r\n            SELECT COUNT(*) FROM pasien p2\r\n            WHERE p2.nik = pasien.nik\r\n              AND p2.nama <> pasien.nama\r\n              AND p2.nik IS NOT NULL AND p2.nik <> ''\r\n        ) > 0\r\n        THEN (\r\n            SELECT CONCAT('Duplicate NIK dengan : ', GROUP_CONCAT(DISTINCT p2.nama SEPARATOR ', '))\r\n            FROM pasien p2\r\n            WHERE p2.nik = pasien.nik\r\n              AND p2.nama <> pasien.nama\r\n        )\r\n        WHEN (\r\n            SELECT COUNT(*) FROM pasien p3\r\n            WHERE p3.bpjs = pasien.bpjs\r\n              AND p3.nama <> pasien.nama\r\n              AND p3.bpjs IS NOT NULL AND p3.bpjs <> ''\r\n        ) > 0\r\n        THEN (\r\n            SELECT CONCAT('Duplicate BPJS dengan : ', GROUP_CONCAT(DISTINCT p3.nama SEPARATOR ', '))\r\n            FROM pasien p3\r\n            WHERE p3.bpjs = pasien.bpjs\r\n              AND p3.nama <> pasien.nama\r\n        )\r\n        ELSE ''\r\n    END AS keterangan\r\nFROM import\r\nLEFT OUTER JOIN pasien ON (\r\n    (import.bpjs IS NOT NULL AND import.bpjs <> '' AND pasien.bpjs = import.bpjs)\r\n    OR\r\n    (import.nik IS NOT NULL AND import.nik <> '' AND pasien.nik = import.nik)\r\n)\r\nLEFT OUTER JOIN gampong ON pasien.id_gampong = gampong.id\r\n",
 	"connId": "penmadpiprolanisatpenmadpidiec",
 	"originalTable": "import",
 	"name": "import",
@@ -13,7 +13,7 @@
 		{
 			"name": "bpjs",
 			"sqlExpression": "import.bpjs",
-			"index": 2,
+			"index": 3,
 			"strField": "bpjs",
 			"type": 200,
 			"viewFormats": [
@@ -30,7 +30,7 @@
 		{
 			"name": "nik",
 			"sqlExpression": "pasien.nik",
-			"index": 3,
+			"index": 4,
 			"strField": "nik",
 			"type": 200,
 			"viewFormats": [
@@ -65,7 +65,7 @@
 		{
 			"name": "nama",
 			"sqlExpression": "pasien.nama",
-			"index": 4,
+			"index": 5,
 			"strField": "nama",
 			"type": 200,
 			"viewFormats": [
@@ -82,7 +82,7 @@
 		{
 			"name": "Tanggal_lahir",
 			"sqlExpression": "pasien.Tanggal_lahir",
-			"index": 5,
+			"index": 6,
 			"strField": "Tanggal_lahir",
 			"type": 7,
 			"viewFormats": [
@@ -104,7 +104,7 @@
 		{
 			"name": "hp_pasien",
 			"sqlExpression": "pasien.hp_pasien",
-			"index": 6,
+			"index": 7,
 			"strField": "hp_pasien",
 			"type": 200,
 			"viewFormats": [
@@ -121,7 +121,7 @@
 		{
 			"name": "Jenis_kelamin",
 			"sqlExpression": "pasien.Jenis_kelamin",
-			"index": 7,
+			"index": 8,
 			"strField": "Jenis_kelamin",
 			"type": 200,
 			"viewFormats": [
@@ -138,7 +138,7 @@
 		{
 			"name": "gampong",
 			"sqlExpression": "gampong.gampong",
-			"index": 8,
+			"index": 9,
 			"strField": "gampong",
 			"type": 200,
 			"viewFormats": [
@@ -155,7 +155,7 @@
 		{
 			"name": "keterangan",
 			"sqlExpression": "CASE\r\n        WHEN (\r\n            SELECT COUNT(*) FROM pasien p2\r\n            WHERE p2.nik = pasien.nik\r\n              AND p2.nama <> pasien.nama\r\n              AND p2.nik IS NOT NULL AND p2.nik <> ''\r\n        ) > 0\r\n        THEN (\r\n            SELECT CONCAT('Duplicate NIK dengan : ', GROUP_CONCAT(DISTINCT p2.nama SEPARATOR ', '))\r\n            FROM pasien p2\r\n            WHERE p2.nik = pasien.nik\r\n              AND p2.nama <> pasien.nama\r\n        )\r\n        WHEN (\r\n            SELECT COUNT(*) FROM pasien p3\r\n            WHERE p3.bpjs = pasien.bpjs\r\n              AND p3.nama <> pasien.nama\r\n              AND p3.bpjs IS NOT NULL AND p3.bpjs <> ''\r\n        ) > 0\r\n        THEN (\r\n            SELECT CONCAT('Duplicate BPJS dengan : ', GROUP_CONCAT(DISTINCT p3.nama SEPARATOR ', '))\r\n            FROM pasien p3\r\n            WHERE p3.bpjs = pasien.bpjs\r\n              AND p3.nama <> pasien.nama\r\n        )\r\n        ELSE ''\r\n    END",
-			"index": 9,
+			"index": 10,
 			"strField": "keterangan",
 			"type": 201,
 			"viewFormats": [
@@ -170,6 +170,28 @@
 				"Indonesian": "Keterangan"
 			},
 			"tableName": ""
+		},
+		{
+			"name": "tanggal",
+			"sqlExpression": "import.tanggal",
+			"index": 2,
+			"strField": "tanggal",
+			"type": 7,
+			"viewFormats": [
+				{
+					"format": "Short Date"
+				}
+			],
+			"editFormats": [
+				{
+					"format": "Date",
+					"dateEditType": 11
+				}
+			],
+			"label": {
+				"Indonesian": "Tanggal"
+			},
+			"tableName": "import"
 		}
 	],
 	"whereTabs": [
@@ -199,6 +221,11 @@
 			"eventId": "EVENT_AFTER_IMPORT",
 			"pageType": "import",
 			"code": "DB::Exec(\"\r\n    DELETE FROM `import`\r\n    WHERE `bpjs` = '0000000000000'\r\n       OR `bpjs` = ''\r\n       OR `bpjs` IS NULL\r\n\");"
+		},
+		{
+			"eventId": "EVENT_BEFORE_INSERT",
+			"pageType": "import",
+			"code": "// Place event code here.\n// Use \"Add Action\" button to add code snippets.\n$values[\"tanggal\"] = date(\"Y-m-d\");\nreturn true;"
 		}
 	],
 	"dbTableInfo": {
@@ -235,6 +262,17 @@
 				"typeName": "int(11)",
 				"nullable": false,
 				"autoinc": true,
+				"defaultValueSQL": null,
+				"defaultValue": ""
+			},
+			{
+				"name": "tanggal",
+				"type": 7,
+				"size": 0,
+				"scale": 0,
+				"typeName": "date",
+				"nullable": true,
+				"autoinc": false,
 				"defaultValueSQL": null,
 				"defaultValue": ""
 			}
@@ -492,7 +530,8 @@
 								"export_field5",
 								"export_field6",
 								"export_field7",
-								"export_field8"
+								"export_field8",
+								"export_field9"
 							]
 						}
 					},
@@ -575,6 +614,10 @@
 				},
 				"export_field8": {
 					"field": "keterangan",
+					"type": "export_field"
+				},
+				"export_field9": {
+					"field": "tanggal",
 					"type": "export_field"
 				}
 			},
@@ -660,7 +703,8 @@
 						"c1": {
 							"model": "c1",
 							"items": [
-								"import_field"
+								"import_field",
+								"import_field1"
 							]
 						}
 					},
@@ -674,6 +718,10 @@
 				},
 				"import_field": {
 					"field": "bpjs",
+					"type": "import_field"
+				},
+				"import_field1": {
+					"field": "tanggal",
 					"type": "import_field"
 				}
 			},
@@ -791,7 +839,8 @@
 						"c3": {
 							"model": "c3",
 							"items": [
-								"integrated_edit_field"
+								"integrated_edit_field",
+								"integrated_edit_field1"
 							]
 						}
 					},
@@ -831,6 +880,11 @@
 					"type": "integrated_edit_field",
 					"orientation": 0,
 					"updateOnEdit": false
+				},
+				"integrated_edit_field1": {
+					"field": "tanggal",
+					"type": "integrated_edit_field",
+					"orientation": 0
 				}
 			},
 			"dbProps": {},
@@ -1222,6 +1276,9 @@
 								},
 								{
 									"cell": "headcell_field8"
+								},
+								{
+									"cell": "headcell_field9"
 								}
 							]
 						},
@@ -1260,6 +1317,9 @@
 								},
 								{
 									"cell": "cell_field8"
+								},
+								{
+									"cell": "cell_field9"
 								}
 							]
 						},
@@ -1298,6 +1358,9 @@
 								},
 								{
 									"cell": "footcell_field8"
+								},
+								{
+									"cell": "footcell_field9"
 								}
 							]
 						}
@@ -1503,6 +1566,25 @@
 						"footcell_icons": {
 							"model": "footcell_icons",
 							"items": []
+						},
+						"headcell_field9": {
+							"model": "headcell_field",
+							"items": [
+								"grid_field_label"
+							],
+							"field": "tanggal"
+						},
+						"cell_field9": {
+							"model": "cell_field",
+							"items": [
+								"grid_field"
+							],
+							"field": "tanggal"
+						},
+						"footcell_field9": {
+							"model": "footcell_field",
+							"items": [],
+							"field": "tanggal"
 						}
 					},
 					"deferredItems": [],
@@ -1535,6 +1617,7 @@
 					"type": "search_panel",
 					"items": [
 						"search_panel_field",
+						"search_panel_field2",
 						"search_panel_field3",
 						"search_panel_field1"
 					],
@@ -1743,6 +1826,18 @@
 				},
 				"grid_edit": {
 					"type": "grid_edit"
+				},
+				"grid_field": {
+					"field": "tanggal",
+					"type": "grid_field"
+				},
+				"grid_field_label": {
+					"type": "grid_field_label",
+					"field": "tanggal"
+				},
+				"search_panel_field2": {
+					"field": "tanggal",
+					"type": "search_panel_field"
 				}
 			},
 			"dbProps": {},
