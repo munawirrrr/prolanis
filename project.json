@@ -96,6 +96,13 @@
 				"width": 120,
 				"height": 192,
 				"gid": 2375276105
+			},
+			{
+				"gid": 2639187485,
+				"y": 145,
+				"x": 625,
+				"width": 107.90625,
+				"height": 124
 			}
 		]
 	},
@@ -578,6 +585,20 @@
 							"showIconType": 2,
 							"pageType": "list",
 							"table": 2647612549
+						}
+					},
+					{
+						"id": "9",
+						"data": {
+							"name": {
+								"table": "import",
+								"type": 6
+							},
+							"pageId": "list",
+							"itemType": 2,
+							"linkType": 0,
+							"table": 2639187485,
+							"pageType": "list"
 						}
 					}
 				]
@@ -2386,7 +2407,8 @@
 								"welcome_item1",
 								"welcome_item2",
 								"welcome_item3",
-								"welcome_item4"
+								"welcome_item4",
+								"welcome_item5"
 							],
 							"align": "center"
 						},
@@ -2550,6 +2572,21 @@
 				"menu1": {
 					"type": "menu",
 					"menuId": "secondary"
+				},
+				"welcome_item5": {
+					"type": "welcome_item",
+					"linkUrl": "",
+					"linkTable": "import",
+					"linkPage": "list",
+					"linkText": {
+						"table": "import",
+						"type": 6
+					},
+					"linkIcon": {
+						"glyph": "briefcase"
+					},
+					"background": "#8fbc8b",
+					"linkType": 0
 				}
 			},
 			"dbProps": {},
