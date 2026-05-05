@@ -1155,7 +1155,8 @@
 						"c1": {
 							"model": "c1",
 							"items": [
-								"delete"
+								"delete",
+								"custom_button"
 							]
 						},
 						"c2": {
@@ -1968,6 +1969,18 @@
 					"type": "grid_field",
 					"inlineAdd": false,
 					"inlineEdit": false
+				},
+				"custom_button": {
+					"type": "custom_button",
+					"eventGid": 1823600600,
+					"label": {
+						"text": "catat ke daftar",
+						"type": 0
+					},
+					"icon": {
+						"style": 0
+					},
+					"buttonStyle": "warning"
 				}
 			},
 			"dbProps": {},

@@ -420,6 +420,7 @@
 		}
 	],
 	"defaultConnID": "penmadpiprolanisatpenmadpidiec",
+	"detailedError": false,
 	"landingSettings": {
 		"type": 0,
 		"table": "",
