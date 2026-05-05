@@ -440,22 +440,49 @@
 			"root": {
 				"children": [
 					{
-						"id": "1",
+						"id": "10",
 						"parent": "0",
+						"children": [
+							{
+								"id": "1",
+								"parent": "10",
+								"data": {
+									"name": {
+										"table": "daftar",
+										"type": 6
+									},
+									"href": "mypage.htm",
+									"pageId": "list",
+									"itemType": 2,
+									"linkType": 0,
+									"iconType": 2,
+									"iconName": "glyphicon-th-list",
+									"showIconType": 2,
+									"pageType": "list",
+									"table": 162369719
+								}
+							},
+							{
+								"id": "9",
+								"parent": "10",
+								"data": {
+									"name": {
+										"table": "import",
+										"type": 6
+									},
+									"pageId": "list",
+									"itemType": 2,
+									"linkType": 0,
+									"table": 2639187485,
+									"pageType": "list"
+								}
+							}
+						],
 						"data": {
 							"name": {
-								"table": "daftar",
-								"type": 6
-							},
-							"href": "mypage.htm",
-							"pageId": "list",
-							"itemType": 2,
-							"linkType": 0,
-							"iconType": 2,
-							"iconName": "glyphicon-th-list",
-							"showIconType": 2,
-							"pageType": "list",
-							"table": 162369719
+								"text": "Daftar",
+								"type": 0
+							}
 						}
 					},
 					{
@@ -586,20 +613,6 @@
 							"showIconType": 2,
 							"pageType": "list",
 							"table": 2647612549
-						}
-					},
-					{
-						"id": "9",
-						"data": {
-							"name": {
-								"table": "import",
-								"type": 6
-							},
-							"pageId": "list",
-							"itemType": 2,
-							"linkType": 0,
-							"table": 2639187485,
-							"pageType": "list"
 						}
 					}
 				]
