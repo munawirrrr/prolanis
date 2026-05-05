@@ -1,5 +1,5 @@
 {
-	"sql": "SELECT\n    pasien.nik,\n    CASE \n        WHEN EXISTS (\n            SELECT 1 \n            FROM daftar \n            WHERE daftar.nik = pasien.nik\n        ) \n        THEN 'pasien_prolanis'\n        ELSE \"\"\n        END AS catatan,\n    pasien.nama,\n    DATE_FORMAT(pasien.tanggal_lahir, '%Y-%m-%d') AS Tanggal_lahir,\n    pasien.bpjs,\n    pasien.id_gampong,\n    pasien.jenis_kelamin,\n    pasien.hp_pasien\nFROM pasien;",
+	"sql": "SELECT\n    pasien.nik,\n    CASE \n        WHEN EXISTS (\n            SELECT 1 \n            FROM daftar \n            WHERE daftar.nik = pasien.nik\n        ) \n        THEN 'pasien_prolanis'\n        ELSE \"\"\n        END AS catatan,\n    pasien.nama,\n    DATE_FORMAT(pasien.tanggal_lahir, '%Y-%m-%d') AS Tanggal_lahir,\n    pasien.bpjs,\n    pasien.id_gampong,\n    pasien.jenis_kelamin as \"jenis kelamin\",\n    pasien.hp_pasien\nFROM pasien;",
 	"connId": "penmadpiprolanisatpenmadpidiec",
 	"originalTable": "pasien",
 	"name": "pasien",
@@ -49,13 +49,51 @@
 			"index": 1,
 			"strField": "nik",
 			"type": 200,
+			"separateEditViewFormats": true,
 			"viewFormats": [
 				{
+					"pageType": "list",
+					"numberFractionalDigits": 0
+				},
+				{
+					"pageType": "print",
+					"numberFractionalDigits": 0
+				},
+				{
+					"format": "Custom",
+					"pageType": "export",
+					"customExpression": "$value =\" \". $data[\"nik\"];",
+					"numberFractionalDigits": 0
+				},
+				{
+					"pageType": "masterlist",
+					"numberFractionalDigits": 0
+				},
+				{
+					"pageType": "masterprint",
 					"numberFractionalDigits": 0
 				}
 			],
 			"editFormats": [
 				{
+					"required": true,
+					"textboxMaxLenth": 16,
+					"textHTML5Input": "1",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				},
+				{
+					"pageType": "add",
+					"required": true,
+					"textboxMaxLenth": 16,
+					"textHTML5Input": "1",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				},
+				{
+					"pageType": "search",
 					"required": true,
 					"textboxMaxLenth": 16,
 					"textHTML5Input": "1",
@@ -165,13 +203,50 @@
 			"index": 5,
 			"strField": "bpjs",
 			"type": 200,
+			"separateEditViewFormats": true,
 			"viewFormats": [
 				{
+					"pageType": "list",
+					"numberFractionalDigits": 0
+				},
+				{
+					"pageType": "print",
+					"numberFractionalDigits": 0
+				},
+				{
+					"format": "Custom",
+					"pageType": "export",
+					"customExpression": "$value =\" \". $data[\"bpjs\"];",
+					"numberFractionalDigits": 0,
+					"textShowFirst": false
+				},
+				{
+					"pageType": "masterlist",
+					"numberFractionalDigits": 0
+				},
+				{
+					"pageType": "masterprint",
 					"numberFractionalDigits": 0
 				}
 			],
 			"editFormats": [
 				{
+					"textboxMaxLenth": 20,
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				},
+				{
+					"pageType": "add",
+					"textboxMaxLenth": 20,
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				},
+				{
+					"pageType": "search",
 					"textboxMaxLenth": 20,
 					"textHTML5Input": "0",
 					"fileMaxNumber": 1,
@@ -240,137 +315,70 @@
 			"tableName": "pasien"
 		},
 		{
-			"name": "jenis_kelamin",
-			"sqlExpression": "pasien.jenis_kelamin",
-			"index": 7,
-			"strField": "Jenis_kelamin",
-			"type": 200,
-			"separateEditViewFormats": true,
-			"viewFormats": [
-				{
-					"format": "Custom",
-					"pageType": "list",
-					"customExpression": "$value = $data[\"jenis_kelamin\"];",
-					"numberFractionalDigits": 0,
-					"textShowFirst": false
-				},
-				{
-					"pageType": "print",
-					"numberFractionalDigits": 0,
-					"textShowFirst": false
-				},
-				{
-					"pageType": "export",
-					"numberFractionalDigits": 0,
-					"textShowFirst": false
-				},
-				{
-					"pageType": "masterlist",
-					"numberFractionalDigits": 0,
-					"textShowFirst": false
-				},
-				{
-					"pageType": "masterprint",
-					"numberFractionalDigits": 0,
-					"textShowFirst": false
-				}
-			],
-			"editFormats": [
-				{
-					"format": "Lookup wizard",
-					"required": true,
-					"validateRegexMessage": {
-						"text": "",
-						"type": 0
-					},
-					"denyDuplicateMessage": {
-						"text": "",
-						"type": 0
-					},
-					"textHTML5Input": "0",
-					"lookupType": 0,
-					"lookupValues": [
-						"laki-laki",
-						"perempuan"
-					],
-					"fileMaxNumber": 1,
-					"fileThumbnailField": "th",
-					"timeConvention": 1
-				},
-				{
-					"format": "Lookup wizard",
-					"pageType": "add",
-					"required": true,
-					"validateRegexMessage": {
-						"text": "",
-						"type": 0
-					},
-					"denyDuplicateMessage": {
-						"text": "",
-						"type": 0
-					},
-					"textHTML5Input": "0",
-					"lookupType": 0,
-					"lookupValues": [
-						"laki-laki",
-						"perempuan"
-					],
-					"fileMaxNumber": 1,
-					"fileThumbnailField": "th",
-					"timeConvention": 1
-				},
-				{
-					"format": "Lookup wizard",
-					"pageType": "search",
-					"required": true,
-					"validateRegexMessage": {
-						"text": "",
-						"type": 0
-					},
-					"denyDuplicateMessage": {
-						"text": "",
-						"type": 0
-					},
-					"textHTML5Input": "0",
-					"lookupType": 0,
-					"lookupValues": [
-						"laki-laki",
-						"perempuan"
-					],
-					"fileMaxNumber": 1,
-					"fileThumbnailField": "th",
-					"timeConvention": 1
-				}
-			],
-			"filterFormat": {
-				"format": "Values list"
-			},
-			"sourceSingle": "jenis_kelamin",
-			"defaultSearchOption": "Contains",
-			"label": {
-				"Indonesian": "Jenis Kelamin"
-			},
-			"tooltip": {
-				"Indonesian": ""
-			},
-			"placeholder": {
-				"Indonesian": ""
-			},
-			"tableName": "pasien"
-		},
-		{
 			"name": "hp_pasien",
 			"sqlExpression": "pasien.hp_pasien",
 			"index": 8,
 			"strField": "hp_pasien",
 			"type": 200,
+			"separateEditViewFormats": true,
 			"viewFormats": [
 				{
+					"pageType": "list",
+					"numberFractionalDigits": 0
+				},
+				{
+					"pageType": "print",
+					"numberFractionalDigits": 0
+				},
+				{
+					"format": "Custom",
+					"pageType": "export",
+					"customExpression": "$value =\" \". $data[\"hp_pasien\"];",
+					"numberFractionalDigits": 0
+				},
+				{
+					"pageType": "masterlist",
+					"numberFractionalDigits": 0
+				},
+				{
+					"pageType": "masterprint",
 					"numberFractionalDigits": 0
 				}
 			],
 			"editFormats": [
 				{
+					"validateRegexMessage": {
+						"text": "",
+						"type": 0
+					},
+					"denyDuplicateMessage": {
+						"text": "",
+						"type": 0
+					},
+					"textboxMaxLenth": 50,
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				},
+				{
+					"pageType": "add",
+					"validateRegexMessage": {
+						"text": "",
+						"type": 0
+					},
+					"denyDuplicateMessage": {
+						"text": "",
+						"type": 0
+					},
+					"textboxMaxLenth": 50,
+					"textHTML5Input": "0",
+					"fileMaxNumber": 1,
+					"fileThumbnailField": "th",
+					"timeConvention": 1
+				},
+				{
+					"pageType": "search",
 					"validateRegexMessage": {
 						"text": "",
 						"type": 0
@@ -424,6 +432,31 @@
 				"Indonesian": "Tanggal Lahir"
 			},
 			"tableName": ""
+		},
+		{
+			"name": "jenis kelamin",
+			"sqlExpression": "pasien.jenis_kelamin",
+			"index": 7,
+			"strField": "Jenis_kelamin",
+			"type": 200,
+			"viewFormats": [
+				{}
+			],
+			"editFormats": [
+				{
+					"format": "Lookup wizard",
+					"required": true,
+					"lookupType": 0,
+					"lookupValues": [
+						"laki-laki",
+						"perempuan"
+					]
+				}
+			],
+			"label": {
+				"Indonesian": "Jenis Kelamin"
+			},
+			"tableName": "pasien"
 		}
 	],
 	"warnLeavingEdit": true,
@@ -655,11 +688,11 @@
 							"items": [
 								"integrated_edit_field",
 								"integrated_edit_field1",
-								"integrated_edit_field5",
 								"integrated_edit_field2",
 								"integrated_edit_field3",
 								"integrated_edit_field4",
-								"integrated_edit_field7"
+								"integrated_edit_field7",
+								"integrated_edit_field5"
 							]
 						}
 					},
@@ -716,7 +749,7 @@
 					"orientation": 0
 				},
 				"integrated_edit_field5": {
-					"field": "jenis_kelamin",
+					"field": "jenis kelamin",
 					"type": "integrated_edit_field",
 					"orientation": 0
 				}
@@ -910,8 +943,8 @@
 								"integrated_edit_field",
 								"integrated_edit_field3",
 								"integrated_edit_field4",
-								"integrated_edit_field5",
-								"integrated_edit_field7"
+								"integrated_edit_field7",
+								"integrated_edit_field2"
 							]
 						}
 					},
@@ -964,12 +997,6 @@
 					"orientation": 0,
 					"updateOnEdit": false
 				},
-				"integrated_edit_field5": {
-					"field": "jenis_kelamin",
-					"type": "integrated_edit_field",
-					"orientation": 0,
-					"updateOnEdit": false
-				},
 				"integrated_edit_field7": {
 					"field": "hp_pasien",
 					"type": "integrated_edit_field",
@@ -1006,6 +1033,12 @@
 				},
 				"integrated_edit_field": {
 					"field": "Tanggal_lahir",
+					"type": "integrated_edit_field",
+					"orientation": 0,
+					"updateOnEdit": false
+				},
+				"integrated_edit_field2": {
+					"field": "jenis kelamin",
 					"type": "integrated_edit_field",
 					"orientation": 0,
 					"updateOnEdit": false
@@ -1089,8 +1122,8 @@
 						"c1": {
 							"model": "c1",
 							"items": [
-								"export_field",
 								"export_field1",
+								"export_field",
 								"export_field3",
 								"export_field4",
 								"export_field5",
@@ -1161,10 +1194,6 @@
 					"field": "id_gampong",
 					"type": "export_field"
 				},
-				"export_field5": {
-					"field": "jenis_kelamin",
-					"type": "export_field"
-				},
 				"export_field7": {
 					"field": "hp_pasien",
 					"type": "export_field"
@@ -1175,6 +1204,10 @@
 				},
 				"export_field2": {
 					"field": "Tanggal_lahir",
+					"type": "export_field"
+				},
+				"export_field5": {
+					"field": "jenis kelamin",
 					"type": "export_field"
 				}
 			},
@@ -1264,9 +1297,9 @@
 								"import_field1",
 								"import_field3",
 								"import_field4",
-								"import_field5",
 								"import_field7",
-								"import_field6"
+								"import_field6",
+								"import_field2"
 							]
 						}
 					},
@@ -1294,16 +1327,16 @@
 					"field": "id_gampong",
 					"type": "import_field"
 				},
-				"import_field5": {
-					"field": "jenis_kelamin",
-					"type": "import_field"
-				},
 				"import_field7": {
 					"field": "hp_pasien",
 					"type": "import_field"
 				},
 				"import_field6": {
 					"field": "catatan",
+					"type": "import_field"
+				},
+				"import_field2": {
+					"field": "jenis kelamin",
 					"type": "import_field"
 				}
 			},
@@ -1411,10 +1444,10 @@
 								"simple_grid_field1",
 								"simple_grid_field3",
 								"simple_grid_field4",
-								"simple_grid_field5",
 								"simple_grid_field7",
 								"simple_grid_field6",
-								"simple_grid_field2"
+								"simple_grid_field2",
+								"simple_grid_field5"
 							]
 						}
 					},
@@ -1445,10 +1478,6 @@
 					"field": "id_gampong",
 					"type": "simple_grid_field"
 				},
-				"simple_grid_field5": {
-					"field": "jenis_kelamin",
-					"type": "simple_grid_field"
-				},
 				"simple_grid_field7": {
 					"field": "hp_pasien",
 					"type": "simple_grid_field"
@@ -1459,6 +1488,10 @@
 				},
 				"simple_grid_field2": {
 					"field": "Tanggal_lahir",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field5": {
+					"field": "jenis kelamin",
 					"type": "simple_grid_field"
 				}
 			},
@@ -1565,10 +1598,10 @@
 								"simple_grid_field1",
 								"simple_grid_field3",
 								"simple_grid_field4",
-								"simple_grid_field5",
 								"simple_grid_field7",
 								"simple_grid_field6",
-								"simple_grid_field2"
+								"simple_grid_field2",
+								"simple_grid_field5"
 							]
 						}
 					},
@@ -1596,10 +1629,6 @@
 					"field": "id_gampong",
 					"type": "simple_grid_field"
 				},
-				"simple_grid_field5": {
-					"field": "jenis_kelamin",
-					"type": "simple_grid_field"
-				},
 				"simple_grid_field7": {
 					"field": "hp_pasien",
 					"type": "simple_grid_field"
@@ -1610,6 +1639,10 @@
 				},
 				"simple_grid_field2": {
 					"field": "Tanggal_lahir",
+					"type": "simple_grid_field"
+				},
+				"simple_grid_field5": {
+					"field": "jenis kelamin",
 					"type": "simple_grid_field"
 				}
 			},
@@ -1733,10 +1766,10 @@
 								"simple_grid_field1",
 								"simple_grid_field3",
 								"simple_grid_field4",
-								"simple_grid_field5",
 								"simple_grid_field7",
 								"simple_grid_field6",
-								"simple_grid_field2"
+								"simple_grid_field2",
+								"simple_grid_field5"
 							]
 						}
 					},
@@ -1774,10 +1807,6 @@
 					"type": "simple_grid_field",
 					"totals": ""
 				},
-				"simple_grid_field5": {
-					"field": "jenis_kelamin",
-					"type": "simple_grid_field"
-				},
 				"simple_grid_field7": {
 					"field": "hp_pasien",
 					"type": "simple_grid_field"
@@ -1795,6 +1824,10 @@
 					"tables": {
 						"2639187485": "true"
 					}
+				},
+				"simple_grid_field5": {
+					"field": "jenis kelamin",
+					"type": "simple_grid_field"
 				}
 			},
 			"dbProps": {},
@@ -1906,10 +1939,10 @@
 								"integrated_search_field1",
 								"integrated_search_field3",
 								"integrated_search_field4",
-								"integrated_search_field5",
 								"integrated_search_field7",
 								"integrated_search_field6",
-								"integrated_search_field2"
+								"integrated_search_field2",
+								"integrated_search_field5"
 							]
 						}
 					},
@@ -1957,12 +1990,6 @@
 					"orientation": 0,
 					"required": false
 				},
-				"integrated_search_field5": {
-					"field": "jenis_kelamin",
-					"type": "integrated_search_field",
-					"orientation": 0,
-					"required": false
-				},
 				"integrated_search_field7": {
 					"field": "hp_pasien",
 					"type": "integrated_search_field",
@@ -1977,6 +2004,11 @@
 				},
 				"integrated_search_field2": {
 					"field": "Tanggal_lahir",
+					"type": "integrated_search_field",
+					"orientation": 0
+				},
+				"integrated_search_field5": {
+					"field": "jenis kelamin",
 					"type": "integrated_search_field",
 					"orientation": 0
 				}
@@ -2183,7 +2215,8 @@
 						"c1": {
 							"model": "c1",
 							"items": [
-								"add"
+								"add",
+								"delete"
 							]
 						},
 						"c2": {
@@ -2386,9 +2419,9 @@
 					"type": "search_panel",
 					"items": [
 						"search_panel_field",
+						"search_panel_field5",
 						"search_panel_field7",
 						"search_panel_field6",
-						"search_panel_field5",
 						"search_panel_field4",
 						"search_panel_field3",
 						"search_panel_field2",
@@ -2400,6 +2433,7 @@
 					"type": "list_options",
 					"items": [
 						"export_selected",
+						"delete_selected",
 						"-3",
 						"advsearch_link",
 						"-1",
@@ -2435,10 +2469,6 @@
 				},
 				"search_panel_field4": {
 					"field": "id_gampong",
-					"type": "search_panel_field"
-				},
-				"search_panel_field5": {
-					"field": "jenis_kelamin",
 					"type": "search_panel_field"
 				},
 				"search_panel_field6": {
@@ -2532,42 +2562,51 @@
 				"simple_grid_field": {
 					"field": "nama",
 					"type": "simple_grid_field",
-					"showFilter": true
+					"showFilter": true,
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
 				"simple_grid_field1": {
 					"field": "nik",
 					"type": "simple_grid_field",
-					"showFilter": true
+					"showFilter": true,
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
 				"simple_grid_field2": {
 					"field": "bpjs",
 					"type": "simple_grid_field",
-					"showFilter": true
-				},
-				"simple_grid_field3": {
-					"field": "jenis_kelamin",
-					"type": "simple_grid_field",
-					"showFilter": true
+					"showFilter": true,
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
 				"simple_grid_field4": {
 					"field": "id_gampong",
 					"type": "simple_grid_field",
-					"showFilter": true
+					"showFilter": true,
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
 				"simple_grid_field5": {
 					"field": "hp_pasien",
 					"type": "simple_grid_field",
-					"showFilter": true
+					"showFilter": true,
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
 				"simple_grid_field6": {
 					"field": "Tanggal_lahir",
 					"type": "simple_grid_field",
-					"showFilter": true
+					"showFilter": true,
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
 				"simple_grid_field7": {
 					"field": "catatan",
 					"type": "simple_grid_field",
-					"showFilter": true
+					"showFilter": true,
+					"inlineAdd": false,
+					"inlineEdit": false
 				},
 				"details_preview": {
 					"type": "details_preview",
@@ -2586,6 +2625,23 @@
 					"badge": true,
 					"hideIfNone": false,
 					"showCount": true
+				},
+				"simple_grid_field3": {
+					"field": "jenis kelamin",
+					"type": "simple_grid_field",
+					"inlineAdd": false,
+					"inlineEdit": false,
+					"showFilter": true
+				},
+				"search_panel_field5": {
+					"field": "jenis kelamin",
+					"type": "search_panel_field"
+				},
+				"delete": {
+					"type": "delete"
+				},
+				"delete_selected": {
+					"type": "delete_selected"
 				}
 			},
 			"dbProps": {},
