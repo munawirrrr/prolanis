@@ -594,9 +594,9 @@
 			{
 				"name": "Jenis_kelamin",
 				"type": 200,
-				"size": 20,
+				"size": 50,
 				"scale": 0,
-				"typeName": "varchar(20)",
+				"typeName": "varchar(50)",
 				"nullable": true,
 				"autoinc": false,
 				"defaultValueSQL": null,
