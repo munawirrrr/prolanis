@@ -3766,7 +3766,8 @@
 						"c1": {
 							"model": "c1",
 							"items": [
-								"print_pages"
+								"print_pages",
+								"view_pdf"
 							]
 						}
 					},
@@ -4519,6 +4520,12 @@
 				"grid_field_label3": {
 					"type": "grid_field_label",
 					"field": "Tanggal_lahir"
+				},
+				"view_pdf": {
+					"type": "view_pdf",
+					"targetPages": [],
+					"splitModes": [],
+					"scopes": []
 				}
 			},
 			"dbProps": {},
