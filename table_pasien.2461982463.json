@@ -27,7 +27,18 @@
 	"keyFields": [
 		"nik"
 	],
-	"detailsBadgeColor": "6B8E23",
+	"masterTables": [
+		{
+			"table": 2639187485,
+			"masterKeys": [
+				"bpjs"
+			],
+			"detailsKeys": [
+				"bpjs"
+			]
+		}
+	],
+	"detailsBadgeColor": "000",
 	"detailsTables": [
 		162369719
 	],
@@ -482,7 +493,7 @@
 		{
 			"id": "add",
 			"type": "add",
-			"layoutId": "leftbar",
+			"layoutId": "nomenu",
 			"disabled": 0,
 			"default": 0,
 			"forms": {
@@ -535,77 +546,6 @@
 					"deferredItems": [],
 					"recsPerRow": 1
 				},
-				"supertop": {
-					"modelId": "leftbar-top-edit",
-					"grid": [
-						{
-							"cells": [
-								{
-									"cell": "c1"
-								},
-								{
-									"cell": "c2"
-								}
-							],
-							"section": ""
-						}
-					],
-					"cells": {
-						"c1": {
-							"model": "c1",
-							"items": [
-								"expand_menu_button",
-								"collapse_button"
-							]
-						},
-						"c2": {
-							"model": "c2",
-							"items": [
-								"loginform_login",
-								"username_button"
-							]
-						}
-					},
-					"deferredItems": [],
-					"recsPerRow": 1
-				},
-				"left": {
-					"modelId": "leftbar-menu",
-					"grid": [
-						{
-							"cells": [
-								{
-									"cell": "c0"
-								}
-							],
-							"section": ""
-						},
-						{
-							"cells": [
-								{
-									"cell": "c1"
-								}
-							],
-							"section": ""
-						}
-					],
-					"cells": {
-						"c0": {
-							"model": "c0",
-							"items": [
-								"logo"
-							]
-						},
-						"c1": {
-							"model": "c1",
-							"items": [
-								"menu"
-							]
-						}
-					},
-					"deferredItems": [],
-					"recsPerRow": 1
-				},
 				"top": {
 					"modelId": "add-header",
 					"grid": [
@@ -621,9 +561,7 @@
 					"cells": {
 						"c1": {
 							"model": "c1",
-							"items": [
-								"add_header"
-							]
+							"items": []
 						}
 					},
 					"deferredItems": [],
@@ -663,9 +601,6 @@
 				}
 			},
 			"items": {
-				"add_header": {
-					"type": "add_header"
-				},
 				"add_message": {
 					"type": "add_message"
 				},
@@ -691,6 +626,11 @@
 					"type": "integrated_edit_field",
 					"orientation": 0
 				},
+				"integrated_edit_field2": {
+					"field": "Tanggal_lahir",
+					"type": "integrated_edit_field",
+					"orientation": 0
+				},
 				"integrated_edit_field3": {
 					"field": "bpjs",
 					"type": "integrated_edit_field",
@@ -711,48 +651,14 @@
 					"type": "integrated_edit_field",
 					"orientation": 0
 				},
-				"logo": {
-					"type": "logo"
-				},
-				"menu": {
-					"type": "menu",
-					"menuId": "main"
-				},
-				"username_button": {
-					"type": "username_button",
-					"items": [
-						"userinfo_link",
-						"logout_link"
-					]
-				},
-				"loginform_login": {
-					"type": "loginform_login"
-				},
-				"userinfo_link": {
-					"type": "userinfo_link"
-				},
-				"logout_link": {
-					"type": "logout_link"
-				},
-				"expand_menu_button": {
-					"type": "expand_menu_button"
-				},
-				"collapse_button": {
-					"type": "collapse_button"
-				},
 				"integrated_edit_field6": {
 					"field": "catatan",
-					"type": "integrated_edit_field",
-					"orientation": 0
-				},
-				"integrated_edit_field2": {
-					"field": "Tanggal_lahir",
 					"type": "integrated_edit_field",
 					"orientation": 0
 				}
 			},
 			"dbProps": {},
-			"version": 11,
+			"version": 13,
 			"imageItem": {
 				"type": "page_image"
 			},
@@ -1480,6 +1386,14 @@
 								}
 							],
 							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c3"
+								}
+							],
+							"section": ""
 						}
 					],
 					"cells": {
@@ -1487,6 +1401,12 @@
 							"model": "c1",
 							"items": [
 								"breadcrumb"
+							]
+						},
+						"c3": {
+							"model": "c3",
+							"items": [
+								"master_info"
 							]
 						}
 					},
@@ -1868,7 +1788,8 @@
 			"items": {
 				"add": {
 					"type": "add",
-					"popup": true
+					"popup": true,
+					"icon": {}
 				},
 				"delete": {
 					"type": "delete"
@@ -2163,6 +2084,12 @@
 				"loginform_login": {
 					"type": "loginform_login",
 					"popup": false
+				},
+				"master_info": {
+					"type": "master_info",
+					"tables": {
+						"2639187485": "true"
+					}
 				}
 			},
 			"dbProps": {},
@@ -2545,6 +2472,14 @@
 								}
 							],
 							"section": ""
+						},
+						{
+							"cells": [
+								{
+									"cell": "c4"
+								}
+							],
+							"section": ""
 						}
 					],
 					"cells": {
@@ -2553,6 +2488,12 @@
 							"items": [
 								"print_header",
 								"print_subheader"
+							]
+						},
+						"c4": {
+							"model": "c4",
+							"items": [
+								"master_info"
 							]
 						}
 					},
@@ -2655,6 +2596,12 @@
 				"simple_grid_field2": {
 					"field": "Tanggal_lahir",
 					"type": "simple_grid_field"
+				},
+				"master_info": {
+					"type": "master_info",
+					"tables": {
+						"2639187485": "true"
+					}
 				}
 			},
 			"dbProps": {},
